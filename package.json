@@ -1,15 +1,21 @@
 {
+  "homepage": "http://A-trendafilov.github.io/Modernhouse",
   "name": "Modernhouse",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "author": {"name": "Angel Trendafilov", "email": "aatrendafilov@gmail.com"},
-
+  "author": {
+    "name": "Angel Trendafilov",
+    "email": "aatrendafilov@gmail.com"
+  },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
+    
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
@@ -32,6 +38,7 @@
     "eslint-plugin-react": "^7.37.0",
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
     "eslint-plugin-react-refresh": "^0.4.12",
+    "gh-pages": "^6.2.0",
     "globals": "^15.9.0",
     "vite": "^5.4.8"
   }
