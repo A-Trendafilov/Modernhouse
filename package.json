@@ -1,5 +1,5 @@
 {
-  "homepage": "http://A-trendafilov.github.io/Modernhouse",
+  "homepage": "https://a-trendafilov.github.io/Modernhouse/",
   "name": "Modernhouse",
   "private": true,
   "version": "0.0.0",
@@ -10,7 +10,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
+    "deploy": "gh-pages -d dist --repo  https://github.com/A-Trendafilov/Modernhouse.git",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
