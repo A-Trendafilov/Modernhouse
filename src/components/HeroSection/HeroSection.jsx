@@ -46,7 +46,9 @@ const HeroSection = () => {
                 src={image.src}
                 alt={image.alt}
                 onError={(e) => {
-                  e.target.src = "/assets/herosection/2-store-house.webp"; // Fallback image on error
+                  e.target.src = `${
+                    import.meta.env.BASE_URL
+                  }/assets/herosection/2-store-house.webp`; // Fallback image on error
                 }}
                 style={{
                   width: "100%", // Full width
