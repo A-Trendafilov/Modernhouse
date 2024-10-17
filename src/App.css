@@ -1,0 +1,44 @@
+/* App.css */
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+
+/* App.css */
+
+/* Ensure the root, body, and #root elements take up full height */
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Make the main content flex to fill the remaining space between header and footer */
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Adjust the footer height accordingly */
+footer {
+  height: 280px; /* Example footer height */
+}
+
+.lazy-load {
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.lazy-load.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.lazy-load.hidden {
+  opacity: 0;
+  transform: translateY(20px); /* Adjust this value as needed */
+}
+.lazy-load.hidden {
+  opacity: 0;
+  transform: translateY(20px); /* Adjust this value as needed */
+}

@@ -1,28 +1,26 @@
-// MapSection.jsx
 import React from "react";
-import { motion } from "framer-motion";
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
-const MapSection = ({ title, src, delay }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5, delay }}
-    style={{ width: "100%", marginBottom: "20px" }} // Add margin for spacing
-  >
-    <Typography variant="h6" sx={{ marginBottom: "10px" }}>
-      {title}:
+const MapSection = React.memo(({ title, src }) => (
+  <Box sx={{ flex: 1, padding: "10px" }}>
+    <Typography variant="h6" sx={{ marginBottom: "10px", fontWeight: "bold" }}>
+      {title}
     </Typography>
-    <iframe
-      src={src}
-      width="100%" // Set width to 100% of the parent
-      height="300" // Increase height as needed
-      style={{ border: 0, borderRadius: "8px" }} // Optional: add border radius
-      allowFullScreen=""
-      loading="lazy"
-      referrerPolicy="no-referrer-when-downgrade"
-    />
-  </motion.div>
-);
+    <Box
+      sx={{ border: "1px solid #ccc", borderRadius: "8px", overflow: "hidden" }}
+    >
+      <iframe
+        src={src}
+        width="100%"
+        height="300"
+        style={{ border: 0 }}
+        allowFullScreen=""
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+        title={title}
+      />
+    </Box>
+  </Box>
+));
 
 export default MapSection;

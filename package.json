@@ -1,6 +1,6 @@
 {
-  "homepage": "https://a-trendafilov.github.io/Modernhouse/",
-  "name": "Modernhouse",
+  "homepage": "http://A-trendafilov.github.io/Modernhouse",
+  "name": "modernhouse",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,24 +10,27 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
+    "deploy": "gh-pages -d dist --repo  https://github.com/A-Trendafilov/Modernhouse.git",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
-    
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
     "@mui/icons-material": "^6.1.3",
     "@mui/material": "^6.1.3",
+    "@react-spring/web": "^9.7.5",
     "bootstrap": "^5.3.3",
     "framer-motion": "^11.11.9",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.3.0",
-    "react-router-dom": "^6.27.0"
+    "react-intersection-observer": "^9.13.1",
+    "react-router-dom": "^6.27.0",
+    "react-slick": "^0.30.2",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.11.1",

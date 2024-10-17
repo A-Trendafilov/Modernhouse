@@ -9,6 +9,7 @@ import Gallery from "./pages/Gallery";
 import Container from "./pages/Container";
 import SteelHouse from "./pages/House/SteelHouse";
 import ModernHouse from "./pages/House/ModernHouse";
+import NotFound from "./pages/NotFound";
 import "./App.css";
 
 const App = () => {
@@ -24,6 +25,7 @@ const App = () => {
           <Route path="/container" element={<Container />} />
           <Route path="/house/steel" element={<SteelHouse />} />
           <Route path="/house/modern" element={<ModernHouse />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
       <Footer />

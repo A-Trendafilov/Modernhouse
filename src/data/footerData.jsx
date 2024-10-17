@@ -7,10 +7,12 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
 
+export const companyName = "Модерн Хаус";
+
 export const locations = [
   {
     label: "Производство",
-    address: "ул. Извън Регулация №4 обл.ПЛОВДИВ, с.КАЛЕКОВЕЦ 4147",
+    address: "ул. Извън Регулация №4 обл.Пловдив, с.Калековец 4147",
     link: "https://maps.app.goo.gl/ybdjG85FBvMr65kQ6",
   },
   {
@@ -44,7 +46,7 @@ export const contactDetails = [
   },
   {
     Icon: AccessTimeIcon,
-    text: "Working Hours: Mon-Fri, 9 AM - 5 PM",
+    text: "Работно време: Пон-Пет - 09:00ч. - 17:00ч.",
   },
 ];
 
@@ -60,12 +62,10 @@ export const socialLinks = [
 export const maps = [
   {
     title: "Производствена база",
-    delay: 0.5,
     src: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1477.349390756063!2d24.8174874!3d42.2208821!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14acd50202cd8403%3A0x3f2b4bd6dc8059d0!2z0JzQvtC00LXRgNC9INCl0LDRg9GBINCR0YrQu9Cz0LDRgNC40Y8!5e0!3m2!1sen!2sbg!4v1729065591756!5m2!1sen!2sbg",
   },
   {
     title: "Шоурум",
-    delay: 0.8,
     src: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d738.3653000707551!2d24.7234646!3d42.2473226!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14acd3f8cd0973f5%3A0xf3c7c20e7da7ce20!2z0JzQvtC00LXRgNC9INCl0LDRg9GBINCe0J7QlA!5e0!3m2!1sen!2sbg!4v1729065280485!5m2!1sen!2sbg",
   },
 ];

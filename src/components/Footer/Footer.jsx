@@ -1,7 +1,7 @@
-// Footer.jsx
+// src/components/Footer.jsx
 import React from "react";
 import { Box, Typography } from "@mui/material";
-import { motion } from "framer-motion";
+import LazyLoad from "../LazyLoad"; // Import optimized LazyLoad
 import LocationLinks from "./LocationLinks";
 import ContactInfo from "./ContactInfo";
 import SocialIcons from "./SocialIcons";
@@ -11,43 +11,57 @@ import {
   contactDetails,
   socialLinks,
   maps,
-} from "../../data/footerData"; // Import the data
-
-const footerVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
-};
+  companyName,
+} from "../../data/footerData";
 
 const Footer = () => (
-  <motion.div
-    initial="hidden"
-    animate="visible"
-    variants={footerVariants}
-    transition={{ duration: 0.5 }}
-    style={{ width: "100%" }} // Ensure the footer takes full width
+  <Box
+    sx={{
+      backgroundColor: "#333",
+      color: "#fff",
+      padding: "20px",
+      borderRadius: "15px",
+      marginTop: "20px", // Space above the footer
+    }}
   >
+    {/* First Row: Main Content */}
     <Box
       sx={{
-        backgroundColor: "#333",
-        color: "#fff",
-        padding: "20px",
         display: "flex",
         flexDirection: { xs: "column", md: "row" },
         justifyContent: "space-between",
-        borderRadius: "15px",
+        borderBottom: "1px solid rgba(255, 255, 255, 0.2)", // Optional: bottom border for separation
+        paddingBottom: "20px", // Space below the main content
       }}
     >
-      <Box sx={{ flex: 1, padding: "10px" }}>
-        <Typography variant="h6" sx={{ marginBottom: "10px" }}>
-          Contact Us
-        </Typography>
-        <LocationLinks locations={locations} />
-        <ContactInfo contactDetails={contactDetails} />
-        <Typography variant="h6" sx={{ marginTop: "20px" }}>
-          Follow Us
-        </Typography>
-        <SocialIcons socialLinks={socialLinks} />
-      </Box>
+      {/* Contact Us Section */}
+      <LazyLoad customStyles={{ flex: 1 }}>
+        <Box
+          sx={{
+            flex: 1,
+            padding: "10px",
+            marginBottom: { xs: "20px", md: "0" },
+          }}
+        >
+          <Typography
+            variant="h6"
+            sx={{ marginBottom: "10px", fontWeight: "bold" }}
+          >
+            Свържете се с нас.
+          </Typography>
+          <LocationLinks locations={locations} />
+          <ContactInfo contactDetails={contactDetails} />
+          <Typography
+            variant="h6"
+            sx={{ marginTop: "20px", fontWeight: "bold" }}
+          >
+            Последвайте ни.
+          </Typography>
+          <SocialIcons socialLinks={socialLinks} />
+        </Box>
+      </LazyLoad>
+
+      {/* Maps Section - Lazy Load each map individually */}
       <Box
         sx={{
           flex: 1,
@@ -58,16 +72,32 @@ const Footer = () => (
         }}
       >
         {maps.map((map, index) => (
-          <MapSection
+          <LazyLoad
+            customStyles={{ width: "100%" }}
             key={index}
-            title={map.title}
-            src={map.src}
-            delay={map.delay}
-          />
+            delay={1 * (index + 1)} // Slightly adjust the delay
+          >
+            <MapSection title={map.title} src={map.src} />
+          </LazyLoad>
         ))}
       </Box>
     </Box>
-  </motion.div>
+
+    {/* Second Row: Copyright Section */}
+    <LazyLoad delay={1.5}>
+      <Box
+        sx={{
+          padding: "10px",
+          textAlign: "center",
+          marginTop: "10px", // Add space above the copyright section
+        }}
+      >
+        <Typography variant="body2">
+          © {new Date().getFullYear()} {companyName}. Всички права запазени.
+        </Typography>
+      </Box>
+    </LazyLoad>
+  </Box>
 );
 
 export default Footer;
