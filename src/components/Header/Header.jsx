@@ -22,7 +22,6 @@ const Header = () => {
             "linear-gradient(135deg, rgba(255,255,255,0.1), rgba(0,0,0,0.4))",
           backdropFilter: "blur(15px)",
           boxShadow: "0 4px 15px rgba(0,0,0,0.3)",
-          borderRadius: "15px 15px", // Rounded corners retained
         }}
       >
         <Toolbar

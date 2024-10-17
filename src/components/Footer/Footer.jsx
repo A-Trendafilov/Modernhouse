@@ -20,7 +20,6 @@ const Footer = () => (
       backgroundColor: "#333",
       color: "#fff",
       padding: "20px",
-      borderRadius: "15px",
       marginTop: "20px", // Space above the footer
     }}
   >
@@ -47,15 +46,25 @@ const Footer = () => (
             variant="h6"
             sx={{ marginBottom: "10px", fontWeight: "bold" }}
           >
-            Свържете се с нас.
+            Свържете се с нас
           </Typography>
-          <LocationLinks locations={locations} />
           <ContactInfo contactDetails={contactDetails} />
+
+          {/* Locations Section */}
           <Typography
             variant="h6"
             sx={{ marginTop: "20px", fontWeight: "bold" }}
           >
-            Последвайте ни.
+            Нашите локации
+          </Typography>
+          <LocationLinks locations={locations} />
+
+          {/* Follow Us Section */}
+          <Typography
+            variant="h6"
+            sx={{ marginTop: "20px", fontWeight: "bold" }}
+          >
+            Последвайте ни
           </Typography>
           <SocialIcons socialLinks={socialLinks} />
         </Box>
