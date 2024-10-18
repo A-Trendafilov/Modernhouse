@@ -1,2 +1,0 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/ImgGallery-BjTzktDH.js","assets/index-D7FpD8Sy.js","assets/index-C2fmu9KY.css","assets/Button-ChFqFlSp.js","assets/useThemeProps-DV8aV6U7.js"])))=>i.map(i=>d[i]);
-import{r as e,a2 as r,j as a}from"./index-D7FpD8Sy.js";const l=e.lazy(()=>r(()=>import("./ImgGallery-BjTzktDH.js"),__vite__mapDeps([0,1,2,3,4]))),t=()=>a.jsx("div",{className:"gallery-page",children:a.jsx(e.Suspense,{fallback:a.jsx("div",{children:"Loading gallery..."}),children:a.jsx(l,{})})});export{t as default};
