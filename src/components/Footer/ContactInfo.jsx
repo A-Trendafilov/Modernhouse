@@ -1,28 +1,58 @@
+// src/components/ContactInfo.jsx
 import React from "react";
 import { Box, Typography } from "@mui/material";
-import { motion } from "framer-motion"; // Import motion from framer-motion
+import { motion } from "framer-motion";
 
-const ContactInfo = ({ contactDetails }) => (
+const ContactInfo = ({
+  contactDetails,
+  boxStyle = {},
+  textStyle = {},
+  motionProps = {
+    whileHover: { scale: 1.05, color: "#14deee" },
+    transition: { duration: 0.3 },
+  },
+}) => (
   <>
     {contactDetails.map(({ Icon, text }, index) => (
       <Box
         key={index}
-        sx={{ display: "flex", alignItems: "center", marginBottom: "10px" }}
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          marginBottom: "10px",
+          ...boxStyle,
+        }}
       >
         <Icon sx={{ marginRight: "8px" }} />
 
-        {/* If text contains a link, use motion.a to apply hover effects */}
         {typeof text === "string" ? (
-          <Typography variant="body1">{text}</Typography>
-        ) : (
+          <Typography variant="body1" sx={{ color: "#fff", ...textStyle }}>
+            {text}
+          </Typography>
+        ) : // Ensure that text is a valid React element with props
+        text && React.isValidElement(text) ? (
           <motion.a
-            href={text.props.href} // Use the href from the text if it's an anchor
-            whileHover={{ scale: 1.05, color: "#14deee" }} // Scale effect and color change on hover
-            transition={{ duration: 0.3 }}
-            style={{ color: "#fff", textDecoration: "none", cursor: "pointer" }}
+            href={text.props.href} // Safely access href if text is a valid element
+            style={{
+              textDecoration: "none",
+              cursor: "pointer",
+              // Default color
+            }}
+            {...motionProps}
           >
-            <Typography variant="body1">{text.props.children}</Typography>
+            <Typography
+              variant="body1"
+              sx={{
+                color: "inherit", // Inherit color from motion.a
+              }}
+            >
+              {text.props.children} {/* Display text directly */}
+            </Typography>
           </motion.a>
+        ) : (
+          <Typography variant="body1" sx={{ color: "#fff", ...textStyle }}>
+            Invalid Link
+          </Typography>
         )}
       </Box>
     ))}

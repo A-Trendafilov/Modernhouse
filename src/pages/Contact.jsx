@@ -4,7 +4,7 @@ import ContactForm from "../components/Form/ContactForm"; // Adjust the path acc
 import LazyLoad from "../components/LazyLoad"; // Import LazyLoad
 import ContactInfo from "../components/Footer/ContactInfo"; // Import ContactInfo
 import { Box, Typography } from "@mui/material"; // Import Box and Typography for layout
-import { contactDetails } from "../data/footerData"; // Import your contactDetails
+import { salesDetails } from "../data/salesData"; // Import your contactDetails
 
 const Contact = () => {
   return (
@@ -47,11 +47,20 @@ const Contact = () => {
             variant="h4" // Change to h4 to match ContactForm title
             gutterBottom
             textAlign="center" // Center the title
-            sx={{ marginBottom: "16px", fontWeight: "bold", color: "#333" }} // Match font weight and color
+            sx={{ marginBottom: "30px", fontWeight: "bold", color: "#333" }} // Match font weight and color
           >
-            Свържете се с нас
+            Център продажби
           </Typography>
-          <ContactInfo contactDetails={contactDetails} />
+          <ContactInfo
+            contactDetails={salesDetails}
+            boxStyle={{ marginBottom: "35px" }} // Custom box styles
+            textStyle={{ color: "#333", fontSize: "1rem" }} // Custom text styles
+            motionProps={{
+              whileHover: { scale: 1.05, color: "#14deee" }, // Hover effects for links
+              transition: { duration: 0.3 },
+              style: { color: "#333", textDecoration: "none" },
+            }}
+          />
         </Box>
       </LazyLoad>
     </Box>

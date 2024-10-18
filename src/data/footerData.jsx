@@ -1,52 +1,38 @@
 // src/data/footerData.js
-
 import EmailIcon from "@mui/icons-material/Email";
 import PhoneIcon from "@mui/icons-material/Phone";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
 
 export const companyName = "Модерн Хаус";
 
-export const locations = [
-  {
-    label: "Производство",
-    address: "ул. Извън Регулация №4 обл.Пловдив, с.Калековец 4147",
-    link: "https://maps.app.goo.gl/ybdjG85FBvMr65kQ6",
-  },
-  {
-    label: "Шоурум",
-    link: "https://maps.app.goo.gl/xsGdFSeXdpZ3hJ9Y7",
-  },
-];
-
 export const contactDetails = [
   {
     Icon: EmailIcon,
-    text: (
-      <a
-        href="mailto:office@modernhouse.bg"
-        style={{ color: "#fff", textDecoration: "none" }}
-      >
-        office@modernhouse.bg
-      </a>
-    ),
+    text: <a href="mailto:office@modernhouse.bg">office@modernhouse.bg</a>,
   },
   {
     Icon: PhoneIcon,
-    text: (
-      <a
-        href="tel:+359 899 86 33 29"
-        style={{ color: "#fff", textDecoration: "none" }}
-      >
-        +359 899 86 33 29
-      </a>
-    ),
+    text: <a href="tel:+359 899 86 33 29">+359 899 86 33 29</a>,
   },
   {
     Icon: AccessTimeIcon,
     text: "Работно време: Пон-Пет - 09:00ч. - 17:00ч.",
+  },
+];
+
+export const locations = [
+  {
+    address: "ул. Извън Регулация №4 обл.Пловдив, с.Калековец 4147",
+    text: <a href="https://maps.app.goo.gl/ybdjG85FBvMr65kQ6">Производство</a>,
+    Icon: LocationOnIcon,
+  },
+  {
+    text: <a href="https://maps.app.goo.gl/xsGdFSeXdpZ3hJ9Y7">Шоурум</a>,
+    Icon: LocationOnIcon,
   },
 ];
 
