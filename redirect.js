@@ -1,8 +1,6 @@
-; (function (l, projectPages) {
+; (function (l) {
+    var repo = '/' + l.pathname.split('/')[1];
 
-    var repo = projectPages ? '/' + l.pathname.split('/')[1] : '';
-
-    /* redirect all 404 traffic to index.html */
     function redirect() {
         l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + repo + '/?' +
             (l.pathname ? 'p=' + l.pathname.replace(/&/g, '~and~').replace(repo, '') : '') +
@@ -10,7 +8,6 @@
             (l.hash))
     }
 
-    /* resolve 404 redirects into internal routes */
     function resolve() {
         if (l.search) {
             var q = {};
@@ -28,7 +25,5 @@
         }
     }
 
-    /* if current document is 404 page, redirect to index.html otherwise resolve */
     document.title === '404' ? redirect() : resolve();
-
-}(window.location, window.projectPages || true));
+}(window.location));
