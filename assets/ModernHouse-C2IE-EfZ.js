@@ -1,1 +1,0 @@
-import{j as e}from"./index-cqu4yuD8.js";const o=()=>e.jsxs("div",{className:"modern-house-page",children:[e.jsx("h1",{children:"Modern House"}),e.jsx("p",{children:"This is the Modern House section."})]});export{o as default};

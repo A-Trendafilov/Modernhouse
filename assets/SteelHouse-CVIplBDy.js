@@ -1,1 +1,0 @@
-import{j as e}from"./index-cqu4yuD8.js";const t=()=>e.jsxs("div",{className:"steel-house-page",children:[e.jsx("h1",{children:"Steel House"}),e.jsx("p",{children:"This is the Steel House section."})]});export{t as default};

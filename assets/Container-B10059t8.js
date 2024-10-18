@@ -1,0 +1,1 @@
+import{j as e}from"./index-CA9INzqC.js";const s=()=>e.jsxs("div",{className:"gallery-page",children:[e.jsx("h1",{children:"Container"}),e.jsx("p",{children:"This is the Container page."})]});export{s as default};
