@@ -16,7 +16,7 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 
 const App = () => {
   return (
-    <Router>
+    <Router basename="/Modernhouse">
       <Header />
       <main>
         <Suspense fallback={<div>Loading...</div>}>
