@@ -2,11 +2,16 @@
 import React from "react";
 import ContactForm from "../components/Form/ContactForm"; // Adjust the path according to your project structure
 import LazyLoad from "../components/LazyLoad"; // Import LazyLoad
-import ContactInfo from "../components/Footer/ContactInfo"; // Import ContactInfo
+import InfoList from "../components/Footer/InfoList"; // Import InfoList instead of ContactInfo
 import { Box, Typography } from "@mui/material"; // Import Box and Typography for layout
 import { salesDetails } from "../data/salesData"; // Import your contactDetails
 
 const Contact = () => {
+  const contactDetails = salesDetails.map((detail) => ({
+    Icon: detail.Icon,
+    text: detail.text,
+  }));
+
   return (
     <Box
       className="contact-page"
@@ -51,14 +56,13 @@ const Contact = () => {
           >
             Център продажби
           </Typography>
-          <ContactInfo
-            contactDetails={salesDetails}
+          <InfoList
+            items={contactDetails} // Pass formatted contact details to InfoList
             boxStyle={{ marginBottom: "35px" }} // Custom box styles
             textStyle={{ color: "#333", fontSize: "1rem" }} // Custom text styles
             motionProps={{
               whileHover: { scale: 1.05, color: "#14deee" }, // Hover effects for links
               transition: { duration: 0.3 },
-              style: { color: "#333", textDecoration: "none" },
             }}
           />
         </Box>
