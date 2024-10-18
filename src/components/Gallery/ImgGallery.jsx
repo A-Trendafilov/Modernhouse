@@ -1,12 +1,10 @@
 // src/components/Gallery/ImgGallery.jsx
 import React, { useState, useMemo } from "react";
-import { Container, Typography } from "@mui/material";
+import { Container, Typography, Grid2 } from "@mui/material";
 import FilterButtons from "./FilterButtons"; // Import the filter buttons component
 import ImageCard from "./ImageCard"; // Import the image card component
 import ImageLightbox from "./ImageLightbox"; // Import the lightbox component
 import { images } from "../../data/galleryImg"; // Ensure your images are defined here
-import Grid2 from '@mui/material/Grid2';
-
 
 const categories = ["Всички", "Контейнери", "Сглобяеми къщи", "Стоманени къщи"];
 
