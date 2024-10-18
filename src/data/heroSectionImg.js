@@ -1,4 +1,4 @@
-// export const backgroundImages = [
+// export const heroSectionImg = [
 //     {
 //         src: `${import.meta.env.BASE_URL}/assets/herosection/2-store-house.webp`,
 //         alt: "Beautiful two-store house",
@@ -13,7 +13,7 @@
 //     },
 // ];
 
-export const backgroundImages = [
+export const heroSectionImg = [
     {
         src: `/assets/herosection/2-store-house.webp`,
         alt: "Beautiful two-store house",

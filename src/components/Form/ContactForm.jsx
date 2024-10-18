@@ -7,19 +7,20 @@ import { Box, Typography, Button } from "@mui/material";
 import FormField from "./FormField"; // Import the FormField component
 import SnackbarAlert from "./SnackbarAlert"; // Import the SnackbarAlert component
 
-// Updated validation schema for flexible phone validation
 const validationSchema = Yup.object().shape({
-  name: Yup.string().required("Name is required"),
-  email: Yup.string().email("Email is invalid").required("Email is required"),
+  name: Yup.string().required("Името е задължително."),
+  email: Yup.string()
+    .email("Имейлът е невалиден.")
+    .required("Имейлът е задължителен."),
   phone: Yup.string()
+    .required("Телефонният номер е задължителен.")
     .matches(
       /^\+?\d{1,4}?[-.\s]?(\(?\d{1,3}?\)?[-.\s]?)?\d{3,5}[-.\s]?\d{3,4}$/,
-      "Phone number is not valid"
-    )
-    .required("Phone number is required"),
-  description: Yup.string()
-    .required("Description is required")
-    .max(500, "Description must not exceed 500 characters"),
+      "Телефонният номер е невалиден."
+    ),
+  message: Yup.string() // Change 'description' to 'message' for consistency
+    .required("Описание е задължително.")
+    .max(500, "Описание не трябва да надвишава 500 символа."),
 });
 
 const ContactForm = () => {
@@ -27,16 +28,40 @@ const ContactForm = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm({
     resolver: yupResolver(validationSchema),
   });
 
   const [openSnackbar, setOpenSnackbar] = React.useState(false);
   const [snackbarMessage, setSnackbarMessage] = React.useState("");
+  const [snackbarSeverity, setSnackbarSeverity] = React.useState("success");
 
-  const onSubmit = (data) => {
-    console.log(data); // Handle the form submission (send to API, etc.)
-    setSnackbarMessage("Thank you for your message!");
+  const onSubmit = async (data) => {
+    try {
+      const response = await fetch("https://submit-form.com/HRKZbYxa", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        setSnackbarMessage("Благодарим Ви за съобщението.");
+        setSnackbarSeverity("success");
+        reset();
+      } else {
+        throw new Error("Неуспешно изпращане на съобщението."); // Throw error if response not OK
+      }
+    } catch (error) {
+      setSnackbarMessage(
+        "Не успяхме да изпратим вашето съобщение. Моля, опитайте отново."
+      );
+      setSnackbarSeverity("error");
+      console.error(error); // Log error for debugging
+    }
+
     setOpenSnackbar(true);
   };
 
@@ -55,6 +80,7 @@ const ContactForm = () => {
       >
         <FormField
           label="Име"
+          type="text"
           name="name"
           register={register}
           error={errors.name}
@@ -71,28 +97,34 @@ const ContactForm = () => {
         <FormField
           label="Телефон"
           name="phone"
+          type="text"
           register={register}
           error={errors.phone}
           helperText={errors.phone?.message}
         />
         <FormField
           label="Опишете вашето запитване към нас"
-          name="description"
+          name="message" // Ensure this matches the validation schema
           register={register}
           multiline
           rows={6}
-          error={errors.description}
-          helperText={errors.description?.message}
+          error={errors.message} // Update to match the validation schema
+          helperText={errors.message?.message} // Update to match the validation schema
         />
         <Button variant="contained" color="primary" type="submit" fullWidth>
           Изпрати запитване
         </Button>
+
+        <Box sx={{ mt: 10 , maxWidth: "600px" }}>
+          <SnackbarAlert
+            open={openSnackbar}
+            message={snackbarMessage}
+            onClose={handleCloseSnackbar}
+            severity={snackbarSeverity}
+            sx={{ width: "80%" }}
+          />
+        </Box>
       </form>
-      <SnackbarAlert
-        open={openSnackbar}
-        message={snackbarMessage}
-        onClose={handleCloseSnackbar}
-      />
     </Box>
   );
 };

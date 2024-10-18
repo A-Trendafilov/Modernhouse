@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import LazyLoad from "../LazyLoad";
 import { Box, Typography, Button } from "@mui/material";
-import { backgroundImages } from "../../data/backgroundImages";
+import { heroSectionImg } from "../../data/heroSectionImg";
 
 const HeroSection = () => {
   const settings = {
@@ -29,7 +29,7 @@ const HeroSection = () => {
       }}
     >
       <Slider {...settings} className="hero-slider">
-        {backgroundImages.map((image, index) => (
+        {heroSectionImg.map((image, index) => (
           <LazyLoad key={index}>
             <motion.div
               sx={{

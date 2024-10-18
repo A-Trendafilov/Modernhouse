@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
+import ImgGallery from "../components/Gallery/ImgGallery";
 
 const Gallery = () => {
-    return (
-        <div className="gallery-page">
-            <h1>Gallery</h1>
-            <p>This is the Gallery page.</p>
-        </div>
-    );
+  return (
+    <div className="gallery-page">
+      <ImgGallery />
+    </div>
+  );
 };
 
 export default Gallery;
