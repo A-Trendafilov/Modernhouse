@@ -1,10 +1,14 @@
-import React from "react";
-import ImgGallery from "../components/Gallery/ImgGallery";
+import React, { lazy, Suspense } from "react";
+
+// Lazy load the ImgGallery component
+const ImgGallery = lazy(() => import("../components/Gallery/ImgGallery"));
 
 const Gallery = () => {
   return (
     <div className="gallery-page">
-      <ImgGallery />
+      <Suspense fallback={<div>Loading gallery...</div>}>
+        <ImgGallery />
+      </Suspense>
     </div>
   );
 };

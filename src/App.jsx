@@ -1,32 +1,39 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
-import Gallery from "./pages/Gallery";
-import Container from "./pages/Container";
-import SteelHouse from "./pages/House/SteelHouse";
-import ModernHouse from "./pages/House/ModernHouse";
-import NotFound from "./pages/NotFound";
 import "./App.css";
+
+// Lazy load your pages
+const Home = lazy(() => import("./pages/Home"));
+const About = lazy(() => import("./pages/About"));
+const Contact = lazy(() => import("./pages/Contact"));
+const Gallery = lazy(() => import("./pages/Gallery"));
+const Container = lazy(() => import("./pages/Container"));
+const SteelHouse = lazy(() => import("./pages/House/SteelHouse"));
+const ModernHouse = lazy(() => import("./pages/House/ModernHouse"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 const App = () => {
   return (
     <Router>
       <Header />
       <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/container" element={<Container />} />
-          <Route path="/house/steel" element={<SteelHouse />} />
-          <Route path="/house/modern" element={<ModernHouse />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/container" element={<Container />} />
+            <Route path="/house">
+              {/* Nested routes for houses */}
+              <Route path="steel" element={<SteelHouse />} />
+              <Route path="modern" element={<ModernHouse />} />
+            </Route>
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
       </main>
       <Footer />
     </Router>
