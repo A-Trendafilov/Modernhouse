@@ -1,6 +1,6 @@
 // Header.jsx
 import React, { useState } from "react";
-import { AppBar, Toolbar, Box, Drawer } from "@mui/material";
+import { AppBar, Toolbar, Box, Drawer, useTheme } from "@mui/material"; // Import useTheme
 import MenuIcon from "@mui/icons-material/Menu";
 import AnimatedText from "../AnimatedText";
 import Logo from "./Logo";
@@ -8,6 +8,7 @@ import DrawerMenu from "./DrawerMenu";
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const theme = useTheme(); // Access the theme object
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -18,10 +19,9 @@ const Header = () => {
       <AppBar
         position="sticky"
         sx={{
-          background:
-            "linear-gradient(135deg, rgba(255,255,255,0.1), rgba(0,0,0,0.4))",
+          background: `linear-gradient(135deg, ${theme.palette.primary.main}, ${theme.palette.primary.dark})`, // Use theme colors
           backdropFilter: "blur(15px)",
-          boxShadow: "0 4px 15px rgba(0,0,0,0.3)",
+          boxShadow: theme.shadows[4], // Use theme shadow for elevation
         }}
       >
         <Toolbar
@@ -34,9 +34,10 @@ const Header = () => {
           <Box
             component="span"
             onClick={handleDrawerToggle}
-            sx={{ display: "flex", cursor: "pointer", marginRight: "10px" }} // Show the hamburger menu on all devices
+            sx={{ display: "flex", cursor: "pointer", marginRight: "10px" }}
           >
-            <MenuIcon sx={{ color: "black" }} />
+            <MenuIcon sx={{ color: theme.palette.text.primary }} />{" "}
+            {/* Use theme text color */}
           </Box>
         </Toolbar>
       </AppBar>

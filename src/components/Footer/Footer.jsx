@@ -1,10 +1,10 @@
-// src/components/Footer.jsx
 import React from "react";
-import { Box, Typography } from "@mui/material";
-import LazyLoad from "../LazyLoad"; // Import optimized LazyLoad
-import InfoList from "./InfoList"; // Import the updated InfoList component
+import { Box, Typography, useTheme, Grid2 } from "@mui/material"; // Import Grid2 for layout
+import LazyLoad from "../LazyLoad";
+import InfoList from "./InfoList";
 import SocialIcons from "./SocialIcons";
 import MapSection from "./MapSection";
+import Copyright from "./Copyright"; // Import the new Copyright component
 import {
   locations,
   contactDetails,
@@ -14,119 +14,96 @@ import {
 } from "../../data/footerData";
 
 const Footer = () => {
+  const theme = useTheme();
+
+  const commonTextStyles = {
+    color: theme.palette.text.primary,
+    fontWeight: "bold",
+    marginBottom: theme.spacing(1),
+  };
+
   return (
     <Box
       sx={{
-        backgroundColor: "#333",
-        color: "#fff",
-        padding: "20px",
-        marginTop: "20px", // Space above the footer
+        backgroundColor: theme.palette.background.paper,
+        color: commonTextStyles.color,
+        padding: theme.spacing(2.5),
+        marginTop: theme.spacing(2.5),
       }}
     >
-      {/* First Row: Main Content */}
+      {/* Main Content Section */}
       <Box
         sx={{
           display: "flex",
           flexDirection: { xs: "column", md: "row" },
           justifyContent: "space-between",
-          borderBottom: "1px solid rgba(255, 255, 255, 0.2)", // Optional: bottom border for separation
-          paddingBottom: "20px", // Space below the main content
+          textAlign: "center",
+          borderBottom: `1px solid ${theme.palette.divider}`,
+          paddingBottom: theme.spacing(2.5),
         }}
       >
-        {/* Contact Us Section */}
+        {/* Contact and Location Section */}
         <LazyLoad customStyles={{ flex: 1 }}>
-          <Box
-            sx={{
-              flex: 1,
-              padding: "10px",
-              marginBottom: { xs: "20px", md: "0" },
-            }}
-          >
-            <Typography
-              variant="h6"
-              sx={{ marginBottom: "10px", fontWeight: "bold" }}
-            >
+          <Box sx={{ padding: theme.spacing(1) }}>
+            <Typography variant="h6" sx={commonTextStyles}>
               Свържете се с нас
             </Typography>
-
-            {/* Using InfoList to render contact details */}
             <InfoList
               items={contactDetails}
-              boxStyle={{ marginBottom: "15px" }} // Custom box styles
-              textStyle={{ color: "#fff", fontSize: "1rem" }} // Custom text styles
+              textStyle={{ fontSize: "1rem" }}
               motionProps={{
-                whileHover: { scale: 1.05, color: "#14deee" }, // Hover effects for links
+                whileHover: { scale: 1.05, color: theme.palette.accent.main },
                 transition: { duration: 0.3 },
               }}
             />
 
-            {/* Locations Section */}
-            <Typography
-              variant="h6"
-              sx={{ marginTop: "20px", fontWeight: "bold" }}
-            >
+            <Typography variant="h6" sx={commonTextStyles}>
               Нашите локации
             </Typography>
-            {/* Using InfoList for locations */}
             <InfoList
-              items={locations.map((location) => ({
-                ...location,
-                text: location.text, // Ensure text is available
-              }))}
-              boxStyle={{ marginBottom: "15px" }} // Custom box styles
-              textStyle={{ color: "#fff", fontSize: "1rem" }} // Custom text styles
+              items={locations}
+              textStyle={{ fontSize: "1rem" }}
               motionProps={{
-                whileHover: { scale: 1.05, color: "#14deee" }, // Hover effects for links
+                whileHover: { scale: 1.05, color: theme.palette.accent.main },
                 transition: { duration: 0.3 },
               }}
             />
 
-            {/* Follow Us Section */}
-            <Typography
-              variant="h6"
-              sx={{ marginTop: "20px", fontWeight: "bold" }}
-            >
+            <Typography variant="h6" sx={commonTextStyles}>
               Последвайте ни
             </Typography>
             <SocialIcons socialLinks={socialLinks} />
           </Box>
         </LazyLoad>
 
-        {/* Maps Section - Lazy Load each map individually */}
-        <Box
+        {/* Map Section using Grid2 for better layout */}
+        <Grid2
+          container
+          spacing={2}
           sx={{
             flex: 1,
-            display: "flex",
             flexDirection: { xs: "column", md: "row" },
-            padding: "10px",
-            gap: "10px",
           }}
         >
           {maps.map((map, index) => (
-            <LazyLoad
-              customStyles={{ width: "100%" }}
-              key={index}
-              delay={1 * (index + 1)} // Slightly adjust the delay
-            >
-              <MapSection title={map.title} src={map.src} />
-            </LazyLoad>
+            <Grid2 item xs={12} sm={6} md={4} key={index}>
+              <LazyLoad
+                customStyles={{
+                  width: "100%",
+                  marginBottom: theme.spacing(2),
+                }}
+                delay={index + 1}
+              >
+                <MapSection title={map.title} src={map.src} />
+              </LazyLoad>
+            </Grid2>
           ))}
-        </Box>
+        </Grid2>
       </Box>
 
-      {/* Second Row: Copyright Section */}
+      {/* Copyright Section */}
       <LazyLoad delay={1.5}>
-        <Box
-          sx={{
-            padding: "10px",
-            textAlign: "center",
-            marginTop: "10px", // Add space above the copyright section
-          }}
-        >
-          <Typography variant="body2">
-            © {new Date().getFullYear()} {companyName}. Всички права запазени.
-          </Typography>
-        </Box>
+        <Copyright companyName={companyName} />
       </LazyLoad>
     </Box>
   );

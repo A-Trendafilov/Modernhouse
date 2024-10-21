@@ -1,8 +1,14 @@
-// src/components/Gallery/FilterButtons.jsx
 import React from "react";
 import { Button, Box } from "@mui/material";
+import { useTheme } from "@mui/material/styles"; // Import useTheme
 
-const FilterButtons = ({ categories, selectedCategory, setSelectedCategory }) => {
+const FilterButtons = ({
+  categories,
+  selectedCategory,
+  setSelectedCategory,
+}) => {
+  const theme = useTheme(); // Access the theme
+
   return (
     <Box
       sx={{
@@ -18,7 +24,29 @@ const FilterButtons = ({ categories, selectedCategory, setSelectedCategory }) =>
           key={category}
           onClick={() => setSelectedCategory(category)}
           variant={selectedCategory === category ? "contained" : "outlined"}
-          sx={{ mx: 1, minWidth: 180 }} // Set a minWidth for better appearance
+          sx={{
+            mx: 1,
+            minWidth: 180,
+            backgroundColor:
+              selectedCategory === category
+                ? theme.palette.accent.main // Use theme color for active buttons
+                : "transparent",
+            color:
+              selectedCategory === category
+                ? theme.palette.accent.contrastText // Contrasting text color for active state
+                : theme.palette.text.primary, // Regular text color
+            borderColor:
+              selectedCategory === category
+                ? theme.palette.accent.main
+                : theme.palette.divider, // Border color for outlined variant
+            "&:hover": {
+              backgroundColor:
+                selectedCategory === category
+                  ? theme.palette.highlight.main // Highlight color for active button on hover
+                  : theme.palette.action.hover, // Hover color for inactive buttons
+              borderColor: theme.palette.accent.main, // Ensure border color stays consistent on hover
+            },
+          }}
         >
           {category}
         </Button>

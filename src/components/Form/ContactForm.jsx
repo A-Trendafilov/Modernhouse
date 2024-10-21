@@ -1,9 +1,8 @@
-// src/components/ContactForm.jsx
 import React from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
-import { Box, Typography, Button } from "@mui/material";
+import { Box, Typography, Button, useTheme } from "@mui/material"; // Import useTheme
 import FormField from "./FormField"; // Import the FormField component
 import SnackbarAlert from "./SnackbarAlert"; // Import the SnackbarAlert component
 
@@ -18,12 +17,13 @@ const validationSchema = Yup.object().shape({
       /^\+?\d{1,4}?[-.\s]?(\(?\d{1,3}?\)?[-.\s]?)?\d{3,5}[-.\s]?\d{3,4}$/,
       "Телефонният номер е невалиден."
     ),
-  message: Yup.string() // Change 'description' to 'message' for consistency
+  message: Yup.string()
     .required("Описание е задължително.")
     .max(500, "Описание не трябва да надвишава 500 символа."),
 });
 
 const ContactForm = () => {
+  const theme = useTheme(); // Access the theme
   const {
     register,
     handleSubmit,
@@ -70,7 +70,12 @@ const ContactForm = () => {
   };
 
   return (
-    <Box sx={{ padding: "20px", backgroundColor: "#f9f9f9" }}>
+    <Box
+      sx={{
+        padding: theme.spacing(2.5), // Use theme spacing for padding
+        backgroundColor: theme.palette.background.paper, // Use theme background color
+      }}
+    >
       <Typography variant="h4" gutterBottom textAlign="center">
         Бързо запитване
       </Typography>
@@ -108,14 +113,20 @@ const ContactForm = () => {
           register={register}
           multiline
           rows={6}
-          error={errors.message} // Update to match the validation schema
-          helperText={errors.message?.message} // Update to match the validation schema
+          error={errors.message}
+          helperText={errors.message?.message}
         />
-        <Button variant="contained" color="primary" type="submit" fullWidth>
+        <Button
+          variant="contained"
+          color="primary"
+          type="submit"
+          fullWidth
+          sx={{ marginTop: theme.spacing(2.5) }} // Use theme spacing for margin
+        >
           Изпрати запитване
         </Button>
 
-        <Box sx={{ mt: 10 , maxWidth: "600px" }}>
+        <Box sx={{ mt: 10, maxWidth: "600px" }}>
           <SnackbarAlert
             open={openSnackbar}
             message={snackbarMessage}

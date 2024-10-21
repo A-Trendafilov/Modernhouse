@@ -1,4 +1,3 @@
-// src/components/Gallery/ImageLightbox.jsx
 import React from "react";
 import { Dialog, useMediaQuery, useTheme } from "@mui/material";
 import { motion } from "framer-motion";
@@ -16,10 +15,10 @@ const ImageLightbox = ({ selectedImage, handleClose }) => {
       fullScreen={fullScreen} // Enable fullscreen on mobile
       PaperProps={{
         sx: {
-          backgroundColor: "rgba(0, 0, 0, 0.5)", // Slightly darker background
+          backgroundColor: theme.palette.background.default, // Use theme background color
           boxShadow: "none",
           overflow: "hidden",
-          borderRadius: "0", // Remove rounding for full screen
+          borderRadius: 0, // Remove rounding for full screen
           height: "100vh", // Use full height for desktop
           width: "100vw", // Use full width for desktop
         },
@@ -45,7 +44,8 @@ const ImageLightbox = ({ selectedImage, handleClose }) => {
             maxHeight: "90vh", // Keep a reasonable height
             display: "block",
             margin: "auto",
-            borderRadius: "0", // Remove border radius for full screen effect
+            borderRadius: 0, // Remove border radius for full screen effect
+            boxShadow: theme.shadows[5], // Add subtle shadow from theme
           }}
         />
       </motion.div>

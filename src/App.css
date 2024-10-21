@@ -24,7 +24,7 @@ main {
 footer {
   height: 280px; /* Example footer height */
 }
-
+/* 
 .lazy-load {
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
@@ -36,5 +36,6 @@ footer {
 
 .lazy-load.hidden {
   opacity: 0;
-  transform: translateY(20px); /* Adjust this value as needed */
+  transform: translateY(20px); 
 }
+*/

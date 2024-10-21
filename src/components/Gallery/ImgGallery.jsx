@@ -1,6 +1,5 @@
-// src/components/Gallery/ImgGallery.jsx
 import React, { useState, useMemo } from "react";
-import { Container, Typography, Grid2 } from "@mui/material";
+import { Container, Typography, Grid2, useTheme } from "@mui/material";
 import FilterButtons from "./FilterButtons"; // Import the filter buttons component
 import ImageCard from "./ImageCard"; // Import the image card component
 import ImageLightbox from "./ImageLightbox"; // Import the lightbox component
@@ -11,6 +10,7 @@ const categories = ["Всички", "Контейнери", "Сглобяеми 
 const ImgGallery = () => {
   const [selectedCategory, setSelectedCategory] = useState("Всички");
   const [selectedImage, setSelectedImage] = useState(null);
+  const theme = useTheme(); // Get the theme object for styles
 
   const filteredImages = useMemo(() => {
     return selectedCategory === "Всички"
@@ -19,8 +19,22 @@ const ImgGallery = () => {
   }, [selectedCategory]);
 
   return (
-    <Container maxWidth="lg" sx={{ my: 4 }}>
-      <Typography variant="h4" align="center" gutterBottom>
+    <Container
+      maxWidth={false} // Remove maxWidth to allow full-width
+      sx={{
+        my: 4,
+        bgcolor: theme.palette.background.paper,
+        borderRadius: 2,
+        padding: 2,
+        width: "100%", // Ensure it takes full width
+      }}
+    >
+      <Typography
+        variant="h4"
+        align="center"
+        gutterBottom
+        color={theme.palette.text.primary}
+      >
         Галерия
       </Typography>
 

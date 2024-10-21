@@ -16,7 +16,9 @@ const NotFound = () => {
         justifyContent: "center",
         height: "100vh",
         textAlign: "center",
-        backgroundColor: "#f5f5f5",
+        bgcolor: "background.default", // Use theme's default background color
+        color: "text.primary", // Use theme's primary text color
+        padding: 3, // Add some padding for spacing
       }}
     >
       <Typography variant="h2" sx={{ mb: 2 }}>
@@ -32,6 +34,11 @@ const NotFound = () => {
         variant="contained"
         color="primary"
         onClick={() => navigate("/")} // Redirect to home page
+        sx={{
+          "&:hover": {
+            backgroundColor: "primary.dark", // Darker shade on hover
+          },
+        }}
       >
         Go to Home
       </Button>

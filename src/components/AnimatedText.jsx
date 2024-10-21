@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Box } from "@mui/material"; // Import Box from MUI
+import { Box, useTheme } from "@mui/material"; // Import useTheme
 
 const AnimatedText = () => {
+  const theme = useTheme(); // Access the theme object
   const phrases = ["Modern House", "Designing Homes"];
   const [currentPhrase, setCurrentPhrase] = useState(0);
 
@@ -46,12 +47,12 @@ const AnimatedText = () => {
       sx={{
         display: "flex",
         fontSize: {
-          xs: "1rem", // Font size for extra small devices
-          sm: "1.5rem", // Font size for small devices
-          md: "2rem", // Font size for medium devices
-          lg: "2.5rem", // Font size for large devices
+          xs: theme.typography.h6.fontSize, // Use theme's typography for small devices
+          sm: theme.typography.h5.fontSize, // Use theme's typography for small devices
+          md: theme.typography.h4.fontSize, // Use theme's typography for medium devices
+          lg: theme.typography.h3.fontSize, // Use theme's typography for large devices
         },
-        color: "black",
+        color: theme.palette.text.primary, // Use theme's primary text color
       }}
     >
       <AnimatePresence initial={false}>
