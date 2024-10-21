@@ -2,7 +2,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-const LazyLoad = ({ children, threshold = 0.2 }) => {
+const LazyLoad = ({ children, threshold = 0.2, ...props }) => {
+  // Destructure props
   const { ref, inView } = useInView({
     threshold: threshold, // When to trigger the animation
   });
@@ -21,6 +22,7 @@ const LazyLoad = ({ children, threshold = 0.2 }) => {
       variants={variants}
       transition={{ duration: 0.6, delay: 0.1 }} // Default transition settings
       style={{ marginBottom: "16px" }} // Simplified margin
+      {...props} // Spread the props here but be cautious with non-DOM attributes
     >
       {children}
     </motion.div>

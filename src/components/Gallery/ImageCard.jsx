@@ -55,4 +55,4 @@ const ImageCard = ({ image, onClick }) => {
   );
 };
 
-export default ImageCard;
+export default ImageCard; // Ensure this line is present
