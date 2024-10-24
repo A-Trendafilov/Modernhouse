@@ -14,7 +14,7 @@ const Gallery = () => {
         alignItems: "center",
         justifyContent: "center",
         minHeight: "100vh", // Full viewport height
-        bgcolor: "background.default", // Use theme's background color
+        bgcolor: "transparent", // Use theme's background color
         padding: 0, // Remove padding to allow full width
         width: "100%", // Ensure full width
       }}
@@ -27,6 +27,7 @@ const Gallery = () => {
               alignItems: "center",
               justifyContent: "center",
               height: "100vh",
+              bgcolor: "transparent",
             }}
           >
             <CircularProgress /> {/* Show a loading spinner */}

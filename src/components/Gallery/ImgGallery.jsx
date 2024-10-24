@@ -1,5 +1,5 @@
-import React, { useState, useMemo } from "react";
-import { Container, Typography, Grid2, useTheme, Box } from "@mui/material";
+import React, { useState, useMemo, useEffect } from "react";
+import { Container, Typography, Grid, useTheme, Box, CircularProgress } from "@mui/material";
 import FilterButtons from "./FilterButtons";
 import ImageCard from "./ImageCard";
 import ImageLightbox from "./ImageLightbox";
@@ -10,6 +10,7 @@ const categories = ["Всички", "Контейнери", "Сглобяеми 
 const ImgGallery = () => {
   const [selectedCategory, setSelectedCategory] = useState("Всички");
   const [selectedImage, setSelectedImage] = useState(null);
+  const [loading, setLoading] = useState(true); // Loading state
   const [error, setError] = useState(null);
   const theme = useTheme();
 
@@ -19,12 +20,28 @@ const ImgGallery = () => {
       : images.filter((image) => image.category === selectedCategory);
   }, [selectedCategory]);
 
+  useEffect(() => {
+    // Simulate image loading
+    const loadImages = async () => {
+      try {
+        // Simulating a delay (e.g., fetching images from a server)
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        setLoading(false);
+      } catch (err) {
+        setError(err);
+        setLoading(false);
+      }
+    };
+
+    loadImages();
+  }, []);
+
   return (
     <Container
       maxWidth={false}
       sx={{
         my: 4,
-        bgcolor: theme.palette.background.default,
+        bgcolor: "transparent",
         borderRadius: 2,
         padding: 2,
         width: "100%",
@@ -45,27 +62,32 @@ const ImgGallery = () => {
         setSelectedCategory={setSelectedCategory}
       />
 
-      <Grid2 container spacing={3} justifyContent="center">
-        {error ? (
-          <Box sx={{ my: 4, color: "red" }}>
-            <Typography variant="h6">
-              Error loading images: {error.message}
-            </Typography>
-          </Box>
-        ) : filteredImages.length === 0 ? (
-          <Typography variant="h6" sx={{ my: 4 }}>
-            No images found.
+      {loading ? ( // Show loading state
+        <Box sx={{ my: 4, display: "flex", justifyContent: "center" }}>
+          <CircularProgress />
+        </Box>
+      ) : error ? (
+        <Box sx={{ my: 4, color: "red" }}>
+          <Typography variant="h6">
+            Error loading images: {error.message}
           </Typography>
-        ) : (
-          filteredImages.map((image, index) => (
+        </Box>
+      ) : filteredImages.length === 0 ? (
+        <Typography variant="h6" sx={{ my: 4 }}>
+          No images found.
+        </Typography>
+      ) : (
+        <Grid container spacing={3} justifyContent="center">
+          {filteredImages.map((image) => (
             <ImageCard
-              key={index}
+              key={image.id} // Use a unique identifier from image data
               image={image}
               onClick={() => setSelectedImage(image.src)}
+              aria-label={`View ${image.title}`} // Accessibility feature
             />
-          ))
-        )}
-      </Grid2>
+          ))}
+        </Grid>
+      )}
 
       <ImageLightbox
         selectedImage={selectedImage}

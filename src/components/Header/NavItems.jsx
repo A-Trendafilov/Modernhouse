@@ -1,4 +1,4 @@
-// NavItems.jsx
+// src/components/NavItems.jsx
 import React from "react";
 import {
   List,
@@ -23,18 +23,21 @@ const NavItems = ({ handleDrawerToggle }) => {
           onClick={handleDrawerToggle}
           sx={{
             textDecoration: "none",
-            color: theme.palette.text.primary, // Use theme color for text
+            bgcolor: theme.palette.primary.dark, // Set transparent background
             "&:hover": {
               backgroundColor: theme.palette.action.hover, // Use theme action hover color
+              boxShadow: `0px 4px 8px rgba(0, 0, 0, 0.2)`, // Add shadow on hover
             },
             "&.active": {
-              backgroundColor: theme.palette.primary.light, // Active tab styling from theme
-              color: theme.palette.primary.contrastText, // Change text color for active link
+              backgroundColor: theme.palette.primary.main, // Active tab styling from theme
               fontWeight: "bold", // Optional: make active link bold
             },
+            padding: theme.spacing(1.5), // Add some padding
+            borderRadius: 2, // Optional: rounded corners
+            transition: "background-color 0.3s ease, box-shadow 0.3s ease", // Smooth transition
           }}
         >
-          <ListItemIcon sx={{ color: theme.palette.text.primary }}>
+          <ListItemIcon sx={{ color: theme.palette.text.secondary }}>
             {item.icon}
           </ListItemIcon>
           <ListItemText primary={item.text} sx={{ color: "inherit" }} />

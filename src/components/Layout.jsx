@@ -9,7 +9,7 @@ const Layout = ({ children }) => {
   return (
     <div>
       <ScrollToTop />
-      <Header /> {/* Ensure Header is included here */}
+      <Header />
       {children}
       <LazyLoad>
         <Footer />
@@ -19,4 +19,4 @@ const Layout = ({ children }) => {
   );
 };
 
-export default Layout; // Ensure this line is present
+export default Layout;

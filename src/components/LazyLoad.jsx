@@ -10,7 +10,7 @@ const LazyLoad = ({ children, threshold = 0.2, ...props }) => {
 
   // Animation variants
   const variants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0 },
   };
 

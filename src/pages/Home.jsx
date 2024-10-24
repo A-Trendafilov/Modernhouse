@@ -11,7 +11,7 @@ const Home = () => {
         alignItems: "center",
         justifyContent: "center",
         minHeight: "100vh",
-        bgcolor: "background.default",
+        bgcolor: "transparent",
       }}
     >
       <HeroSection /> {/* Check if HeroSection displays correctly */}

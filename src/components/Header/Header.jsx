@@ -1,4 +1,4 @@
-// Header.jsx
+// src/components/Header.jsx
 import React, { useState } from "react";
 import { AppBar, Toolbar, Box, Drawer, useTheme } from "@mui/material"; // Import useTheme
 import MenuIcon from "@mui/icons-material/Menu";
@@ -19,8 +19,9 @@ const Header = () => {
       <AppBar
         position="sticky"
         sx={{
-          background: `linear-gradient(135deg, ${theme.palette.secondary.main}, ${theme.palette.primary.main})`, // Use theme colors
-          backdropFilter: "blur(5px)",
+          background: "transparent", // Make the background transparent
+          backdropFilter: "blur(10px)", // Add a blur effect
+          boxShadow: "none", // Remove box shadow if you want a flat look
         }}
       >
         <Toolbar
@@ -33,10 +34,9 @@ const Header = () => {
           <Box
             component="span"
             onClick={handleDrawerToggle}
-            sx={{ display: "flex", cursor: "pointer", marginRight: "10px" }}
+            sx={{ display: "flex", cursor: "pointer", marginRight: "10px",  }}
           >
-            <MenuIcon sx={{ color: theme.palette.text.primary }} />{" "}
-            {/* Use theme text color */}
+            <MenuIcon sx={{ color: theme.palette.text.secondary }} />{" "}
           </Box>
         </Toolbar>
       </AppBar>

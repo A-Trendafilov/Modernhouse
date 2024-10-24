@@ -1,6 +1,6 @@
 // src/pages/Contact.jsx
 import React from "react";
-import { Box } from "@mui/material"; // Import Box for layout
+import { Box, Typography } from "@mui/material"; // Import Box and Typography for layout
 import LazyLoad from "../components/LazyLoad"; // Import LazyLoad
 import ContactForm from "../components/Form/ContactForm"; // Import ContactForm
 import ContactInfo from "../components/ContactInfo/ContactInfo"; // Import the new ContactInfo component
@@ -23,11 +23,11 @@ const Contact = () => {
         maxWidth: "1200px",
         gap: "20px",
         padding: 2,
-        bgcolor: "background.paper",
+        bgcolor: "transparent", // Set background to transparent
         borderRadius: 2,
-        boxShadow: 3,
       }}
     >
+      {/* Contact Form Section */}
       <LazyLoad
         customStyles={{ flex: 1 }}
         customVariants={{
@@ -35,9 +35,18 @@ const Contact = () => {
           visible: { opacity: 1, scale: 1 },
         }}
       >
-        <ContactForm />
+        <Box
+          sx={{
+            bgcolor: "transparent", // Semi-transparent white background
+            borderRadius: 2,
+            padding: 2,
+          }}
+        >
+          <ContactForm />
+        </Box>
       </LazyLoad>
 
+      {/* Contact Info Section */}
       <LazyLoad
         customStyles={{ flex: 1 }}
         customVariants={{
@@ -45,7 +54,14 @@ const Contact = () => {
           visible: { opacity: 1, scale: 1 },
         }}
       >
-        <ContactInfo items={contactDetails} />
+        <Box
+          sx={{
+            borderRadius: 2,
+            padding: 2,
+          }}
+        >
+          <ContactInfo items={contactDetails} />
+        </Box>
       </LazyLoad>
     </Box>
   );

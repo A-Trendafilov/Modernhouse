@@ -3,39 +3,31 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
     palette: {
         primary: {
-            light: '#4f4f4f', // Light shade of primary
-            main: '#333333',  // Main shade of primary
-            dark: '#1a1a1a',  // Dark shade of primary
+            main: '#000000',// Main shade of primary
+            dark: '#333333'
         },
         secondary: {
-            light: '#ffffff', // Light shade of secondary
             main: '#FFFFFF',  // Main shade of secondary
-            dark: '#F5F5F5',  // Dark shade of secondary
         },
         accent: {
             main: '#007BFF', // Blue for accent
-            red: '#d00000',
+            red: '#000000',
             contrastText: '#FFFFFF',
-            dark: "#990000" // White for contrast on accent
+            dark: "#000000" // White for contrast on accent
         },
         highlight: {
             main: '#66B3FF', // Lighter Blue for highlights
-            red: "#990000"
-
+            red: "#000000"
         },
-        divider: '#B0B0B0', // Gray for dividers
+        divider: '#000000', // Black for dividers
         text: {
-            primary: '#E0E0E0', // Light Gray for primary text
-            secondary: '#A0A0A0', // Slightly darker gray for secondary text
+            primary: '#000000', // Black primary text
+            secondary: '#FFFFFF', // White secondary text
+            active: '#d8e2dc'
         },
         action: {
             hover: '#0056b3', // Darker blue for hover effects
             active: '#004494', // Even darker blue for active state
-            red: "#990000"
-        },
-        background: {
-            default: '#2A2A2A', // Dark background
-            paper: '#2A2A2A', // Slightly lighter dark background
         },
     },
     typography: {
@@ -77,10 +69,9 @@ const theme = createTheme({
         },
         body2: {
             fontSize: '0.875rem',
-            color: '#E0E0E0', // Light Gray for secondary body text
             transition: 'color 0.3s ease', // Smooth transition for hover
             '&:hover': {
-                color: '#FFFFFF', // Change to white on hover
+                color: '#003366', // Change to white on hover
             },
         },
         button: {

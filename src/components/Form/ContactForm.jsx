@@ -6,6 +6,7 @@ import { Box, Typography, Button, useTheme } from "@mui/material"; // Import use
 import FormField from "./FormField"; // Import the FormField component
 import SnackbarAlert from "./SnackbarAlert"; // Import the SnackbarAlert component
 
+// Define validation schema
 const validationSchema = Yup.object().shape({
   name: Yup.string().required("Името е задължително."),
   email: Yup.string()
@@ -59,7 +60,6 @@ const ContactForm = () => {
         "Не успяхме да изпратим вашето съобщение. Моля, опитайте отново."
       );
       setSnackbarSeverity("error");
-      console.error(error); // Log error for debugging
     }
 
     setOpenSnackbar(true);
@@ -72,8 +72,8 @@ const ContactForm = () => {
   return (
     <Box
       sx={{
-        padding: theme.spacing(2.5), // Use theme spacing for padding
-        backgroundColor: theme.palette.background.paper, // Use theme background color
+        padding: theme.spacing(2.5),
+        backgroundColor: "transparent", // Set background to transparent
       }}
     >
       <Typography variant="h4" gutterBottom textAlign="center">
@@ -109,7 +109,7 @@ const ContactForm = () => {
         />
         <FormField
           label="Опишете вашето запитване към нас"
-          name="message" // Ensure this matches the validation schema
+          name="message"
           register={register}
           multiline
           rows={6}
@@ -121,7 +121,7 @@ const ContactForm = () => {
           color="primary"
           type="submit"
           fullWidth
-          sx={{ marginTop: theme.spacing(2.5) }} // Use theme spacing for margin
+          sx={{ marginTop: theme.spacing(2.5) }}
         >
           Изпрати запитване
         </Button>

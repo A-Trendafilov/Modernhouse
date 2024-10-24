@@ -26,7 +26,7 @@ const Footer = () => {
   return (
     <Box
       sx={{
-        backgroundColor: theme.palette.background.paper,
+        backgroundColor: "transparent", // Set to transparent to show parent background
         color: commonTextStyles.color,
         padding: theme.spacing(2.5),
         marginTop: theme.spacing(2.5),
@@ -34,7 +34,7 @@ const Footer = () => {
     >
       <Box
         sx={{
-          borderBottom: `1px solid ${theme.palette.divider}`,
+          borderBottom: `2px solid ${theme.palette.divider}`,
           marginY: theme.spacing(2),
         }}
       />
@@ -46,28 +46,22 @@ const Footer = () => {
         }}
       >
         {/* Left Section: Contact Info */}
-        <Box sx={{ flex: 1, marginRight: { md: 2 } }}>
-          <Typography
-            variant="h6"
-            sx={{ ...commonTextStyles, color: theme.palette.accent.red }}
-          >
+        <Box sx={{ flex: 1 }}>
+          <Typography variant="h6" sx={{ ...commonTextStyles }}>
             Свържете се с нас
           </Typography>
           <InfoList
             items={contactDetails}
             textStyle={{
               fontSize: "1rem",
-              color: theme.palette.text.secondary,
+              color: theme.palette.text.primary,
             }} // Define link color
             motionProps={{
-              whileHover: { scale: 1.05, color: theme.palette.accent.red },
+              whileHover: { scale: 1.05, color: theme.palette.text.active },
               transition: { duration: 0.3 },
             }}
           />
-          <Typography
-            variant="h6"
-            sx={{ ...commonTextStyles, color: theme.palette.accent.red }}
-          >
+          <Typography variant="h6" sx={{ ...commonTextStyles }}>
             Нашите локации
           </Typography>
           <InfoList
@@ -77,14 +71,11 @@ const Footer = () => {
               color: theme.palette.text.secondary,
             }} // Define link color
             motionProps={{
-              whileHover: { scale: 1.05, color: theme.palette.accent.red },
+              whileHover: { scale: 1.05, color: theme.palette.text.secondary },
               transition: { duration: 0.3 },
             }}
           />
-          <Typography
-            variant="h6"
-            sx={{ ...commonTextStyles, color: theme.palette.accent.red }}
-          >
+          <Typography variant="h6" sx={{ ...commonTextStyles }}>
             Последвайте ни
           </Typography>
           <SocialIcons socialLinks={socialLinks} />
@@ -124,7 +115,7 @@ const Footer = () => {
       {/* Divider */}
       <Box
         sx={{
-          borderBottom: `1px solid ${theme.palette.divider}`,
+          borderBottom: `2px solid ${theme.palette.divider}`,
           marginY: theme.spacing(2),
         }}
       />
@@ -133,6 +124,12 @@ const Footer = () => {
       <LazyLoad delay={1.5}>
         <Copyright companyName={companyName} />
       </LazyLoad>
+      <Box
+        sx={{
+          borderBottom: `2px solid ${theme.palette.divider}`,
+          marginY: theme.spacing(2),
+        }}
+      />
     </Box>
   );
 };

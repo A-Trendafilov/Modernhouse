@@ -11,11 +11,7 @@ const InfoList = ({ items, textStyle = {}, motionProps }) => {
       {items.map(({ Icon, text, address }, index) => (
         <Box key={index} sx={{ mb: 2 }}>
           <Box sx={{ display: "flex", alignItems: "center" }}>
-            {Icon && (
-              <Icon
-                sx={{ marginRight: 1, color: theme.palette.secondary.main }}
-              />
-            )}
+            {Icon && <Icon sx={{ marginRight: 1, color: "" }} />}
             {typeof text === "string" ? (
               <Typography
                 variant="body1"
@@ -23,8 +19,9 @@ const InfoList = ({ items, textStyle = {}, motionProps }) => {
                   color: theme.palette.text.primary,
                   ...textStyle,
                   transition: "color 0.3s ease", // Smooth color transition
+                  background: "transparent", // Set background to transparent
                   "&:hover": {
-                    color: theme.palette.accent.red, // Change color on hover
+                    color: theme.palette.action.active, // Change color on hover
                   },
                 }}
               >
@@ -41,8 +38,9 @@ const InfoList = ({ items, textStyle = {}, motionProps }) => {
                   sx={{
                     color: "inherit",
                     transition: "color 0.3s ease", // Smooth color transition
+                    background: "transparent", // Set background to transparent
                     "&:hover": {
-                      color: theme.palette.accent.red, // Change color on hover
+                      color: theme.palette.action.hover, // Change color on hover
                     },
                   }}
                 >
@@ -55,6 +53,7 @@ const InfoList = ({ items, textStyle = {}, motionProps }) => {
                 sx={{
                   color: theme.palette.text.primary,
                   ...textStyle,
+                  background: "transparent", // Set background to transparent
                 }}
               >
                 Invalid Link
@@ -66,7 +65,7 @@ const InfoList = ({ items, textStyle = {}, motionProps }) => {
               variant="body2"
               sx={{
                 mt: 1,
-                color: theme.palette.text.secondary,
+                color: theme.palette.text.primary,
                 fontStyle: "italic", // Italics for addresses
               }}
             >

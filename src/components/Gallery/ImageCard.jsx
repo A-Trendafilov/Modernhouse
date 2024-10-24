@@ -1,11 +1,12 @@
 import React from "react";
 import { Card, CardMedia, Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
-import LazyLoad from "../LazyLoad";
-import { useTheme } from "@mui/material/styles"; // Import useTheme
+import LazyLoad from "../LazyLoad"; // Ensure LazyLoad is correctly implemented
+import PropTypes from "prop-types"; // Import PropTypes
+import { useTheme } from "@mui/material/styles";
 
 const ImageCard = ({ image, onClick }) => {
-  const theme = useTheme(); // Access the theme
+  const theme = useTheme();
 
   return (
     <LazyLoad>
@@ -16,25 +17,37 @@ const ImageCard = ({ image, onClick }) => {
         sx={{
           cursor: "pointer",
           boxShadow: 3, // Use a lower shadow value for subtlety
-          backgroundColor: theme.palette.background.paper, // Card background color from the theme
-          transition: "transform 0.3s", // Smooth transition for hover effect
-          borderRadius: theme.shape.borderRadius, // Use theme's border radius
-          display: "flex", // Use flexbox for better layout
-          flexDirection: "column", // Stack children vertically
-          height: "100%", // Allow card to take full height
+          backgroundColor: "transparent",
+          transition: "transform 0.3s",
+          borderRadius: theme.shape.borderRadius,
+          display: "flex",
+          flexDirection: "column",
+          height: "100%",
           width: 320,
+        }}
+        role="button" // Set role for better accessibility
+        tabIndex={0} // Make card focusable
+        onKeyDown={(e) => {
+          // Handle keyboard interaction
+          if (e.key === "Enter" || e.key === " ") {
+            onClick(); // Trigger onClick on Enter or Space
+          }
         }}
       >
         <CardMedia
           component="img"
           image={image.src}
-          alt={image.title}
+          alt={image.title || "Image"} // Fallback alt text if title is missing
           sx={{
-            height: { xs: "200px", sm: "250px", md: "300px" }, // Responsive height
+            height: { xs: "200px", sm: "250px", md: "300px" },
             width: "100%",
-            objectFit: "cover", // Maintain aspect ratio
-            borderTopLeftRadius: theme.shape.borderRadius, // Rounded top corners
+            objectFit: "cover",
+            borderTopLeftRadius: theme.shape.borderRadius,
             borderTopRightRadius: theme.shape.borderRadius,
+          }}
+          onError={(e) => {
+            e.target.onerror = null; // Prevents infinite loop
+            e.target.src = "path/to/placeholder-image.jpg"; // Set a placeholder image
           }}
         />
         <Box
@@ -55,4 +68,13 @@ const ImageCard = ({ image, onClick }) => {
   );
 };
 
-export default ImageCard; // Ensure this line is present
+// Prop Types for better type checking
+ImageCard.propTypes = {
+  image: PropTypes.shape({
+    src: PropTypes.string.isRequired,
+    title: PropTypes.string,
+  }).isRequired,
+  onClick: PropTypes.func.isRequired,
+};
+
+export default ImageCard;

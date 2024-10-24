@@ -2,9 +2,8 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Box, useTheme } from "@mui/material"; // Import useTheme
 
-const AnimatedText = () => {
+const AnimatedText = ({ phrases = ["Modern House", "Designing Homes"] }) => {
   const theme = useTheme(); // Access the theme object
-  const phrases = ["Modern House", "Designing Homes"];
   const [currentPhrase, setCurrentPhrase] = useState(0);
 
   useEffect(() => {
@@ -12,7 +11,7 @@ const AnimatedText = () => {
       setCurrentPhrase((prevPhrase) => (prevPhrase + 1) % phrases.length);
     }, 6000);
     return () => clearInterval(interval);
-  }, []);
+  }, [phrases.length]); // Add phrases.length as a dependency
 
   const letterAnimation = {
     hidden: { opacity: 0, x: 50 },
@@ -47,13 +46,15 @@ const AnimatedText = () => {
       sx={{
         display: "flex",
         fontSize: {
-          xs: theme.typography.h6.fontSize, // Use theme's typography for small devices
-          sm: theme.typography.h5.fontSize, // Use theme's typography for small devices
-          md: theme.typography.h4.fontSize, // Use theme's typography for medium devices
-          lg: theme.typography.h3.fontSize, // Use theme's typography for large devices
+          xs: theme.typography.h6.fontSize,
+          sm: theme.typography.h5.fontSize,
+          md: theme.typography.h4.fontSize,
+          lg: theme.typography.h3.fontSize,
         },
-        color: theme.palette.text.primary, // Use theme's primary text color
+        color: theme.palette.text.primary,
       }}
+      role="heading" // Accessibility role
+      aria-live="polite" // Announce changes to screen readers
     >
       <AnimatePresence initial={false}>
         <motion.div

@@ -7,24 +7,22 @@ const ContactInfo = ({ items }) => {
   return (
     <Box
       sx={{
-        backgroundColor: "background.paper",
+        backgroundColor: "transparent",
         padding: 3,
-        boxShadow: 1,
-        borderRadius: 2,
       }}
     >
       <Typography
         variant="h4"
         gutterBottom
         textAlign="center"
-        sx={{ marginBottom: 3, fontWeight: "bold", color: "text.primary" }}
+        sx={{ marginBottom: 3,  color: "text.primary" }}
       >
         Център продажби
       </Typography>
       <InfoList
         items={items}
         boxStyle={{ marginBottom: "35px" }} // Custom box styles
-        textStyle={{ fontSize: "1rem" }} // Ensure link color is defined here
+        textStyle={{ fontSize: "1rem", color: "text.secondary" }} // Define text color
         motionProps={{
           whileHover: { scale: 1.05, color: "primary.main" }, // Hover effects for links
           transition: { duration: 0.3 },

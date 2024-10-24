@@ -20,14 +20,14 @@ const SocialIcons = ({ socialLinks }) => {
             alignItems: "center", // Centers icon vertically
             justifyContent: "center", // Centers icon horizontally
             borderRadius: "50%", // Rounded effect for modern look
-            backgroundColor: theme.palette.background.default, // Matches the background color
+            backgroundColor: "transparent", // Matches the background color
             padding: 1, // Adds padding for better spacing
             transition: "background-color 0.3s ease", // Smooth background transition
           }}
           whileHover={{
             scale: 1.2,
             color: theme.palette.accent.main,
-            backgroundColor: theme.palette.primary.main, // Change background on hover
+            backgroundColor: theme.palette.highlight.main, // Change background on hover
           }}
         >
           <Icon sx={{ fontSize: 40, color: "inherit" }} />
