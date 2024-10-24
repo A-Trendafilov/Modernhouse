@@ -1,15 +1,20 @@
 import React from "react";
-import { CssBaseline } from "@mui/material";
 import Footer from "./Footer/Footer"; // Import your Footer
 import Header from "./Header/Header";
+import ScrollToTopButton from "./ScrollToTopButton";
+import LazyLoad from "./LazyLoad";
+import ScrollToTop from "./ScrollToTop";
 
 const Layout = ({ children }) => {
   return (
     <div>
-      <CssBaseline />
+      <ScrollToTop />
       <Header /> {/* Ensure Header is included here */}
-      {children} {/* Render children directly */}
-      <Footer /> {/* Remove LazyLoad for debugging */}
+      {children}
+      <LazyLoad>
+        <Footer />
+      </LazyLoad>
+      <ScrollToTopButton />
     </div>
   );
 };

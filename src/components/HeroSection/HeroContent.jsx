@@ -49,7 +49,7 @@ const HeroContent = ({ title, description }) => {
         aria-label={`Learn more about ${title}`}
         sx={{
           marginTop: theme.spacing(2),
-          backgroundColor: theme.palette.accent.main,
+          backgroundColor: theme.palette.accent.red,
           "&:hover": {
             backgroundColor: theme.palette.accent.dark,
           },

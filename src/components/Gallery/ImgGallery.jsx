@@ -1,12 +1,5 @@
 import React, { useState, useMemo } from "react";
-import {
-  Container,
-  Typography,
-  Grid2,
-  useTheme,
-  CircularProgress,
-  Box,
-} from "@mui/material";
+import { Container, Typography, Grid2, useTheme, Box } from "@mui/material";
 import FilterButtons from "./FilterButtons";
 import ImageCard from "./ImageCard";
 import ImageLightbox from "./ImageLightbox";
@@ -31,7 +24,7 @@ const ImgGallery = () => {
       maxWidth={false}
       sx={{
         my: 4,
-        bgcolor: theme.palette.background.paper,
+        bgcolor: theme.palette.background.default,
         borderRadius: 2,
         padding: 2,
         width: "100%",
@@ -41,7 +34,7 @@ const ImgGallery = () => {
         variant="h4"
         align="center"
         gutterBottom
-        color={theme.palette.text.primary}
+        color={theme.palette.accent.red}
       >
         Галерия
       </Typography>

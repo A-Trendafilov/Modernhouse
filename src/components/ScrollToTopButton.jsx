@@ -1,50 +1,50 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { Fab } from "@mui/material";
-import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
-import { useTheme } from "@mui/material/styles";
+// src/components/ScrollToTopButton.jsx
+import React, { useEffect, useState } from "react";
+import { Fab } from "@mui/material"; // Floating Action Button
+import KeyboardDoubleArrowUpIcon from "@mui/icons-material/KeyboardDoubleArrowUp";
 
 const ScrollToTopButton = () => {
-  const theme = useTheme();
-  const [showButton, setShowButton] = useState(false);
+  const [visible, setVisible] = useState(false);
 
-  // Throttle scroll event handler using a timer (improved performance)
-  const handleScroll = useCallback(() => {
-    const scrollY = window.scrollY;
-    if (scrollY > 200) {
-      setShowButton(true);
+  const toggleVisibility = () => {
+    if (window.scrollY > 300) {
+      // Use scrollY instead of pageYOffset
+      setVisible(true);
     } else {
-      setShowButton(false);
+      setVisible(false);
     }
-  }, []);
+  };
 
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [handleScroll]);
-
-  const scrollToTop = (event) => {
-    event.stopPropagation();
+  const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
+      behavior: "smooth", // Smooth scrolling
     });
   };
 
-  return showButton ? (
+  useEffect(() => {
+    window.addEventListener("scroll", toggleVisibility); // Listen for scroll events
+    return () => {
+      window.removeEventListener("scroll", toggleVisibility); // Clean up the event listener
+    };
+  }, []);
+
+  return (
     <Fab
       onClick={scrollToTop}
-      color="secondary"
-      aria-label="scroll-to-top"
+      color="primary"
+      aria-label="scroll to top"
       sx={{
         position: "fixed",
-        bottom: "2rem",
-        right: "2rem",
-        zIndex: theme.zIndex.tooltip,
+        bottom: 16,
+        right: 16,
+        display: visible ? "flex" : "none", // Show button only when visible
+        transition: "display 0.2s ease-in-out",
       }}
     >
-      <ArrowUpwardIcon />
+      <KeyboardDoubleArrowUpIcon />
     </Fab>
-  ) : null;
+  );
 };
 
-export default React.memo(ScrollToTopButton); // Prevent unnecessary re-renders
+export default ScrollToTopButton;

@@ -19,9 +19,8 @@ const Header = () => {
       <AppBar
         position="sticky"
         sx={{
-          background: `linear-gradient(135deg, ${theme.palette.primary.main}, ${theme.palette.primary.dark})`, // Use theme colors
-          backdropFilter: "blur(15px)",
-          boxShadow: theme.shadows[4], // Use theme shadow for elevation
+          background: `linear-gradient(135deg, ${theme.palette.secondary.main}, ${theme.palette.primary.main})`, // Use theme colors
+          backdropFilter: "blur(5px)",
         }}
       >
         <Toolbar

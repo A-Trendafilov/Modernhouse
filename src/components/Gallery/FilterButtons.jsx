@@ -29,7 +29,7 @@ const FilterButtons = ({
             minWidth: 180,
             backgroundColor:
               selectedCategory === category
-                ? theme.palette.accent.main // Use theme color for active buttons
+                ? theme.palette.accent.red // Use theme color for active buttons
                 : "transparent",
             color:
               selectedCategory === category
@@ -37,14 +37,14 @@ const FilterButtons = ({
                 : theme.palette.text.primary, // Regular text color
             borderColor:
               selectedCategory === category
-                ? theme.palette.accent.main
+                ? theme.palette.accent.red
                 : theme.palette.divider, // Border color for outlined variant
             "&:hover": {
               backgroundColor:
                 selectedCategory === category
-                  ? theme.palette.highlight.main // Highlight color for active button on hover
-                  : theme.palette.action.hover, // Hover color for inactive buttons
-              borderColor: theme.palette.accent.main, // Ensure border color stays consistent on hover
+                  ? theme.palette.highlight.red // Highlight color for active button on hover
+                  : theme.palette.action.red, // Hover color for inactive buttons
+              borderColor: theme.palette.accent.red, // Ensure border color stays consistent on hover
             },
           }}
         >

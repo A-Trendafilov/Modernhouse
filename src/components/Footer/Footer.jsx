@@ -32,6 +32,12 @@ const Footer = () => {
         marginTop: theme.spacing(2.5),
       }}
     >
+      <Box
+        sx={{
+          borderBottom: `1px solid ${theme.palette.divider}`,
+          marginY: theme.spacing(2),
+        }}
+      />
       {/* First Row: Contact Info and Maps */}
       <Box
         sx={{
@@ -43,7 +49,7 @@ const Footer = () => {
         <Box sx={{ flex: 1, marginRight: { md: 2 } }}>
           <Typography
             variant="h6"
-            sx={{ ...commonTextStyles, color: theme.palette.accent.main }}
+            sx={{ ...commonTextStyles, color: theme.palette.accent.red }}
           >
             Свържете се с нас
           </Typography>
@@ -54,13 +60,13 @@ const Footer = () => {
               color: theme.palette.text.secondary,
             }} // Define link color
             motionProps={{
-              whileHover: { scale: 1.05, color: theme.palette.accent.main },
+              whileHover: { scale: 1.05, color: theme.palette.accent.red },
               transition: { duration: 0.3 },
             }}
           />
           <Typography
             variant="h6"
-            sx={{ ...commonTextStyles, color: theme.palette.accent.main }}
+            sx={{ ...commonTextStyles, color: theme.palette.accent.red }}
           >
             Нашите локации
           </Typography>
@@ -71,13 +77,13 @@ const Footer = () => {
               color: theme.palette.text.secondary,
             }} // Define link color
             motionProps={{
-              whileHover: { scale: 1.05, color: theme.palette.accent.main },
+              whileHover: { scale: 1.05, color: theme.palette.accent.red },
               transition: { duration: 0.3 },
             }}
           />
           <Typography
             variant="h6"
-            sx={{ ...commonTextStyles, color: theme.palette.accent.main }}
+            sx={{ ...commonTextStyles, color: theme.palette.accent.red }}
           >
             Последвайте ни
           </Typography>
@@ -99,10 +105,8 @@ const Footer = () => {
               key={index}
               sx={{
                 flex: "1 1 auto", // Allow flexing
-                margin: "10px 0", // Margin between maps
                 borderRadius: 1, // Rounded corners for maps
                 overflow: "hidden", // Ensure no overflow
-                boxShadow: 1, // Subtle shadow for depth
                 transition: "transform 0.3s ease", // Smooth hover transition
                 "&:hover": {
                   transform: "scale(1.05)", // Scale on hover

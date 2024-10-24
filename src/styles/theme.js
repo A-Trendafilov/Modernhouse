@@ -1,20 +1,27 @@
-// src/styles/theme.js
 import { createTheme } from '@mui/material/styles';
 
 const theme = createTheme({
     palette: {
         primary: {
-            main: '#333333', // Dark Charcoal
+            light: '#4f4f4f', // Light shade of primary
+            main: '#333333',  // Main shade of primary
+            dark: '#1a1a1a',  // Dark shade of primary
         },
         secondary: {
-            main: '#FFFFFF', // Soft White
+            light: '#ffffff', // Light shade of secondary
+            main: '#FFFFFF',  // Main shade of secondary
+            dark: '#F5F5F5',  // Dark shade of secondary
         },
         accent: {
             main: '#007BFF', // Blue for accent
-            contrastText: '#FFFFFF', // White for contrast on accent
+            red: '#d00000',
+            contrastText: '#FFFFFF',
+            dark: "#990000" // White for contrast on accent
         },
         highlight: {
             main: '#66B3FF', // Lighter Blue for highlights
+            red: "#990000"
+
         },
         divider: '#B0B0B0', // Gray for dividers
         text: {
@@ -24,9 +31,10 @@ const theme = createTheme({
         action: {
             hover: '#0056b3', // Darker blue for hover effects
             active: '#004494', // Even darker blue for active state
+            red: "#990000"
         },
         background: {
-            default: '#1A1A1A', // Dark background
+            default: '#2A2A2A', // Dark background
             paper: '#2A2A2A', // Slightly lighter dark background
         },
     },
@@ -35,10 +43,10 @@ const theme = createTheme({
         h1: {
             fontSize: '2.5rem',
             fontWeight: 700,
-            color: '#007BFF', // Blue for h1 headings
+            color: '#d00000', // Blue for h1 headings
             transition: 'color 0.3s ease', // Smooth transition for hover
             '&:hover': {
-                color: '#66B3FF', // Lighten on hover
+                color: '#DC2F02', // Lighten on hover
             },
         },
         h2: {
@@ -53,10 +61,10 @@ const theme = createTheme({
         h3: {
             fontSize: '1.75rem',
             fontWeight: 600,
-            color: '#007BFF', // Blue for h3 headings
+            color: '#d00000', // Blue for h3 headings
             transition: 'color 0.3s ease', // Smooth transition for hover
             '&:hover': {
-                color: '#66B3FF', // Lighten on hover
+                color: '#DC2F02', // Lighten on hover
             },
         },
         body1: {
@@ -79,10 +87,10 @@ const theme = createTheme({
             fontWeight: 600,
             textTransform: 'uppercase',
             letterSpacing: '0.5px',
-            color: '#FFFFFF', // Default button text
+            color: '#333333', // Default button text
             transition: 'background-color 0.3s ease, transform 0.3s ease', // Smooth button transitions
             '&:hover': {
-                backgroundColor: '#0056b3', // Darker blue on hover
+                backgroundColor: '#d00000', // Darker blue on hover
                 transform: 'scale(1.05)', // Slightly scale on hover
             },
         },

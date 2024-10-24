@@ -24,7 +24,7 @@ const InfoList = ({ items, textStyle = {}, motionProps }) => {
                   ...textStyle,
                   transition: "color 0.3s ease", // Smooth color transition
                   "&:hover": {
-                    color: theme.palette.accent.main, // Change color on hover
+                    color: theme.palette.accent.red, // Change color on hover
                   },
                 }}
               >
@@ -42,7 +42,7 @@ const InfoList = ({ items, textStyle = {}, motionProps }) => {
                     color: "inherit",
                     transition: "color 0.3s ease", // Smooth color transition
                     "&:hover": {
-                      color: theme.palette.accent.main, // Change color on hover
+                      color: theme.palette.accent.red, // Change color on hover
                     },
                   }}
                 >

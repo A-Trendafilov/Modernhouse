@@ -10,11 +10,11 @@ const Logo = () => {
     <Box sx={{ display: "flex", alignItems: "center" }}>
       <img
         src={logo}
-        alt="Firm Logo"
+        alt="Modern House Logo"
         style={{
-          width: theme.spacing(5), // Use theme spacing for width
-          height: theme.spacing(5), // Use theme spacing for height
-          marginRight: theme.spacing(1), // Use theme spacing for margin
+          width: theme.spacing(10), // Use theme spacing for width
+          height: theme.spacing(8), // Use theme spacing for height
+          margin: theme.spacing(1), // Use theme spacing for margin
         }}
       />
     </Box>
