@@ -14,13 +14,13 @@ const FilterButtons = ({
   const buttonStyles = (isSelected) => ({
     mx: 1,
     minWidth: 180,
-    backgroundColor: isSelected ? theme.palette.accent.dark : "transparent",
+    backgroundColor: isSelected ? theme.palette.primary.main : "transparent",
     color: isSelected
       ? theme.palette.text.secondary
       : theme.palette.text.primary,
     "&:hover": {
       backgroundColor: isSelected
-        ? theme.palette.highlight.main
+        ? theme.palette.primary.main
         : theme.palette.action.light,
     },
   });

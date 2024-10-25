@@ -28,7 +28,7 @@ export const getStyles = (theme) => ({
         iconColor: theme.palette.text.primary,
         linkColor: theme.palette.text.primary,
         motionProps: {
-            whileHover: { scale: 1.05, color: theme.palette.action.main },
+            whileHover: { scale: 1.05, color: theme.palette.action.hover },
             transition: { duration: 0.3 },
         },
     },

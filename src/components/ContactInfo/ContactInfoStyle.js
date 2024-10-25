@@ -22,10 +22,10 @@ export const getStyles = (theme) => ({
       fontSize: { xs: "0.875rem", sm: "1rem" },
       color: theme.palette.text.primary,
     },
-    iconColor: theme.palette.accent.red,
-    linkColor: theme.palette.text.primary,
+    iconColor: theme.palette.primary.main, // Use primary color for icons
+    linkColor: theme.palette.primary.main, // Use accent color for links
     motionProps: {
-      whileHover: { scale: 1.05, color: theme.palette.accent.red },
+      whileHover: { scale: 1.05, color: theme.palette.action.light }, // Use theme action color on hover
       transition: { duration: 0.3 },
     },
   },

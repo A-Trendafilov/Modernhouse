@@ -13,7 +13,7 @@ const DrawerMenu = ({ handleDrawerToggle }) => {
         textAlign: "center",
         height: "100%", // Ensures full height of drawer
         padding: 2, // Adds padding
-        bgcolor: theme.palette.primary.dark,
+        bgcolor: theme.palette.background.main,
       }}
     >
       <NavItems handleDrawerToggle={handleDrawerToggle} />

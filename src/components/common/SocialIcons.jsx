@@ -26,8 +26,8 @@ const SocialIcons = ({ socialLinks }) => {
           }}
           whileHover={{
             scale: 1.2,
-            color: theme.palette.accent.main,
-            backgroundColor: theme.palette.highlight.main,
+            color: theme.palette.action.hover,
+            backgroundColor: theme.palette.background.default,
           }}
         >
           <Icon sx={{ fontSize: 40, color: theme.palette.text.primary }} />

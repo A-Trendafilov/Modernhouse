@@ -25,7 +25,7 @@ const InfoList = ({
     },
     link: {
       textDecoration: "none",
-      color: linkColor || theme.palette.accent.main,
+      color: linkColor || theme.palette.primary.main,
     },
   };
 

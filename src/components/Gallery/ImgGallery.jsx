@@ -56,12 +56,7 @@ const ImgGallery = () => {
         width: "100%",
       }}
     >
-      <Typography
-        variant="h4"
-        align="center"
-        gutterBottom
-        color={theme.palette.accent.red}
-      >
+      <Typography variant="h4" align="center" gutterBottom>
         Галерия
       </Typography>
 

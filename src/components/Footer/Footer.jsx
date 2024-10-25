@@ -32,8 +32,6 @@ const Footer = () => {
         }}
       >
         <Box sx={styles.infoContainer}>
-          {" "}
-          {/* Updated this Box with the new style */}
           <Typography variant="h6" sx={styles.title}>
             Свържете се с нас
           </Typography>
@@ -44,16 +42,18 @@ const Footer = () => {
             linkColor={styles.infoList.linkColor}
             motionProps={styles.infoList.motionProps}
           />
+
           <Typography variant="h6" sx={styles.title}>
             Нашите локации
           </Typography>
           <InfoList
-            items={locations} // Ensure locations is passed here
+            items={locations}
             textStyle={styles.infoList.textStyle}
             iconColor={styles.infoList.iconColor}
             linkColor={styles.infoList.linkColor}
             motionProps={styles.infoList.motionProps}
           />
+
           <Typography variant="h6" sx={styles.title}>
             Последвайте ни
           </Typography>

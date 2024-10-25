@@ -2,9 +2,9 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
-import { Box, Typography, Button, useTheme } from "@mui/material"; // Import useTheme
-import FormField from "./FormField"; // Import the FormField component
-import SnackbarAlert from "./SnackbarAlert"; // Import the SnackbarAlert component
+import { Box, Typography, Button, useTheme, CircularProgress } from "@mui/material"; // Import CircularProgress for loading state
+import FormField from "./FormField"; 
+import SnackbarAlert from "./SnackbarAlert"; 
 
 // Define validation schema
 const validationSchema = Yup.object().shape({
@@ -24,11 +24,11 @@ const validationSchema = Yup.object().shape({
 });
 
 const ContactForm = () => {
-  const theme = useTheme(); // Access the theme
+  const theme = useTheme();
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting }, // Add isSubmitting to track submission state
     reset,
   } = useForm({
     resolver: yupResolver(validationSchema),
@@ -53,7 +53,7 @@ const ContactForm = () => {
         setSnackbarSeverity("success");
         reset();
       } else {
-        throw new Error("Неуспешно изпращане на съобщението."); // Throw error if response not OK
+        throw new Error("Неуспешно изпращане на съобщението.");
       }
     } catch (error) {
       setSnackbarMessage(
@@ -73,7 +73,7 @@ const ContactForm = () => {
     <Box
       sx={{
         padding: theme.spacing(2.5),
-        backgroundColor: "transparent", // Set background to transparent
+        backgroundColor: "transparent",
       }}
     >
       <Typography variant="h4" gutterBottom textAlign="center">
@@ -122,8 +122,9 @@ const ContactForm = () => {
           type="submit"
           fullWidth
           sx={{ marginTop: theme.spacing(2.5) }}
+          disabled={isSubmitting} // Disable button while submitting
         >
-          Изпрати запитване
+          {isSubmitting ? <CircularProgress size={24} color="inherit" /> : "Изпрати запитване"}
         </Button>
 
         <Box sx={{ mt: 10, maxWidth: "600px" }}>
