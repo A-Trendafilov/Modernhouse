@@ -1,4 +1,5 @@
 import { createTheme } from '@mui/material/styles';
+import { light } from '@mui/material/styles/createPalette';
 
 const theme = createTheme({
     palette: {
@@ -10,13 +11,13 @@ const theme = createTheme({
             main: '#FFFFFF',  // Main shade of secondary
         },
         accent: {
-            main: '#007BFF', // Blue for accent
-            red: '#000000',
-            contrastText: '#FFFFFF',
-            dark: "#000000" // White for contrast on accent
+            main: '#007BFF',
+            dark: '#000000',
+            light: "#FFFFFF"
         },
         highlight: {
-            main: '#66B3FF', // Lighter Blue for highlights
+            main: '#66B3FF',
+            light: '#FFFFFF', // Lighter Blue for highlights
             red: "#000000"
         },
         divider: '#000000', // Black for dividers
@@ -26,7 +27,8 @@ const theme = createTheme({
             active: '#d8e2dc'
         },
         action: {
-            hover: '#0056b3', // Darker blue for hover effects
+            hover: '#0056b3',
+            light: '#FFFFFF',// Darker blue for hover effects
             active: '#004494', // Even darker blue for active state
         },
     },
@@ -35,7 +37,7 @@ const theme = createTheme({
         h1: {
             fontSize: '2.5rem',
             fontWeight: 700,
-            color: '#d00000', // Blue for h1 headings
+            color: '#e5e5e5', // Blue for h1 headings
             transition: 'color 0.3s ease', // Smooth transition for hover
             '&:hover': {
                 color: '#DC2F02', // Lighten on hover
@@ -53,7 +55,7 @@ const theme = createTheme({
         h3: {
             fontSize: '1.75rem',
             fontWeight: 600,
-            color: '#d00000', // Blue for h3 headings
+            color: '#e5e5e5', // Blue for h3 headings
             transition: 'color 0.3s ease', // Smooth transition for hover
             '&:hover': {
                 color: '#DC2F02', // Lighten on hover

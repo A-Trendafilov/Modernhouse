@@ -1,33 +1,19 @@
 // src/components/Contact/ContactInfo.jsx
 import React from "react";
-import { Box, Typography } from "@mui/material"; // Import necessary MUI components
-import InfoList from "../Footer/InfoList"; // Import InfoList
+import { Box, Typography, useTheme } from "@mui/material";
+import InfoList from "../common/InfoList";
+import { getStyles } from "./ContactInfoStyle"; // Adjust the import
 
 const ContactInfo = ({ items }) => {
+  const theme = useTheme();
+  const styles = getStyles(theme); // Get styles using theme
+
   return (
-    <Box
-      sx={{
-        backgroundColor: "transparent",
-        padding: 3,
-      }}
-    >
-      <Typography
-        variant="h4"
-        gutterBottom
-        textAlign="center"
-        sx={{ marginBottom: 3,  color: "text.primary" }}
-      >
+    <Box sx={styles.container}>
+      <Typography variant="h4" gutterBottom sx={styles.title}>
         Център продажби
       </Typography>
-      <InfoList
-        items={items}
-        boxStyle={{ marginBottom: "35px" }} // Custom box styles
-        textStyle={{ fontSize: "1rem", color: "text.secondary" }} // Define text color
-        motionProps={{
-          whileHover: { scale: 1.05, color: "primary.main" }, // Hover effects for links
-          transition: { duration: 0.3 },
-        }}
-      />
+      <InfoList {...styles.infoList} items={items} />
     </Box>
   );
 };

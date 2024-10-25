@@ -16,7 +16,7 @@ const NotFound = () => {
         justifyContent: "center",
         height: "100vh",
         textAlign: "center",
-        bgcolor: "background.default", // Use theme's default background color
+        bgcolor: "transparent", // Use theme's default background color
         color: "text.primary", // Use theme's primary text color
         padding: 3, // Add some padding for spacing
       }}

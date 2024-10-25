@@ -2,7 +2,7 @@
 import React from "react";
 import Slider from "react-slick";
 import { heroSectionImg } from "../../data/heroSectionImg";
-import LazyLoad from "../LazyLoad";
+import LazyLoad from "../utils/LazyLoad";
 import HeroSlide from "./HeroSlide"; // Import the HeroSlide component
 
 // Slider settings configuration

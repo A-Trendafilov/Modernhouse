@@ -51,7 +51,7 @@ const AnimatedText = ({ phrases = ["Modern House", "Designing Homes"] }) => {
           md: theme.typography.h4.fontSize,
           lg: theme.typography.h3.fontSize,
         },
-        color: theme.palette.text.primary,
+        color: theme.palette.text.secondary,
       }}
       role="heading" // Accessibility role
       aria-live="polite" // Announce changes to screen readers

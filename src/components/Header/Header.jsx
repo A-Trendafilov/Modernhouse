@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { AppBar, Toolbar, Box, Drawer, useTheme } from "@mui/material"; // Import useTheme
 import MenuIcon from "@mui/icons-material/Menu";
-import AnimatedText from "../AnimatedText";
+import AnimatedText from "../utils/AnimatedText";
 import Logo from "./Logo";
 import DrawerMenu from "./DrawerMenu";
 
@@ -28,13 +28,19 @@ const Header = () => {
           sx={{ display: "flex", justifyContent: "space-between", padding: 0 }}
         >
           <Logo />
-          <Box sx={{ flexGrow: 1, display: "flex", justifyContent: "center" }}>
+          <Box
+            sx={{
+              position: "absolute",
+              left: "50%",
+              transform: "translateX(-50%)",
+            }}
+          >
             <AnimatedText />
           </Box>
           <Box
             component="span"
             onClick={handleDrawerToggle}
-            sx={{ display: "flex", cursor: "pointer", marginRight: "10px",  }}
+            sx={{ display: "flex", cursor: "pointer", marginRight: "10px" }}
           >
             <MenuIcon sx={{ color: theme.palette.text.secondary }} />{" "}
           </Box>

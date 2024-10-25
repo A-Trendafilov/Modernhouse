@@ -1,7 +1,7 @@
 // src/pages/Contact.jsx
 import React from "react";
-import { Box, Typography } from "@mui/material"; // Import Box and Typography for layout
-import LazyLoad from "../components/LazyLoad"; // Import LazyLoad
+import { Box } from "@mui/material"; // Import Box and Typography for layout
+import LazyLoad from "../components/utils/LazyLoad"; // Import LazyLoad
 import ContactForm from "../components/Form/ContactForm"; // Import ContactForm
 import ContactInfo from "../components/ContactInfo/ContactInfo"; // Import the new ContactInfo component
 import { salesDetails } from "../data/salesData"; // Import contact details
@@ -14,7 +14,6 @@ const Contact = () => {
 
   return (
     <Box
-      className="contact-page"
       sx={{
         display: "flex",
         flexDirection: { xs: "column", md: "row" },
@@ -24,7 +23,6 @@ const Contact = () => {
         gap: "20px",
         padding: 2,
         bgcolor: "transparent", // Set background to transparent
-        borderRadius: 2,
       }}
     >
       {/* Contact Form Section */}

@@ -7,7 +7,6 @@ const ImgGallery = lazy(() => import("../components/Gallery/ImgGallery"));
 const Gallery = () => {
   return (
     <Box
-      className="gallery-page"
       sx={{
         display: "flex",
         flexDirection: "column",
@@ -15,7 +14,6 @@ const Gallery = () => {
         justifyContent: "center",
         minHeight: "100vh", // Full viewport height
         bgcolor: "transparent", // Use theme's background color
-        padding: 0, // Remove padding to allow full width
         width: "100%", // Ensure full width
       }}
     >

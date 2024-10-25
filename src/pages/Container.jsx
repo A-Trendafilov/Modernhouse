@@ -5,14 +5,13 @@ import { Box, Typography } from "@mui/material"; // Import Box and Typography fr
 const Container = () => {
   return (
     <Box
-      className="container-page"
       sx={{
         display: "flex",
         flexDirection: "column", // Align items in a column
         alignItems: "center", // Center align horizontally
         justifyContent: "center", // Center align vertically
         minHeight: "100vh", // Full viewport height
-        bgcolor: "background.default", // Use theme's background color
+        bgcolor: "transparent", // Use theme's background color
         padding: 3, // Add padding for spacing
       }}
     >

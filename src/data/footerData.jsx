@@ -25,7 +25,6 @@ export const contactDetails = [
 
 export const locations = [
   {
-    address: "ул. Извън Регулация №4 обл.Пловдив, с.Калековец 4147",
     text: <a href="https://maps.app.goo.gl/ybdjG85FBvMr65kQ6">Производство</a>,
     Icon: LocationOnIcon,
   },

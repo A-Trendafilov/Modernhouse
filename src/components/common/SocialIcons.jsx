@@ -14,23 +14,23 @@ const SocialIcons = ({ socialLinks }) => {
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          style={{
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            borderRadius: "50%",
+            backgroundColor: "transparent",
+            padding: 1,
             color: theme.palette.text.primary,
-            display: "flex", // Ensures the icon is centered
-            alignItems: "center", // Centers icon vertically
-            justifyContent: "center", // Centers icon horizontally
-            borderRadius: "50%", // Rounded effect for modern look
-            backgroundColor: "transparent", // Matches the background color
-            padding: 1, // Adds padding for better spacing
-            transition: "background-color 0.3s ease", // Smooth background transition
+            transition: "background-color 0.3s ease, transform 0.3s ease",
           }}
           whileHover={{
             scale: 1.2,
             color: theme.palette.accent.main,
-            backgroundColor: theme.palette.highlight.main, // Change background on hover
+            backgroundColor: theme.palette.highlight.main,
           }}
         >
-          <Icon sx={{ fontSize: 40, color: "inherit" }} />
+          <Icon sx={{ fontSize: 40, color: theme.palette.text.primary }} />
         </motion.a>
       ))}
     </Box>

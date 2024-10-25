@@ -10,49 +10,48 @@ const FilterButtons = ({
 }) => {
   const theme = useTheme();
 
+  // Define button styles
+  const buttonStyles = (isSelected) => ({
+    mx: 1,
+    minWidth: 180,
+    backgroundColor: isSelected ? theme.palette.accent.dark : "transparent",
+    color: isSelected
+      ? theme.palette.text.secondary
+      : theme.palette.text.primary,
+    "&:hover": {
+      backgroundColor: isSelected
+        ? theme.palette.highlight.main
+        : theme.palette.action.light,
+    },
+  });
+
   return (
     <Box
       sx={{
         display: "flex",
         justifyContent: "center",
         flexWrap: "wrap",
-        mb: 4,
+        mb: 10,
+        mt: 5,
         gap: 1, // Add space between buttons
       }}
     >
-      {categories.map((category) => (
-        <Button
-          key={category}
-          onClick={() => setSelectedCategory(category)}
-          variant={selectedCategory === category ? "contained" : "outlined"}
-          aria-pressed={selectedCategory === category} // Accessibility: indicates the pressed state
-          sx={{
-            mx: 1,
-            minWidth: 180,
-            backgroundColor:
-              selectedCategory === category
-                ? theme.palette.accent.red // Use theme color for active buttons
-                : "transparent",
-            color:
-              selectedCategory === category
-                ? theme.palette.accent.contrastText // Contrasting text color for active state
-                : theme.palette.text.primary,
-            borderColor:
-              selectedCategory === category
-                ? theme.palette.accent.red
-                : theme.palette.divider,
-            "&:hover": {
-              backgroundColor:
-                selectedCategory === category
-                  ? theme.palette.highlight.red // Ensure a suitable color for accessibility
-                  : theme.palette.action.hover, // Use action.hover for better visibility
-              borderColor: theme.palette.accent.red,
-            },
-          }}
-        >
-          {category}
-        </Button>
-      ))}
+      {categories.map((category) => {
+        const isSelected = selectedCategory === category;
+
+        return (
+          <Button
+            key={category}
+            onClick={() => setSelectedCategory(category)}
+            variant={isSelected ? "contained" : "outlined"}
+            aria-pressed={isSelected} // Accessibility: indicates the pressed state
+            tabIndex={0} // Ensure button is focusable
+            sx={buttonStyles(isSelected)} // Apply button styles
+          >
+            {category}
+          </Button>
+        );
+      })}
     </Box>
   );
 };

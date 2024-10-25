@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, CardMedia, Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
-import LazyLoad from "../LazyLoad"; // Ensure LazyLoad is correctly implemented
+import LazyLoad from "../utils/LazyLoad"; // Ensure LazyLoad is correctly implemented
 import PropTypes from "prop-types"; // Import PropTypes
 import { useTheme } from "@mui/material/styles";
 

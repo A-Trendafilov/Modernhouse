@@ -1,10 +1,10 @@
 import React, { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
-import { CssBaseline, CircularProgress } from "@mui/material"; // Import CircularProgress for loading indicator
-import theme from "./styles/theme"; // Import your custom theme
-import Layout from "./components/Layout"; // Import the new Layout component
-import ErrorBoundary from "./components/ErrorBoundary"; // Import ErrorBoundary
+import { CssBaseline, CircularProgress } from "@mui/material";
+import theme from "./styles/theme";
+import Layout from "./components/Layout";
+import ErrorBoundary from "./components/utils/ErrorBoundary";
 import "./App.css";
 
 // Lazy load your pages
@@ -14,8 +14,10 @@ const Contact = lazy(() => import("./pages/Contact"));
 const Gallery = lazy(() => import("./pages/Gallery"));
 const Container = lazy(() => import("./pages/Container"));
 const SteelHouse = lazy(() => import("./pages/House/SteelHouse"));
-const ModernHouse = lazy(() => import("./pages/House/ModernHouse"));
+const ModularHouses = lazy(() => import("./pages/House/ModularHouses"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+const Project = lazy(() => import("./pages/Project")); // Import Project component
+const ProjectDetail = lazy(() => import("./pages/ProjectDetail")); // Import ProjectDetail component
 
 const App = () => {
   return (
@@ -24,8 +26,6 @@ const App = () => {
       <Router basename="/Modernhouse">
         <Layout>
           <ErrorBoundary>
-            {" "}
-            {/* Wrap Suspense with ErrorBoundary */}
             <Suspense
               fallback={
                 <div
@@ -47,10 +47,15 @@ const App = () => {
                 <Route path="/gallery" element={<Gallery />} />
                 <Route path="/container" element={<Container />} />
                 <Route path="/house">
-                  {/* Nested routes for houses */}
                   <Route path="steel" element={<SteelHouse />} />
-                  <Route path="modern" element={<ModernHouse />} />
+                  <Route path="modular" element={<ModularHouses />} />
                 </Route>
+                <Route path="/projects" element={<Project />} />
+                <Route
+                  path="/projects/:projectId"
+                  element={<ProjectDetail />}
+                />
+
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>

@@ -1,10 +1,18 @@
 import React, { useState, useMemo, useEffect } from "react";
-import { Container, Typography, Grid, useTheme, Box, CircularProgress } from "@mui/material";
+import {
+  Container,
+  Typography,
+  Grid,
+  useTheme,
+  Box,
+  CircularProgress,
+} from "@mui/material";
 import FilterButtons from "./FilterButtons";
 import ImageCard from "./ImageCard";
 import ImageLightbox from "./ImageLightbox";
-import { images } from "../../data/galleryImg";
+import { images } from "../../data/galleryImg"; // Ensure this has unique ids
 
+// Categories available for filtering
 const categories = ["Всички", "Контейнери", "Сглобяеми къщи", "Стоманени къщи"];
 
 const ImgGallery = () => {
@@ -14,17 +22,18 @@ const ImgGallery = () => {
   const [error, setError] = useState(null);
   const theme = useTheme();
 
+  // Memoized filtered images based on selected category
   const filteredImages = useMemo(() => {
     return selectedCategory === "Всички"
       ? images
       : images.filter((image) => image.category === selectedCategory);
   }, [selectedCategory]);
 
+  // Simulate image loading with useEffect
   useEffect(() => {
-    // Simulate image loading
     const loadImages = async () => {
       try {
-        // Simulating a delay (e.g., fetching images from a server)
+        // Simulate a network request delay
         await new Promise((resolve) => setTimeout(resolve, 1000));
         setLoading(false);
       } catch (err) {
@@ -82,7 +91,7 @@ const ImgGallery = () => {
             <ImageCard
               key={image.id} // Use a unique identifier from image data
               image={image}
-              onClick={() => setSelectedImage(image.src)}
+              onClick={() => setSelectedImage(image.src)} // Open lightbox on click
               aria-label={`View ${image.title}`} // Accessibility feature
             />
           ))}

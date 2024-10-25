@@ -1,6 +1,6 @@
 import React from "react";
 import HeroSection from "../components/HeroSection/HeroSection"; // Import HeroSection
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 
 const Home = () => {
   return (
