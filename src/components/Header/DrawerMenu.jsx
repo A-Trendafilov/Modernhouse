@@ -1,7 +1,7 @@
-// src/components/DrawerMenu.jsx
-import React from "react";
-import { Box, useTheme } from "@mui/material"; // Import useTheme
-import NavItems from "./NavItems";
+import PropTypes from "prop-types"; // Import PropTypes
+import { Box, useTheme } from "@mui/material";
+
+import NavItems from "./NavItems.jsx";
 
 const DrawerMenu = ({ handleDrawerToggle }) => {
   const theme = useTheme(); // Access the theme object
@@ -19,6 +19,11 @@ const DrawerMenu = ({ handleDrawerToggle }) => {
       <NavItems handleDrawerToggle={handleDrawerToggle} />
     </Box>
   );
+};
+
+// Prop validation
+DrawerMenu.propTypes = {
+  handleDrawerToggle: PropTypes.func.isRequired, // handleDrawerToggle should be a function and required
 };
 
 export default DrawerMenu;

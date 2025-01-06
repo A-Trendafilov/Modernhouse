@@ -1,8 +1,7 @@
-import React, { lazy, Suspense } from "react";
-import { Box, Typography, CircularProgress } from "@mui/material"; // Import necessary MUI components
+import { lazy, Suspense } from "react";
+import { Box, CircularProgress } from "@mui/material";
 
-// Lazy load the ImgGallery component
-const ImgGallery = lazy(() => import("../components/Gallery/ImgGallery"));
+const ImgGallery = lazy(() => import("../components/Gallery/ImgGallery.jsx"));
 
 const Gallery = () => {
   return (
@@ -28,7 +27,7 @@ const Gallery = () => {
               bgcolor: "transparent",
             }}
           >
-            <CircularProgress /> {/* Show a loading spinner */}
+            <CircularProgress />
           </Box>
         }
       >

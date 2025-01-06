@@ -1,9 +1,10 @@
-import React from "react";
-import Footer from "./Footer/Footer";
-import Header from "./Header/Header";
-import ScrollToTopButton from "./utils/ScrollToTopButton";
-import LazyLoad from "./utils/LazyLoad";
-import ScrollToTop from "./utils/ScrollToTop";
+import PropTypes from "prop-types";
+
+import Footer from "./Footer/Footer.jsx";
+import Header from "./Header/Header.jsx";
+import ScrollToTopButton from "./utils/ScrollToTopButton.jsx";
+import LazyLoad from "./utils/LazyLoad.jsx";
+import ScrollToTop from "./utils/ScrollToTop.jsx";
 
 const Layout = ({ children }) => {
   return (
@@ -17,6 +18,10 @@ const Layout = ({ children }) => {
       <ScrollToTopButton />
     </div>
   );
+};
+
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 export default Layout;

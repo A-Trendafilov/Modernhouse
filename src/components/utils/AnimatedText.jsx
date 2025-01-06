@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
 import { Box, useTheme } from "@mui/material"; // Import useTheme
+import PropTypes from "prop-types"; // Import PropTypes
 
 const AnimatedText = ({ phrases = ["Modern House", "Designing Homes"] }) => {
   const theme = useTheme(); // Access the theme object
@@ -86,6 +87,11 @@ const AnimatedText = ({ phrases = ["Modern House", "Designing Homes"] }) => {
       </AnimatePresence>
     </Box>
   );
+};
+
+// PropTypes validation
+AnimatedText.propTypes = {
+  phrases: PropTypes.arrayOf(PropTypes.string), // Array of strings
 };
 
 export default AnimatedText;

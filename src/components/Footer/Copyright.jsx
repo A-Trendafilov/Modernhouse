@@ -1,5 +1,4 @@
-// src/components/Copyright.jsx
-import React from "react";
+import PropTypes from "prop-types";
 import { Box, Typography } from "@mui/material";
 
 const Copyright = ({ companyName }) => {
@@ -10,6 +9,10 @@ const Copyright = ({ companyName }) => {
       </Typography>
     </Box>
   );
+};
+
+Copyright.propTypes = {
+  companyName: PropTypes.string.isRequired,
 };
 
 export default Copyright;

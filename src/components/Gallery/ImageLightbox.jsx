@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import PropTypes from "prop-types";
+import { useEffect } from "react";
 import { Dialog, useMediaQuery, useTheme } from "@mui/material";
 import { motion } from "framer-motion";
 
@@ -13,7 +14,7 @@ const ImageLightbox = ({ selectedImage, handleClose }) => {
         handleClose();
       }
     };
-    
+
     window.addEventListener("keydown", handleKeyDown);
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
@@ -71,6 +72,12 @@ const ImageLightbox = ({ selectedImage, handleClose }) => {
       </motion.div>
     </Dialog>
   );
+};
+
+// Prop validation
+ImageLightbox.propTypes = {
+  selectedImage: PropTypes.string.isRequired, // selectedImage should be a string and required
+  handleClose: PropTypes.func.isRequired, // handleClose should be a function and required
 };
 
 export default ImageLightbox;

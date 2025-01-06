@@ -1,10 +1,9 @@
-// src/pages/Contact.jsx
-import React from "react";
 import { Box } from "@mui/material"; // Import Box and Typography for layout
-import LazyLoad from "../components/utils/LazyLoad"; // Import LazyLoad
-import ContactForm from "../components/Form/ContactForm"; // Import ContactForm
-import ContactInfo from "../components/ContactInfo/ContactInfo"; // Import the new ContactInfo component
-import { salesDetails } from "../data/salesData"; // Import contact details
+
+import LazyLoad from "../components/utils/LazyLoad.jsx"; // Import LazyLoad
+import ContactForm from "../components/Form/ContactForm.jsx"; // Import ContactForm
+import ContactInfo from "../components/ContactInfo/ContactInfo.jsx"; // Import the new ContactInfo component
+import { salesDetails } from "../data/salesData.jsx"; // Import contact details
 
 const Contact = () => {
   const contactDetails = salesDetails.map((detail) => ({

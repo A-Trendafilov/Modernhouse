@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from "prop-types"; // Import PropTypes
 import { TextField, useTheme } from "@mui/material";
 
 const FormField = ({ label, register, name, error, helperText, ...props }) => {
@@ -45,6 +45,16 @@ const FormField = ({ label, register, name, error, helperText, ...props }) => {
       {...props} // Spread additional props (like type, multiline, etc.)
     />
   );
+};
+
+// Prop validation
+FormField.propTypes = {
+  label: PropTypes.string.isRequired, // label should be a string and required
+  register: PropTypes.func.isRequired, // register should be a function and required
+  name: PropTypes.string.isRequired, // name should be a string and required
+  error: PropTypes.bool, // error should be a boolean (optional)
+  helperText: PropTypes.string, // helperText should be a string (optional)
+  props: PropTypes.object, // props can be any additional props (optional)
 };
 
 export default FormField;

@@ -1,14 +1,15 @@
-// src/components/NavItems.jsx
-import React from "react";
+import PropTypes from "prop-types"; // Import PropTypes
 import {
   List,
   ListItem,
   ListItemText,
   ListItemIcon,
   useTheme,
-} from "@mui/material"; // Import useTheme
+  Typography,
+} from "@mui/material";
 import { NavLink } from "react-router-dom"; // Use NavLink for active link styling
-import { navItems } from "../../data/navData"; // Import the navigation data
+
+import { navItems } from "../../data/navData.jsx"; // Import the navigation data
 
 const NavItems = ({ handleDrawerToggle }) => {
   const theme = useTheme(); // Access the theme object
@@ -26,7 +27,7 @@ const NavItems = ({ handleDrawerToggle }) => {
             bgcolor: theme.palette.background.default, // Set transparent background
             "&:hover": {
               backgroundColor: theme.palette.action.hover, // Use theme action hover color
-              boxShadow: `0px 4px 8px rgba(0, 0, 0, 0.2)`, // Add shadow on hover
+              boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)", // Add shadow on hover
             },
             "&.active": {
               backgroundColor: theme.palette.action.hover, // Active tab styling from theme
@@ -41,15 +42,24 @@ const NavItems = ({ handleDrawerToggle }) => {
             {item.icon}
           </ListItemIcon>
           <ListItemText
-            primaryTypographyProps={{
-              color: theme.palette.text.secondary,
-            }}
-            primary={item.text}
+            primary={
+              <Typography
+                variant="body1"
+                sx={{ color: theme.palette.text.secondary }}
+              >
+                {item.text}
+              </Typography>
+            }
           />
         </ListItem>
       ))}
     </List>
   );
+};
+
+// Prop validation
+NavItems.propTypes = {
+  handleDrawerToggle: PropTypes.func.isRequired, // handleDrawerToggle should be a function and required
 };
 
 export default NavItems;

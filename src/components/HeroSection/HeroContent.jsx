@@ -1,5 +1,4 @@
-// src/components/HeroSection/HeroContent.jsx
-import React from "react";
+import PropTypes from "prop-types"; // Import PropTypes
 import { Box, Typography, Button, useTheme } from "@mui/material";
 
 const HeroContent = ({ title, description }) => {
@@ -15,7 +14,7 @@ const HeroContent = ({ title, description }) => {
       color: theme.palette.common.white,
       backgroundColor: `${theme.palette.grey[900]}${
         theme.palette.action.selectedOpacity * 100
-      }`, // Semi-transparent background
+      }`,
       padding: {
         xs: theme.spacing(2),
         sm: theme.spacing(3),
@@ -49,13 +48,19 @@ const HeroContent = ({ title, description }) => {
       </Typography>
       <Button
         variant="contained"
-        aria-label={`Learn more about ${title}`}
+        aria-label={`Научете повече за ${title}`}
         sx={styles.button}
       >
-        Learn More
+        Повече информация
       </Button>
     </Box>
   );
+};
+
+// Prop types validation
+HeroContent.propTypes = {
+  title: PropTypes.string.isRequired, // Title should be a string and is required
+  description: PropTypes.string.isRequired, // Description should be a string and is required
 };
 
 export default HeroContent;

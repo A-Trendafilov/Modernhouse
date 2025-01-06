@@ -2,16 +2,23 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
-import { Box, Typography, Button, useTheme, CircularProgress } from "@mui/material"; // Import CircularProgress for loading state
-import FormField from "./FormField"; 
-import SnackbarAlert from "./SnackbarAlert"; 
+import {
+  Box,
+  Typography,
+  Button,
+  useTheme,
+  CircularProgress,
+} from "@mui/material"; // Import CircularProgress for loading state
+
+import FormField from "./FormField.jsx";
+import SnackbarAlert from "./SnackbarAlert.jsx";
 
 // Define validation schema
 const validationSchema = Yup.object().shape({
   name: Yup.string().required("Името е задължително."),
   email: Yup.string()
-    .email("Имейлът е невалиден.")
-    .required("Имейлът е задължителен."),
+    .email("Имейл-ът е невалиден.")
+    .required("Имейл-ът е задължителен."),
   phone: Yup.string()
     .required("Телефонният номер е задължителен.")
     .matches(
@@ -57,7 +64,7 @@ const ContactForm = () => {
       }
     } catch (error) {
       setSnackbarMessage(
-        "Не успяхме да изпратим вашето съобщение. Моля, опитайте отново."
+        `Не успяхме да изпратим вашето съобщение. Моля, опитайте отново. Грешка: ${error.message}`
       );
       setSnackbarSeverity("error");
     }
@@ -124,7 +131,11 @@ const ContactForm = () => {
           sx={{ marginTop: theme.spacing(2.5) }}
           disabled={isSubmitting} // Disable button while submitting
         >
-          {isSubmitting ? <CircularProgress size={24} color="inherit" /> : "Изпрати запитване"}
+          {isSubmitting ? (
+            <CircularProgress size={24} color="inherit" />
+          ) : (
+            "Изпрати запитване"
+          )}
         </Button>
 
         <Box sx={{ mt: 10, maxWidth: "600px" }}>

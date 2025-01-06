@@ -1,7 +1,6 @@
-// src/components/Logo.jsx
-import React from "react";
+import { Box, useTheme } from "@mui/material";
+
 import logo from "../../assets/Logo.png";
-import { Box, useTheme } from "@mui/material"; // Import useTheme
 
 const Logo = () => {
   const theme = useTheme(); // Access the theme object

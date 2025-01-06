@@ -1,7 +1,7 @@
-// src/components/Contact/ContactInfo.jsx
-import React from "react";
+import PropTypes from "prop-types";
 import { Box, Typography, useTheme } from "@mui/material";
-import InfoList from "../common/InfoList";
+
+import InfoList from "../common/InfoList.jsx";
 import { getStyles } from "./ContactInfoStyle"; // Adjust the import
 
 const ContactInfo = ({ items }) => {
@@ -16,6 +16,18 @@ const ContactInfo = ({ items }) => {
       <InfoList {...styles.infoList} items={items} />
     </Box>
   );
+};
+
+ContactInfo.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      Icon: PropTypes.elementType, // Icon component
+      text: PropTypes.oneOfType([
+        PropTypes.string, // Text can be a string
+        PropTypes.element, // Or a React element
+      ]).isRequired, // `text` is required
+    })
+  ).isRequired, // `items` array is required
 };
 
 export default ContactInfo;

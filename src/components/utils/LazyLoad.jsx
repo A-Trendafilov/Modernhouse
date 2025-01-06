@@ -1,6 +1,6 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import PropTypes from "prop-types"; // Import PropTypes for validation
 
 const LazyLoad = ({ children, threshold = 0.2, ...props }) => {
   // Destructure props
@@ -27,6 +27,12 @@ const LazyLoad = ({ children, threshold = 0.2, ...props }) => {
       {children}
     </motion.div>
   );
+};
+
+// PropTypes validation
+LazyLoad.propTypes = {
+  children: PropTypes.node.isRequired, // Ensure children are passed
+  threshold: PropTypes.number, // Optional threshold value (default 0.2)
 };
 
 export default LazyLoad;

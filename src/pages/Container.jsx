@@ -1,5 +1,3 @@
-// src/pages/Container.jsx
-import React from "react";
 import { Box, Typography } from "@mui/material"; // Import Box and Typography from MUI
 
 const Container = () => {

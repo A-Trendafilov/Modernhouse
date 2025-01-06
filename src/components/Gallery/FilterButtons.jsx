@@ -1,4 +1,3 @@
-import React from "react";
 import { Button, Box } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import PropTypes from "prop-types"; // Import PropTypes
