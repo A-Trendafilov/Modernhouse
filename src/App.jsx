@@ -1,23 +1,23 @@
-import React, { Suspense, lazy } from "react";
+import { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
-import { CssBaseline, CircularProgress } from "@mui/material";
-import theme from "./styles/theme";
-import Layout from "./components/Layout";
-import ErrorBoundary from "./components/utils/ErrorBoundary";
-import "./App.css";
+import { CssBaseline } from "@mui/material";
 
-// Lazy load your pages
-const Home = lazy(() => import("./pages/Home"));
-const About = lazy(() => import("./pages/About"));
-const Contact = lazy(() => import("./pages/Contact"));
-const Gallery = lazy(() => import("./pages/Gallery"));
-const Container = lazy(() => import("./pages/Container"));
-const SteelHouse = lazy(() => import("./pages/House/SteelHouse"));
-const ModularHouses = lazy(() => import("./pages/House/ModularHouses"));
-const NotFound = lazy(() => import("./pages/NotFound"));
-const Project = lazy(() => import("./pages/Project")); // Import Project component
-const ProjectDetail = lazy(() => import("./pages/ProjectDetail")); // Import ProjectDetail component
+import theme from "./styles/theme";
+import Layout from "./components/Layout.jsx";
+import ErrorBoundary from "./components/utils/ErrorBoundary.jsx";
+import Loading from "./components/utils/Loading.jsx";
+
+const Home = lazy(() => import("./pages/Home.jsx"));
+const About = lazy(() => import("./pages/About.jsx"));
+const Contact = lazy(() => import("./pages/Contact.jsx"));
+const Gallery = lazy(() => import("./pages/Gallery.jsx"));
+const Container = lazy(() => import("./pages/Container.jsx"));
+const SteelHouse = lazy(() => import("./pages/House/SteelHouse.jsx"));
+const ModularHouses = lazy(() => import("./pages/House/ModularHouses.jsx"));
+const NotFound = lazy(() => import("./pages/NotFound.jsx"));
+const Project = lazy(() => import("./pages/Project.jsx"));
+const ProjectDetail = lazy(() => import("./pages/ProjectDetail.jsx"));
 
 const App = () => {
   return (
@@ -26,30 +26,15 @@ const App = () => {
       <Router basename="/Modernhouse">
         <Layout>
           <ErrorBoundary>
-            <Suspense
-              fallback={
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    height: "100vh",
-                  }}
-                >
-                  <CircularProgress /> {/* Loading spinner */}
-                </div>
-              }
-            >
+            <Suspense fallback={<Loading />}>
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/gallery" element={<Gallery />} />
                 <Route path="/container" element={<Container />} />
-                <Route path="/house">
-                  <Route path="steel" element={<SteelHouse />} />
-                  <Route path="modular" element={<ModularHouses />} />
-                </Route>
+                <Route path="/steel" element={<SteelHouse />} />
+                <Route path="/modular" element={<ModularHouses />} />
                 <Route path="/projects" element={<Project />} />
                 <Route
                   path="/projects/:projectId"

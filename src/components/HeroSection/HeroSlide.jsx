@@ -1,7 +1,7 @@
-// src/components/HeroSection/HeroSlide.jsx
-import React from "react";
+import PropTypes from "prop-types"; // Import PropTypes
 import { motion } from "framer-motion";
-import HeroContent from "./HeroContent"; // Import the HeroContent component
+
+import HeroContent from "./HeroContent.jsx";
 
 const HeroSlide = ({ image }) => {
   return (
@@ -10,15 +10,13 @@ const HeroSlide = ({ image }) => {
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.9 }}
       transition={{ duration: 1 }}
-      style={{ width: "100%", height: "100vh", }} // Ensure motion div covers full area
+      style={{ width: "100%", height: "100vh" }}
     >
       <img
         src={image.src}
         alt={image.alt}
         onError={(e) => {
-          e.target.src = `${
-            import.meta.env.BASE_URL
-          }/assets/herosection/2-store-house.webp`; // Fallback image
+          e.target.src = `${import.meta.env.BASE_URL}/assets/herosection/2-store-house.webp`; // Fallback image
         }}
         style={{
           width: "100%",
@@ -30,6 +28,16 @@ const HeroSlide = ({ image }) => {
       <HeroContent title={image.title} description={image.description} />
     </motion.div>
   );
+};
+
+// Prop types validation
+HeroSlide.propTypes = {
+  image: PropTypes.shape({
+    src: PropTypes.string.isRequired, // Image source URL should be a string
+    alt: PropTypes.string.isRequired, // Alt text for the image should be a string
+    title: PropTypes.string.isRequired, // Title of the hero slide should be a string
+    description: PropTypes.string.isRequired, // Description of the hero slide should be a string
+  }).isRequired, // The 'image' prop is required
 };
 
 export default HeroSlide;

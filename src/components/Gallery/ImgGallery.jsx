@@ -1,16 +1,16 @@
-import React, { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect } from "react";
 import {
   Container,
   Typography,
-  Grid,
-  useTheme,
   Box,
+  Grid2,
   CircularProgress,
 } from "@mui/material";
-import FilterButtons from "./FilterButtons";
-import ImageCard from "./ImageCard";
-import ImageLightbox from "./ImageLightbox";
+
 import { images } from "../../data/galleryImg"; // Ensure this has unique ids
+import FilterButtons from "./FilterButtons.jsx";
+import ImageCard from "./ImageCard.jsx";
+import ImageLightbox from "./ImageLightbox.jsx";
 
 // Categories available for filtering
 const categories = ["Всички", "Контейнери", "Сглобяеми къщи", "Стоманени къщи"];
@@ -20,7 +20,6 @@ const ImgGallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [loading, setLoading] = useState(true); // Loading state
   const [error, setError] = useState(null);
-  const theme = useTheme();
 
   // Memoized filtered images based on selected category
   const filteredImages = useMemo(() => {
@@ -81,7 +80,7 @@ const ImgGallery = () => {
           No images found.
         </Typography>
       ) : (
-        <Grid container spacing={3} justifyContent="center">
+        <Grid2 container spacing={3} justifyContent="center">
           {filteredImages.map((image) => (
             <ImageCard
               key={image.id} // Use a unique identifier from image data
@@ -90,7 +89,7 @@ const ImgGallery = () => {
               aria-label={`View ${image.title}`} // Accessibility feature
             />
           ))}
-        </Grid>
+        </Grid2>
       )}
 
       <ImageLightbox

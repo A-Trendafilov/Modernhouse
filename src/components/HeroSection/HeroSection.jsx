@@ -1,7 +1,6 @@
-// src/components/HeroSection/HeroSection.jsx
-import React from "react";
 import { Box } from "@mui/material";
-import HeroSlider from "./HeroSlider"; // Import HeroSlider
+
+import HeroSlider from "./HeroSlider.jsx"; // Import HeroSlider
 
 const HeroSection = () => {
   return (

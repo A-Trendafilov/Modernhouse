@@ -1,5 +1,4 @@
-// src/components/ScrollToTopButton.jsx
-import React, { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { Fab } from "@mui/material"; // Floating Action Button
 import KeyboardDoubleArrowUpIcon from "@mui/icons-material/KeyboardDoubleArrowUp";
 

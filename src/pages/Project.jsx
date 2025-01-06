@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Box, Typography } from "@mui/material";
+
 import { projectData } from "../data/projectData";
-import ProjectCard from "../components/ProjectCard/ProjectCard";
-import FilterButtons from "../components/Gallery/FilterButtons";
+import ProjectCard from "../components/ProjectCard/ProjectCard.jsx";
+import FilterButtons from "../components/Gallery/FilterButtons.jsx";
 
 const Project = () => {
   const [selectedCategory, setSelectedCategory] = useState("Всички");

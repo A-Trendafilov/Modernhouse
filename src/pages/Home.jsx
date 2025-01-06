@@ -1,6 +1,6 @@
-import React from "react";
-import HeroSection from "../components/HeroSection/HeroSection"; // Import HeroSection
 import { Box } from "@mui/material";
+
+import HeroSection from "../components/HeroSection/HeroSection.jsx";
 
 const Home = () => {
   return (

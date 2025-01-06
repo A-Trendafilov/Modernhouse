@@ -1,7 +1,6 @@
-// src/pages/ProjectDetail.jsx
-import React from "react";
 import { useParams } from "react-router-dom";
 import { Typography, Box, Card, CardMedia, CardContent } from "@mui/material";
+
 import { projectData } from "../data/projectData";
 
 const ProjectDetail = () => {

@@ -1,5 +1,4 @@
-// src/components/ProjectCard.jsx
-import React from "react";
+import PropTypes from "prop-types"; // Import PropTypes
 import {
   Card,
   CardMedia,
@@ -20,7 +19,7 @@ const ProjectCard = ({ project }) => {
       boxShadow: theme.shadows[3], // Use theme shadows
       backgroundColor: "transparent",
       backdropFilter: "blur(5px)",
-      border: `1px solid rgba(255, 255, 255, 0.3)`, // Semi-transparent border
+      border: "1px solid rgba(255, 255, 255, 0.3)", // Semi-transparent border
     },
     media: {
       objectFit: "cover",
@@ -64,6 +63,16 @@ const ProjectCard = ({ project }) => {
       </CardContent>
     </Card>
   );
+};
+
+// Prop types validation
+ProjectCard.propTypes = {
+  project: PropTypes.shape({
+    image: PropTypes.string.isRequired, // Image URL is a required string
+    title: PropTypes.string.isRequired, // Project title is a required string
+    description: PropTypes.string.isRequired, // Project description is a required string
+    link: PropTypes.string.isRequired, // Project link URL is a required string
+  }).isRequired, // The 'project' prop is required
 };
 
 export default ProjectCard;

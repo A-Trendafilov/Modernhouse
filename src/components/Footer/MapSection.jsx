@@ -1,5 +1,5 @@
-// src/components/MapSection.jsx
 import React from "react";
+import PropTypes from "prop-types"; // Import PropTypes
 import { Box, Typography, useTheme } from "@mui/material";
 
 const MapSection = React.memo(({ title, src }) => {
@@ -32,5 +32,13 @@ const MapSection = React.memo(({ title, src }) => {
     </Box>
   );
 });
+
+MapSection.displayName = "MapSection";
+
+// Prop validation
+MapSection.propTypes = {
+  title: PropTypes.string.isRequired, // title should be a required string
+  src: PropTypes.string.isRequired, // src should be a required string
+};
 
 export default MapSection;

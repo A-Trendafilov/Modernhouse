@@ -1,5 +1,3 @@
-// src/components/utils/Divider.jsx
-import React from "react";
 import { Box, useTheme } from "@mui/material";
 
 const Divider = () => {

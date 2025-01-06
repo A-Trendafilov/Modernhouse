@@ -56,6 +56,29 @@ const theme = createTheme({
     shape: {
         borderRadius: 4, // Border radius for a modern look
     },
+    components: {
+        // Custom styles to override default `CssBaseline` styles
+        MuiCssBaseline: {
+            styleOverrides: {
+                html: {
+                    height: '100%',
+                },
+                body: {
+                    height: '100vh', // Ensure body covers full height
+                    margin: 0, // Remove default margin
+                    padding: 0, // Remove default padding
+                    display: 'flex', // Use flex to align children
+                    flexDirection: 'column', // Ensure children stack vertically
+                    background: 'linear-gradient(to right, #ebebeb, #333333)', // Gradient background
+                },
+                main: {
+                    flex: 1, // Allow main content to grow
+                    display: 'flex', // Use flex for main content layout
+                    flexDirection: 'column', // Ensure children stack vertically
+                },
+            }
+        }
+    }
 });
 
 export default theme;

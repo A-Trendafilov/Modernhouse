@@ -1,5 +1,4 @@
-// src/components/SocialIcons.jsx
-import React from "react";
+import PropTypes from "prop-types";
 import { Box, useTheme } from "@mui/material";
 import { motion } from "framer-motion";
 
@@ -35,6 +34,19 @@ const SocialIcons = ({ socialLinks }) => {
       ))}
     </Box>
   );
+};
+
+SocialIcons.propTypes = {
+  socialLinks: PropTypes.arrayOf(
+    PropTypes.shape({
+      href: PropTypes.string.isRequired, // The URL string is required
+      Icon: PropTypes.elementType.isRequired, // A React component or element type is required
+    })
+  ).isRequired, // `socialLinks` is required
+};
+
+SocialIcons.defaultProps = {
+  socialLinks: [], // Default to an empty array
 };
 
 export default SocialIcons;

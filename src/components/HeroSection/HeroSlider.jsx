@@ -1,9 +1,10 @@
-// src/components/HeroSection/HeroSlider.jsx
-import React from "react";
 import Slider from "react-slick";
+
 import { heroSectionImg } from "../../data/heroSectionImg";
-import LazyLoad from "../utils/LazyLoad";
-import HeroSlide from "./HeroSlide"; // Import the HeroSlide component
+import LazyLoad from "../utils/LazyLoad.jsx";
+import HeroSlide from "./HeroSlide.jsx";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 // Slider settings configuration
 const sliderSettings = {

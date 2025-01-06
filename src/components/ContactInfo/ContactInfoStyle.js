@@ -1,25 +1,23 @@
-// src/components/Contact/ContactInfoStyle.js
-
 export const getStyles = (theme) => ({
   container: {
-    backgroundColor: "transparent",
+    backgroundColor: 'transparent',
     padding: {
       xs: theme.spacing(2),
       sm: theme.spacing(3),
       md: theme.spacing(4),
     },
-    maxWidth: "600px",
-    margin: "0 auto",
+    maxWidth: '600px',
+    margin: '0 auto',
   },
   title: {
     marginBottom: theme.spacing(3),
     color: theme.palette.text.primary,
-    textAlign: "center",
+    textAlign: 'center',
   },
   infoList: {
     boxStyle: { marginBottom: theme.spacing(4) },
     textStyle: {
-      fontSize: { xs: "0.875rem", sm: "1rem" },
+      fontSize: { xs: '0.875rem', sm: '1rem' },
       color: theme.palette.text.primary,
     },
     iconColor: theme.palette.primary.main, // Use primary color for icons

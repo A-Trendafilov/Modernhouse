@@ -1,10 +1,10 @@
-// src/components/Header.jsx
-import React, { useState } from "react";
-import { AppBar, Toolbar, Box, Drawer, useTheme } from "@mui/material"; // Import useTheme
+import { AppBar, Toolbar, Box, Drawer, useTheme } from "@mui/material";
+import { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
-import AnimatedText from "../utils/AnimatedText";
-import Logo from "./Logo";
-import DrawerMenu from "./DrawerMenu";
+
+import AnimatedText from "../utils/AnimatedText.jsx";
+import Logo from "./Logo.jsx";
+import DrawerMenu from "./DrawerMenu.jsx";
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);

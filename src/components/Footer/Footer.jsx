@@ -1,19 +1,18 @@
-// src/components/Footer.jsx
-import React from "react";
 import { Box, Typography, useTheme } from "@mui/material";
-import LazyLoad from "../utils/LazyLoad";
-import InfoList from "../common/InfoList";
-import SocialIcons from "../common/SocialIcons";
-import MapSection from "./MapSection";
-import Copyright from "./Copyright";
-import Divider from "../common/Divider";
+
+import LazyLoad from "../utils/LazyLoad.jsx";
+import InfoList from "../common/InfoList.jsx";
+import SocialIcons from "../common/SocialIcons.jsx";
+import Divider from "../common/Divider.jsx";
 import {
   locations,
   contactDetails,
   socialLinks,
   maps,
   companyName,
-} from "../../data/footerData";
+} from "../../data/footerData.jsx";
+import MapSection from "./MapSection.jsx";
+import Copyright from "./Copyright.jsx";
 import { getStyles } from "./FooterStyle";
 
 const Footer = () => {
@@ -83,4 +82,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
