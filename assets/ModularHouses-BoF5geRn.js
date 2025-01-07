@@ -1,1 +1,0 @@
-import{j as t,B as n,T as e}from"./index-DyUn-epi.js";function o(){return t.jsx(n,{sx:{display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",minHeight:"100vh",padding:2,bgcolor:"transparent"},children:t.jsx(e,{variant:"h1",sx:{marginBottom:2},children:"Модулни къщи"})})}export{o as default};
