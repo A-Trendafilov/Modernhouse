@@ -13,8 +13,14 @@ const About = lazy(() => import("./pages/About.jsx"));
 const Contact = lazy(() => import("./pages/Contact.jsx"));
 const Gallery = lazy(() => import("./pages/Gallery.jsx"));
 const Container = lazy(() => import("./pages/Container.jsx"));
-const SteelHouse = lazy(() => import("./pages/House/SteelHouse.jsx"));
-const ModularHouses = lazy(() => import("./pages/House/ModularHouses.jsx"));
+const SipHouse = lazy(() => import("./pages/House/SipHouse.jsx"));
+const MetalHouse = lazy(() => import("./pages/House/MetalHouse.jsx"));
+const ModularHouse = lazy(() => import("./pages/House/ModularHouse.jsx"));
+const TinyHouses = lazy(() => import("./pages/House/TinyHouse.jsx"));
+const АluminumJoinery = lazy(() =>
+  import("./pages/Joinery/АluminumJoinery.jsx")
+);
+const PvcJoinery = lazy(() => import("./pages/Joinery/PvcJoinery.jsx"));
 const NotFound = lazy(() => import("./pages/NotFound.jsx"));
 const Project = lazy(() => import("./pages/Project.jsx"));
 const ProjectDetail = lazy(() => import("./pages/ProjectDetail.jsx"));
@@ -33,8 +39,12 @@ const App = () => {
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/gallery" element={<Gallery />} />
                 <Route path="/container" element={<Container />} />
-                <Route path="/steel" element={<SteelHouse />} />
-                <Route path="/modular" element={<ModularHouses />} />
+                <Route path="/sip" element={<SipHouse />} />
+                <Route path="/metal" element={<MetalHouse />} />
+                <Route path="/modular" element={<ModularHouse />} />
+                <Route path="/tiny" element={<TinyHouses />} />
+                <Route path="/аluminum" element={<АluminumJoinery />} />
+                <Route path="/pvc" element={<PvcJoinery />} />
                 <Route path="/projects" element={<Project />} />
                 <Route
                   path="/projects/:projectId"

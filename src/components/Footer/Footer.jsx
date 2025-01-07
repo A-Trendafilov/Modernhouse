@@ -3,7 +3,7 @@ import { Box, Typography, useTheme } from "@mui/material";
 import LazyLoad from "../utils/LazyLoad.jsx";
 import InfoList from "../common/InfoList.jsx";
 import SocialIcons from "../common/SocialIcons.jsx";
-import Divider from "../common/Divider.jsx";
+import HorizontalDivider from "../common/HorizontalDivider.jsx";
 import {
   locations,
   contactDetails,
@@ -21,7 +21,7 @@ const Footer = () => {
 
   return (
     <Box sx={styles.container}>
-      <Divider />
+      <HorizontalDivider />
 
       <Box
         sx={{
@@ -70,13 +70,13 @@ const Footer = () => {
         </Box>
       </Box>
 
-      <Divider />
+      <HorizontalDivider />
 
       <LazyLoad delay={1.5}>
         <Copyright companyName={companyName} />
       </LazyLoad>
 
-      <Divider />
+      <HorizontalDivider />
     </Box>
   );
 };

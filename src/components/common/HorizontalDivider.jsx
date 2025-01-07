@@ -1,6 +1,6 @@
 import { Box, useTheme } from "@mui/material";
 
-const Divider = () => {
+const HorizontalDivider = () => {
   const theme = useTheme();
   return (
     <Box
@@ -12,4 +12,4 @@ const Divider = () => {
   );
 };
 
-export default Divider;
+export default HorizontalDivider;

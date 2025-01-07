@@ -24,7 +24,7 @@ const ProjectDetail = () => {
         />
         <CardContent>
           <Typography variant="h4">{project.title}</Typography>
-          <Typography variant="body1" color="text.secondary" paragraph>
+          <Typography variant="body1" color="text.secondary">
             {project.description}
           </Typography>
         </CardContent>

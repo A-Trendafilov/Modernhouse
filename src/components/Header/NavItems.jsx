@@ -1,65 +1,102 @@
-import PropTypes from "prop-types"; // Import PropTypes
+import { useState } from "react";
+import PropTypes from "prop-types";
 import {
   List,
   ListItem,
   ListItemText,
   ListItemIcon,
-  useTheme,
+  Collapse,
   Typography,
+  useTheme,
 } from "@mui/material";
-import { NavLink } from "react-router-dom"; // Use NavLink for active link styling
+import { ExpandLess, ExpandMore } from "@mui/icons-material";
+import { NavLink } from "react-router-dom";
 
-import { navItems } from "../../data/navData.jsx"; // Import the navigation data
+import { navItems } from "../../data/navData.jsx";
+import { getNavItemsStyle } from "./NavItemStyle.js";
 
 const NavItems = ({ handleDrawerToggle }) => {
-  const theme = useTheme(); // Access the theme object
+  const theme = useTheme();
+  const styles = getNavItemsStyle(theme);
+  const [open, setOpen] = useState({});
+
+  const handleItemClick = (item, e) => {
+    if (item.subItems) {
+      e.preventDefault();
+      setOpen((prevState) => ({
+        ...prevState,
+        [item.text]: !prevState[item.text],
+      }));
+    } else {
+      handleDrawerToggle();
+    }
+  };
 
   return (
     <List>
       {navItems.map((item) => (
-        <ListItem
-          key={item.text}
-          component={NavLink} // Changed from Link to NavLink
-          to={item.path}
-          onClick={handleDrawerToggle}
-          sx={{
-            textDecoration: "none",
-            bgcolor: theme.palette.background.default, // Set transparent background
-            "&:hover": {
-              backgroundColor: theme.palette.action.hover, // Use theme action hover color
-              boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)", // Add shadow on hover
-            },
-            "&.active": {
-              backgroundColor: theme.palette.action.hover, // Active tab styling from theme
-              fontWeight: "bold", // Optional: make active link bold
-            },
-            padding: theme.spacing(2), // Add some padding
-            borderRadius: 5, // Optional: rounded corners
-            transition: "background-color 0.3s ease, box-shadow 0.3s ease", // Smooth transition
-          }}
-        >
-          <ListItemIcon sx={{ color: theme.palette.text.secondary }}>
-            {item.icon}
-          </ListItemIcon>
-          <ListItemText
-            primary={
-              <Typography
-                variant="body1"
-                sx={{ color: theme.palette.text.secondary }}
-              >
-                {item.text}
-              </Typography>
-            }
-          />
-        </ListItem>
+        <div key={item.text}>
+          <ListItem
+            component={item.subItems ? "div" : NavLink}
+            to={item.subItems ? undefined : item.path}
+            onClick={(e) => handleItemClick(item, e)}
+            sx={styles.listItem}
+          >
+            <ListItemIcon sx={styles.listItemIcon}>{item.icon}</ListItemIcon>
+            <ListItemText
+              primary={
+                <Typography variant="body1" sx={styles.listItemText}>
+                  {item.text}
+                </Typography>
+              }
+            />
+            {item.subItems &&
+              (open[item.text] ? (
+                <ExpandLess sx={styles.collapseIcon} />
+              ) : (
+                <ExpandMore sx={styles.collapseIcon} />
+              ))}
+          </ListItem>
+
+          {item.subItems && (
+            <Collapse
+              in={open[item.text]}
+              timeout="auto"
+              unmountOnExit
+              sx={styles.collapse}
+            >
+              <List component="div" disablePadding>
+                {item.subItems.map((subItem) => (
+                  <ListItem
+                    key={subItem.text}
+                    component={NavLink}
+                    to={subItem.path}
+                    onClick={handleDrawerToggle}
+                    sx={styles.subItem}
+                  >
+                    <ListItemIcon sx={styles.listItemIcon}>
+                      {subItem.icon}
+                    </ListItemIcon>
+                    <ListItemText
+                      primary={
+                        <Typography variant="body2" sx={styles.listItemText}>
+                          {subItem.text}
+                        </Typography>
+                      }
+                    />
+                  </ListItem>
+                ))}
+              </List>
+            </Collapse>
+          )}
+        </div>
       ))}
     </List>
   );
 };
 
-// Prop validation
 NavItems.propTypes = {
-  handleDrawerToggle: PropTypes.func.isRequired, // handleDrawerToggle should be a function and required
+  handleDrawerToggle: PropTypes.func.isRequired,
 };
 
 export default NavItems;

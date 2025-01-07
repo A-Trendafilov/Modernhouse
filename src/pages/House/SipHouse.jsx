@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material"; // Import Material-UI components
 
-function ModularHouses() {
+const SipHouse = () => {
   return (
     <Box
       sx={{
@@ -8,16 +8,20 @@ function ModularHouses() {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        minHeight: "100vh", // Full height of the viewport
-        padding: 2, // Material-UI spacing
-        bgcolor: "transparent", // Use theme's background color
+        minHeight: "100vh",
+        padding: 2,
+        bgcolor: "background.default",
+        color: "text.primary",
       }}
     >
       <Typography variant="h1" sx={{ marginBottom: 2 }}>
-        Модулни къщи
+        Сглобяеми къщи
+      </Typography>
+      <Typography variant="body1" sx={{ textAlign: "center" }}>
+        Прес-панел система
       </Typography>
     </Box>
   );
-}
+};
 
-export default ModularHouses;
+export default SipHouse;

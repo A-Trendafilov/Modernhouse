@@ -1,18 +1,17 @@
-import PropTypes from "prop-types"; // Import PropTypes
+import PropTypes from "prop-types";
 import { Box, useTheme } from "@mui/material";
 
 import NavItems from "./NavItems.jsx";
 
 const DrawerMenu = ({ handleDrawerToggle }) => {
-  const theme = useTheme(); // Access the theme object
-
+  const theme = useTheme();
   return (
     <Box
-      onClick={handleDrawerToggle}
       sx={{
         textAlign: "center",
-        height: "100vh", // Ensures full height of drawer
-        padding: 2, // Adds padding
+        width: "300px",
+        height: "100vh",
+        padding: 2,
         bgcolor: theme.palette.background.main,
         overflow: "auto",
       }}
@@ -22,9 +21,8 @@ const DrawerMenu = ({ handleDrawerToggle }) => {
   );
 };
 
-// Prop validation
 DrawerMenu.propTypes = {
-  handleDrawerToggle: PropTypes.func.isRequired, // handleDrawerToggle should be a function and required
+  handleDrawerToggle: PropTypes.func.isRequired,
 };
 
 export default DrawerMenu;
