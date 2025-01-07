@@ -1,8 +1,10 @@
 import PropTypes from "prop-types"; // Import PropTypes
 import { Box, Typography, Button, useTheme } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
-const HeroContent = ({ title, description }) => {
+const HeroContent = ({ title, description, route }) => {
   const theme = useTheme();
+  const navigate = useNavigate();
 
   const styles = {
     container: {
@@ -11,10 +13,8 @@ const HeroContent = ({ title, description }) => {
       left: "50%",
       transform: "translate(-50%, -50%)",
       textAlign: "center",
-      color: theme.palette.common.white,
-      backgroundColor: `${theme.palette.grey[900]}${
-        theme.palette.action.selectedOpacity * 100
-      }`,
+      color: theme.palette.text.secondary,
+      backgroundColor: theme.palette.background.default,
       padding: {
         xs: theme.spacing(2),
         sm: theme.spacing(3),
@@ -32,10 +32,18 @@ const HeroContent = ({ title, description }) => {
     },
     button: {
       marginTop: theme.spacing(2),
+      border: `1px solid ${theme.palette.common.white}`,
+      color: theme.palette.common.white,
       "&:hover": {
-        backgroundColor: theme.palette.primary.main,
+        backgroundColor: theme.palette.primary.main, // Change background on hover
+        color: theme.palette.common.white, // Keep text color white on hover
+        border: `1px solid ${theme.palette.primary.main}`, // Change border color to match hover background
       },
     },
+  };
+
+  const onClick = () => {
+    navigate(route);
   };
 
   return (
@@ -50,6 +58,7 @@ const HeroContent = ({ title, description }) => {
         variant="contained"
         aria-label={`Научете повече за ${title}`}
         sx={styles.button}
+        onClick={onClick}
       >
         Повече информация
       </Button>
@@ -57,10 +66,10 @@ const HeroContent = ({ title, description }) => {
   );
 };
 
-// Prop types validation
 HeroContent.propTypes = {
-  title: PropTypes.string.isRequired, // Title should be a string and is required
-  description: PropTypes.string.isRequired, // Description should be a string and is required
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  route: PropTypes.string.isRequired,
 };
 
 export default HeroContent;

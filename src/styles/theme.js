@@ -64,7 +64,7 @@ const theme = createTheme({
                     height: '100%',
                 },
                 body: {
-                    height: '100vh', // Ensure body covers full height
+                    height: '100%', // Ensure body covers full height
                     margin: 0, // Remove default margin
                     padding: 0, // Remove default padding
                     display: 'flex', // Use flex to align children
@@ -75,6 +75,11 @@ const theme = createTheme({
                     flex: 1, // Allow main content to grow
                     display: 'flex', // Use flex for main content layout
                     flexDirection: 'column', // Ensure children stack vertically
+                },
+                '#root': {
+                    flex: 1, // Ensure the root container grows to fill available space
+                    display: 'flex',
+                    flexDirection: 'column',
                 },
             }
         }

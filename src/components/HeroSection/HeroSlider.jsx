@@ -20,7 +20,7 @@ const sliderSettings = {
 
 const HeroSlider = () => {
   return (
-    <Slider {...sliderSettings} className="hero-slider">
+    <Slider {...sliderSettings}>
       {heroSectionImg.map((image, index) => (
         <LazyLoad key={index}>
           <HeroSlide image={image} />

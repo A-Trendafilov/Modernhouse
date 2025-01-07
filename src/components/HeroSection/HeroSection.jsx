@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 
-import HeroSlider from "./HeroSlider.jsx"; // Import HeroSlider
+import HeroSlider from "./HeroSlider.jsx";
 
 const HeroSection = () => {
   return (

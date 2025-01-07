@@ -11,9 +11,10 @@ const DrawerMenu = ({ handleDrawerToggle }) => {
       onClick={handleDrawerToggle}
       sx={{
         textAlign: "center",
-        height: "100%", // Ensures full height of drawer
+        height: "100vh", // Ensures full height of drawer
         padding: 2, // Adds padding
         bgcolor: theme.palette.background.main,
+        overflow: "auto",
       }}
     >
       <NavItems handleDrawerToggle={handleDrawerToggle} />
