@@ -3,9 +3,9 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
   plugins: [react(), tailwindcss()],
-  base: '/Modernhouse/',
+  base: command === 'serve' ? '/' : '/Modernhouse/',
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
@@ -14,4 +14,4 @@ export default defineConfig({
   server: {
     host: true,
   },
-})
+}))

@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Модерн Хаус — 30 Color Theme Previews</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:#0a0a0a;color:#fff;scroll-behavior:smooth}
+
+/* ── TOP NAV ── */
+.toc{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,0.96);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,0.08);padding:10px 16px;display:flex;gap:5px;flex-wrap:wrap;align-items:center;justify-content:center}
+.toc a{font-family:'Bebas Neue';font-size:12px;letter-spacing:0.12em;padding:5px 10px;border-radius:5px;text-decoration:none;color:rgba(255,255,255,0.45);border:1px solid rgba(255,255,255,0.08);transition:all 0.25s}
+.toc a:hover{color:#fff;border-color:rgba(255,255,255,0.3);background:rgba(255,255,255,0.06)}
+.toc-label{font-family:'Plus Jakarta Sans';font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin:0 6px}
+
+/* ── THEME SECTION ── */
+.theme{min-height:100vh;position:relative;overflow:hidden;padding-top:70px}
+.theme-label{position:absolute;top:130px;left:24px;font-family:'Bebas Neue';font-size:13px;letter-spacing:0.3em;opacity:0.35;z-index:3}
+.swatches{display:flex;gap:6px;position:absolute;top:130px;right:24px;z-index:3}
+.sw{width:22px;height:22px;border-radius:50%;border:2px solid rgba(128,128,128,0.25)}
+
+/* ── NAVBAR ── */
+.navbar{display:flex;align-items:center;justify-content:space-between;padding:14px 28px;position:relative;z-index:2}
+.nav-logo{font-family:'Bebas Neue';font-size:22px;letter-spacing:0.15em}
+.nav-links{display:flex;gap:20px;font-size:12px;letter-spacing:0.05em}
+.nav-links a{text-decoration:none;transition:color 0.3s}
+.nav-menu{width:24px;height:2px;position:relative}
+.nav-menu::before,.nav-menu::after{content:'';position:absolute;width:24px;height:2px;left:0}
+.nav-menu::before{top:-7px}
+.nav-menu::after{top:7px}
+
+/* ── HERO ── */
+.hero{position:relative;height:65vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-overlay{position:absolute;inset:0}
+.hero-content{position:relative;z-index:2;text-align:center;padding:32px;max-width:700px}
+.hero-content h1{font-family:'Bebas Neue';font-size:clamp(32px,7vw,72px);letter-spacing:0.12em;line-height:1;margin-bottom:12px}
+.hero-content p{font-size:13px;line-height:1.7;margin-bottom:24px;max-width:500px;margin-left:auto;margin-right:auto}
+.hero-divider{width:50px;height:2px;margin:16px auto}
+.hero-btn{display:inline-block;padding:12px 32px;font-family:'Bebas Neue';font-size:14px;letter-spacing:0.2em;text-decoration:none;border:none;cursor:pointer;transition:all 0.3s;border-radius:4px}
+
+/* ── STATS ── */
+.stats-bar{display:flex;justify-content:center;gap:48px;padding:36px 24px;flex-wrap:wrap}
+.stat{text-align:center}
+.stat-val{font-family:'Bebas Neue';font-size:38px;letter-spacing:0.08em}
+.stat-lbl{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;opacity:0.45;margin-top:4px}
+
+/* ── CARDS ── */
+.cards-section{padding:50px 24px}
+.cards-section h2{font-family:'Bebas Neue';font-size:30px;letter-spacing:0.12em;text-align:center;margin-bottom:36px}
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;max-width:860px;margin:0 auto}
+.card{padding:26px;border-radius:12px;transition:transform 0.3s}
+.card:hover{transform:translateY(-3px)}
+.card-icon{width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;font-size:17px}
+.card h3{font-family:'Bebas Neue';font-size:17px;letter-spacing:0.08em;margin-bottom:5px}
+.card p{font-size:12px;line-height:1.6}
+
+/* ── GALLERY ── */
+.gallery-section{padding:30px 24px 50px}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;max-width:860px;margin:0 auto}
+.gallery-grid img{width:100%;height:160px;object-fit:cover;border-radius:7px;transition:transform 0.3s,opacity 0.3s;opacity:0.85}
+.gallery-grid img:hover{transform:scale(1.03);opacity:1}
+
+/* ── SERVICES ── */
+.services-section{padding:50px 24px}
+.services-section h2{font-family:'Bebas Neue';font-size:30px;letter-spacing:0.12em;text-align:center;margin-bottom:36px}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;max-width:860px;margin:0 auto}
+.service-card{padding:0;border-radius:12px;overflow:hidden;transition:transform 0.3s}
+.service-card:hover{transform:translateY(-3px)}
+.service-card img{width:100%;height:160px;object-fit:cover}
+.service-card-body{padding:20px}
+.service-card h3{font-family:'Bebas Neue';font-size:18px;letter-spacing:0.08em;margin-bottom:6px}
+.service-card p{font-size:11px;line-height:1.6}
+
+/* ── TESTIMONIAL ── */
+.testimonial-section{padding:50px 24px;max-width:700px;margin:0 auto;text-align:center}
+.testimonial-card{padding:36px;border-radius:14px;position:relative}
+.testimonial-card .quote-mark{font-family:Georgia,serif;font-size:60px;line-height:1;opacity:0.15;position:absolute;top:10px;left:20px}
+.testimonial-card blockquote{font-size:14px;line-height:1.8;font-style:italic;margin-bottom:16px;position:relative}
+.testimonial-card .author{font-family:'Bebas Neue';font-size:14px;letter-spacing:0.1em}
+.testimonial-card .role{font-size:11px;opacity:0.5}
+
+/* ── CTA ── */
+.cta-section{padding:60px 24px;text-align:center;position:relative;overflow:hidden}
+.cta-section h2{font-family:'Bebas Neue';font-size:clamp(28px,5vw,44px);letter-spacing:0.1em;margin-bottom:8px}
+.cta-section p{font-size:13px;margin-bottom:24px;opacity:0.6;max-width:500px;margin-left:auto;margin-right:auto}
+.cta-btn{display:inline-block;padding:14px 40px;font-family:'Bebas Neue';font-size:15px;letter-spacing:0.2em;text-decoration:none;border:none;cursor:pointer;transition:all 0.3s;border-radius:4px}
+
+/* ── CONTACT BAR ── */
+.contact-bar{display:flex;justify-content:center;gap:32px;padding:28px 24px;flex-wrap:wrap;font-size:12px}
+.contact-item{display:flex;align-items:center;gap:8px}
+.contact-icon{font-size:16px}
+
+/* ── PROJECTS ── */
+.projects-section{padding:50px 24px}
+.projects-section h2{font-family:'Bebas Neue';font-size:30px;letter-spacing:0.12em;text-align:center;margin-bottom:36px}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;max-width:860px;margin:0 auto}
+.project-card{border-radius:12px;overflow:hidden;transition:transform 0.3s}
+.project-card:hover{transform:translateY(-3px)}
+.project-card img{width:100%;height:180px;object-fit:cover}
+.project-card-body{padding:18px}
+.project-card h3{font-family:'Bebas Neue';font-size:17px;letter-spacing:0.08em;margin-bottom:4px}
+.project-card p{font-size:11px;line-height:1.5;margin-bottom:12px}
+.project-card .project-specs{display:flex;gap:16px;font-size:10px;letter-spacing:0.05em;opacity:0.5}
+
+/* ── DIVIDER ── */
+.section-divider{max-width:860px;margin:0 auto;height:1px;opacity:0.15}
+
+/* ── FOOTER ── */
+.footer-bar{padding:18px 28px;text-align:center;font-size:11px;letter-spacing:0.05em;opacity:0.3;border-top-width:1px;border-top-style:solid}
+
+@media(max-width:640px){
+  .nav-links{display:none}
+  .cards-grid,.services-grid,.projects-grid{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:repeat(2,1fr)}
+  .stats-bar{gap:20px}
+  .contact-bar{gap:16px;flex-direction:column;align-items:center}
+  .toc{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding:8px 12px}
+  .toc a{white-space:nowrap;font-size:10px;padding:4px 8px}
+  .toc-label{display:none}
+  .hero{height:55vh}
+}
+</style>
+</head>
+<body>
+
+<nav class="toc" id="toc"></nav>
+
+<div id="content"></div>
+
+<script>
+const THEMES = [
+  // DARK THEMES (1-15)
+  {
+    id: 1, name: 'Deep Navy + Gold', type: 'DARK',
+    bg: '#0a0e1a', bgGrad: 'linear-gradient(135deg,#0a0e1a,#0f2340,#0a0e1a)',
+    accent: '#c4a04e', accentDark: '#a07830', text: '#ffffff', textSoft: '#e8e4dc',
+    swatches: ['#0a0e1a','#0f2340','#c4a04e','#d4b96a'],
+    headingGradient: true, gradColors: '#d4b96a,#c4a04e,#a07830'
+  },
+  {
+    id: 2, name: 'Charcoal + Terracotta', type: 'DARK',
+    bg: '#1a1a1a', accent: '#c4603c', text: '#f5f0eb', textSoft: '#f5f0eb',
+    swatches: ['#1a1a1a','#c4603c','#f5f0eb','#8b4c32']
+  },
+  {
+    id: 3, name: 'Charcoal + Forest Green', type: 'DARK',
+    bg: '#141614', accent: '#4a9b6d', text: '#f0ede8', textSoft: '#f0ede8',
+    swatches: ['#141614','#4a9b6d','#f0ede8','#2d5a3d']
+  },
+  {
+    id: 4, name: 'Pure Black + Red', type: 'DARK',
+    bg: '#111111', accent: '#e63946', text: '#ffffff', textSoft: '#ffffff',
+    swatches: ['#111111','#e63946','#ffffff','#333333']
+  },
+  {
+    id: 5, name: 'Concrete Gray + Copper', type: 'DARK',
+    bg: '#1c1c1e', accent: '#b87333', accentDark: '#8b5a2b', text: '#e8e0d8', textSoft: '#e8e0d8',
+    swatches: ['#1c1c1e','#b87333','#e8e0d8','#8b5a2b'],
+    headingGradient: true, gradColors: '#d4956a,#b87333,#8b5a2b'
+  },
+  {
+    id: 6, name: 'Slate Blue + Teal', type: 'DARK',
+    bg: '#1a1f2e', accent: '#2dd4bf', text: '#e2e8f0', textSoft: '#e2e8f0',
+    swatches: ['#1a1f2e','#2dd4bf','#e2e8f0','#1a7a6d']
+  },
+  {
+    id: 7, name: 'Dark Warm Gray + Amber', type: 'DARK',
+    bg: '#1e1d1b', accent: '#e09f3e', text: '#ede8e0', textSoft: '#ede8e0',
+    swatches: ['#1e1d1b','#e09f3e','#ede8e0','#8a6820']
+  },
+  {
+    id: 8, name: 'Midnight + Electric Blue', type: 'DARK',
+    bg: '#0c0c14', bgGrad: 'linear-gradient(135deg,#0c0c14,#0a1628,#0c0c14)',
+    accent: '#3b82f6', text: '#e0e7ff', textSoft: '#e0e7ff',
+    swatches: ['#0c0c14','#3b82f6','#e0e7ff','#1d4ed8']
+  },
+  {
+    id: 9, name: 'Dark Olive + Sage', type: 'DARK',
+    bg: '#191c17', accent: '#8fbc8f', text: '#e8ece4', textSoft: '#e8ece4',
+    swatches: ['#191c17','#8fbc8f','#e8ece4','#4a6741']
+  },
+  {
+    id: 10, name: 'Anthracite + Rose Gold', type: 'DARK',
+    bg: '#1a1a1c', accent: '#c5827a', text: '#f0e8e6', textSoft: '#f0e8e6',
+    swatches: ['#1a1a1c','#c5827a','#f0e8e6','#8b5e57'],
+    headingGradient: true, gradColors: '#e0a89e,#c5827a,#8b5e57'
+  },
+  {
+    id: 11, name: 'Deep Burgundy + Cream', type: 'DARK',
+    bg: '#1c0f14', bgGrad: 'linear-gradient(135deg,#1c0f14,#2a1520,#1c0f14)',
+    accent: '#f5e6c8', accentDark: '#d4c4a0', text: '#f5e6c8', textSoft: '#f5e6c8',
+    swatches: ['#1c0f14','#722f37','#f5e6c8','#d4c4a0']
+  },
+  {
+    id: 12, name: 'Dark Teal + Gold', type: 'DARK',
+    bg: '#0d1b1e', bgGrad: 'linear-gradient(135deg,#0d1b1e,#0f2a2e,#0d1b1e)',
+    accent: '#d4a843', text: '#e0ece8', textSoft: '#e0ece8',
+    swatches: ['#0d1b1e','#0f2a2e','#d4a843','#e0ece8']
+  },
+  {
+    id: 13, name: 'Graphite + Orange', type: 'DARK',
+    bg: '#1c1c1c', accent: '#e8722a', text: '#f0ece8', textSoft: '#f0ece8',
+    swatches: ['#1c1c1c','#e8722a','#f0ece8','#a34f1a']
+  },
+  {
+    id: 14, name: 'Deep Purple + Silver', type: 'DARK',
+    bg: '#140e1e', bgGrad: 'linear-gradient(135deg,#140e1e,#1e1430,#140e1e)',
+    accent: '#c0c0c8', text: '#e0dce8', textSoft: '#e0dce8',
+    swatches: ['#140e1e','#1e1430','#c0c0c8','#8a82a0']
+  },
+  {
+    id: 15, name: 'Dark Brown + Tan', type: 'DARK',
+    bg: '#1a1410', bgGrad: 'linear-gradient(135deg,#1a1410,#231c14,#1a1410)',
+    accent: '#c8a882', text: '#ece4d8', textSoft: '#ece4d8',
+    swatches: ['#1a1410','#231c14','#c8a882','#8b7355']
+  },
+  // LIGHT THEMES (16-25)
+  {
+    id: 16, name: 'Warm White + Terracotta', type: 'LIGHT',
+    bg: '#f5f0eb', accent: '#c4603c', text: '#2a2a2a', textSoft: '#2a2a2a',
+    swatches: ['#f5f0eb','#c4603c','#2a2a2a','#ffffff']
+  },
+  {
+    id: 17, name: 'Clean White + Deep Green', type: 'LIGHT',
+    bg: '#fafaf8', accent: '#1a6b42', text: '#1a3a2a', textSoft: '#1a3a2a',
+    swatches: ['#fafaf8','#1a6b42','#1a3a2a','#ffffff']
+  },
+  {
+    id: 18, name: 'Off-White + Navy Blue', type: 'LIGHT',
+    bg: '#f0f0ec', accent: '#1e3a5f', text: '#1a2030', textSoft: '#1a2030',
+    swatches: ['#f0f0ec','#1e3a5f','#1a2030','#ffffff']
+  },
+  {
+    id: 19, name: 'Light Gray + Coral', type: 'LIGHT',
+    bg: '#f4f4f4', accent: '#e07060', text: '#2a2a2a', textSoft: '#2a2a2a',
+    swatches: ['#f4f4f4','#e07060','#2a2a2a','#ffffff']
+  },
+  {
+    id: 20, name: 'Cream + Dark Brown', type: 'LIGHT',
+    bg: '#f5f0e6', accent: '#5c3d2e', text: '#3a2a1e', textSoft: '#3a2a1e',
+    swatches: ['#f5f0e6','#5c3d2e','#3a2a1e','#ffffff']
+  },
+  {
+    id: 21, name: 'Light Sage + Forest Green', type: 'LIGHT',
+    bg: '#eef2ea', accent: '#2d5a3d', text: '#1e3028', textSoft: '#1e3028',
+    swatches: ['#eef2ea','#2d5a3d','#1e3028','#ffffff']
+  },
+  {
+    id: 22, name: 'White + Black + Red', type: 'LIGHT',
+    bg: '#ffffff', accent: '#d42b2b', text: '#111111', textSoft: '#111111',
+    swatches: ['#ffffff','#d42b2b','#111111','#f0f0f0']
+  },
+  {
+    id: 23, name: 'Pearl White + Copper', type: 'LIGHT',
+    bg: '#f8f4f0', accent: '#b87333', text: '#2c2420', textSoft: '#2c2420',
+    swatches: ['#f8f4f0','#b87333','#2c2420','#ffffff']
+  },
+  {
+    id: 24, name: 'Soft Beige + Charcoal', type: 'LIGHT',
+    bg: '#f0ebe4', accent: '#3a3a3a', text: '#2a2a2a', textSoft: '#2a2a2a',
+    swatches: ['#f0ebe4','#3a3a3a','#2a2a2a','#ffffff']
+  },
+  {
+    id: 25, name: 'Ice White + Steel Blue', type: 'LIGHT',
+    bg: '#f0f4f8', accent: '#4a7c9b', text: '#1a2e3e', textSoft: '#1a2e3e',
+    swatches: ['#f0f4f8','#4a7c9b','#1a2e3e','#ffffff']
+  },
+  // MIXED/MEDIUM (26-30)
+  {
+    id: 26, name: 'Medium Gray + Lime', type: 'MEDIUM',
+    bg: '#3a3a3a', accent: '#84cc16', text: '#f0f0f0', textSoft: '#f0f0f0',
+    swatches: ['#3a3a3a','#84cc16','#f0f0f0','#4a7a10']
+  },
+  {
+    id: 27, name: 'Warm Beige + Dark Teal', type: 'MEDIUM',
+    bg: '#d4c8b8', accent: '#1a5c5a', text: '#1a2a28', textSoft: '#1a2a28',
+    swatches: ['#d4c8b8','#1a5c5a','#1a2a28','#e8ddd0']
+  },
+  {
+    id: 28, name: 'Stone Gray + Burnt Orange', type: 'MEDIUM',
+    bg: '#4a4a48', accent: '#d4742c', text: '#f0ece6', textSoft: '#f0ece6',
+    swatches: ['#4a4a48','#d4742c','#f0ece6','#8a5020']
+  },
+  {
+    id: 29, name: 'Dusty Blue + Brass', type: 'MEDIUM',
+    bg: '#3a4a5c', accent: '#c4a04e', text: '#e8ecf0', textSoft: '#e8ecf0',
+    swatches: ['#3a4a5c','#c4a04e','#e8ecf0','#8a7030']
+  },
+  {
+    id: 30, name: 'Cement Gray + Emerald', type: 'MEDIUM',
+    bg: '#505050', accent: '#34d399', text: '#f0f4f0', textSoft: '#f0f4f0',
+    swatches: ['#505050','#34d399','#f0f4f0','#1a8a5c']
+  }
+];
+
+const HERO_IMAGES = [
+  'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80',
+  'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80',
+  'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80',
+  'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1200&q=80',
+  'https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?w=1200&q=80'
+];
+
+const GALLERY_IMAGES = [
+  'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&q=80',
+  'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&q=80',
+  'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&q=80',
+  'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=400&q=80'
+];
+
+function isLight(theme) {
+  return theme.type === 'LIGHT' || theme.type === 'MEDIUM';
+}
+
+function hexToRgb(hex) {
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result ? `${parseInt(result[1],16)},${parseInt(result[2],16)},${parseInt(result[3],16)}` : '0,0,0';
+}
+
+function generateCSS(theme) {
+  const t = `t${theme.id}`;
+  const light = isLight(theme);
+  const bgVal = theme.bgGrad || theme.bg;
+  const ar = hexToRgb(theme.accent);
+  const tr = hexToRgb(theme.text);
+  const or2 = hexToRgb(theme.bg);
+
+  const cardBg = light
+    ? `background:#fff;border:1px solid rgba(${ar},0.1);box-shadow:0 2px 14px rgba(0,0,0,0.04)`
+    : `background:rgba(${tr},0.03);border:1px solid rgba(${ar},0.1)`;
+
+  const hs = theme.headingGradient
+    ? `background:linear-gradient(135deg,${theme.gradColors});-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text`
+    : `color:${theme.accent}`;
+
+  const hh = theme.headingGradient
+    ? `background:linear-gradient(135deg,${theme.gradColors});-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text`
+    : `color:${theme.text}`;
+
+  const oLow = light ? 0.15 : 0.35;
+  const oHigh = light ? 0.65 : 0.75;
+  const tso = light ? 0.6 : 0.55;
+  const cto = light ? 0.55 : 0.5;
+  const btnCol = light ? '#fff' : theme.bg;
+  const divBg = light ? `rgba(0,0,0,0.08)` : `rgba(${ar},0.15)`;
+
+  return `
+.${t}{background:${bgVal}}
+.${t} .theme-label{color:${theme.text}}
+.${t} .stat-lbl{color:${theme.text}}
+.${t} .navbar{border-color:rgba(${ar},0.1)}
+.${t} .footer-bar{border-color:rgba(${ar},0.12);color:rgba(${tr},0.3)}
+.${t} .nav-logo{color:${theme.text}}
+.${t} .nav-links a{color:rgba(${tr},0.5)}
+.${t} .nav-links a:hover{color:${theme.accent}}
+.${t} .nav-menu,.${t} .nav-menu::before,.${t} .nav-menu::after{background:${theme.accent}}
+.${t} .hero-overlay{background:linear-gradient(to bottom,rgba(${or2},${oLow}),rgba(${or2},${oHigh}))}
+.${t} .hero-content h1{${hh}}
+.${t} .hero-content p{color:rgba(${tr},${tso})}
+.${t} .hero-divider{background:${theme.accent}}
+.${t} .hero-btn,.${t} .cta-btn{background:${theme.accent};color:${btnCol}}
+.${t} .cards-section h2,.${t} .services-section h2,.${t} .projects-section h2{${hs}}
+.${t} .card,.${t} .service-card,.${t} .project-card{${cardBg}}
+.${t} .card-icon{background:rgba(${ar},0.12);color:${theme.accent}}
+.${t} .card h3,.${t} .service-card h3,.${t} .project-card h3{color:${theme.accent}}
+.${t} .card p,.${t} .service-card p,.${t} .project-card p,.${t} .project-specs{color:rgba(${tr},${cto})}
+.${t} .stat-val{color:${theme.accent}}
+.${t} .testimonial-card{${cardBg}}
+.${t} .testimonial-card blockquote{color:rgba(${tr},0.7)}
+.${t} .testimonial-card .quote-mark{color:${theme.accent}}
+.${t} .testimonial-card .author{color:${theme.accent}}
+.${t} .testimonial-card .role{color:rgba(${tr},0.4)}
+.${t} .cta-section h2{color:${theme.text}}
+.${t} .cta-section p{color:rgba(${tr},0.5)}
+.${t} .contact-bar{color:rgba(${tr},0.6)}
+.${t} .contact-icon{color:${theme.accent}}
+.${t} .section-divider{background:${divBg}}
+`;
+}
+
+const SERVICE_IMAGES = [
+  'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&q=80',
+  'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&q=80',
+  'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=400&q=80'
+];
+const PROJECT_IMAGES = [
+  'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&q=80',
+  'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&q=80',
+  'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=400&q=80'
+];
+
+function themeBlock(theme) {
+  const heroImg = HERO_IMAGES[(theme.id - 1) % HERO_IMAGES.length];
+  const swatchesHtml = theme.swatches.map(color =>
+    `<div class="sw" style="background:${color}"></div>`
+  ).join('');
+  const galleryHtml = GALLERY_IMAGES.map(src =>
+    `<img src="${src}" alt="project" loading="lazy">`
+  ).join('');
+  const padId = String(theme.id).padStart(2, '0');
+
+  return `
+  <div class="theme t${theme.id}" id="s${theme.id}">
+    <div class="theme-label">${padId} — ${theme.name.toUpperCase()} [${theme.type}]</div>
+    <div class="swatches">${swatchesHtml}</div>
+
+    <div class="navbar">
+      <div class="nav-logo">МОДЕРН ХАУС</div>
+      <div class="nav-links">
+        <a href="#">Начало</a>
+        <a href="#">Проекти</a>
+        <a href="#">Галерия</a>
+        <a href="#">За нас</a>
+        <a href="#">Контакти</a>
+      </div>
+      <div class="nav-menu"></div>
+    </div>
+
+    <div class="hero">
+      <img src="${heroImg}" alt="house" loading="lazy">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1>СГЛОБЯЕМИ КЪЩИ</h1>
+        <div class="hero-divider"></div>
+        <p>Модерни сглобяеми къщи, контейнери и дограма. Бързо изграждане с високо качество и достъпни цени.</p>
+        <a href="#" class="hero-btn">РАЗГЛЕДАЙТЕ ПРОЕКТИТЕ →</a>
+      </div>
+    </div>
+
+    <div class="stats-bar">
+      <div class="stat"><div class="stat-val">8+</div><div class="stat-lbl">Години опит</div></div>
+      <div class="stat"><div class="stat-val">150+</div><div class="stat-lbl">Проекта</div></div>
+      <div class="stat"><div class="stat-val">200+</div><div class="stat-lbl">Клиенти</div></div>
+      <div class="stat"><div class="stat-val">10</div><div class="stat-lbl">Гаранция</div></div>
+    </div>
+
+    <div class="cards-section">
+      <h2>ЗАЩО ДА НИ ИЗБЕРЕТЕ</h2>
+      <div class="cards-grid">
+        <div class="card"><div class="card-icon">⚡</div><h3>Бързо изграждане</h3><p>Готов дом за 2-4 месеца благодарение на модерните технологии за сглобяемо строителство.</p></div>
+        <div class="card"><div class="card-icon">🏗</div><h3>Високо качество</h3><p>Използваме само сертифицирани материали от водещи европейски производители.</p></div>
+        <div class="card"><div class="card-icon">💰</div><h3>Достъпни цени</h3><p>До 40% по-ниска цена спрямо традиционното строителство без компромис с качеството.</p></div>
+      </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="services-section">
+      <h2>НАШИТЕ УСЛУГИ</h2>
+      <div class="services-grid">
+        <div class="service-card"><img src="${SERVICE_IMAGES[0]}" alt="service" loading="lazy"><div class="service-card-body"><h3>Сглобяеми къщи</h3><p>SIP панелни и метални конструкции за бърз и качествен монтаж на вашия нов дом.</p></div></div>
+        <div class="service-card"><img src="${SERVICE_IMAGES[1]}" alt="service" loading="lazy"><div class="service-card-body"><h3>Контейнери</h3><p>Жилищни, офис и търговски контейнерни решения с пълна изолация и обзавеждане.</p></div></div>
+        <div class="service-card"><img src="${SERVICE_IMAGES[2]}" alt="service" loading="lazy"><div class="service-card-body"><h3>Дограма</h3><p>ПВЦ и алуминиева дограма от водещи европейски производители с пълна гаранция.</p></div></div>
+      </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="testimonial-section">
+      <div class="testimonial-card">
+        <div class="quote-mark">"</div>
+        <blockquote>Изключително доволни сме от работата на Модерн Хаус. Къщата ни беше готова за по-малко от 3 месеца и качеството надмина очакванията ни. Препоръчваме ги на всеки!</blockquote>
+        <div class="author">Георги и Мария Петрови</div>
+        <div class="role">Клиенти от Пловдив</div>
+      </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="projects-section">
+      <h2>ПОСЛЕДНИ ПРОЕКТИ</h2>
+      <div class="projects-grid">
+        <div class="project-card"><img src="${PROJECT_IMAGES[0]}" alt="project" loading="lazy"><div class="project-card-body"><h3>Вила Пловдив</h3><p>Двуетажна сглобяема къща с панорамни прозорци и тераса.</p><div class="project-specs"><span>185 кв.м</span><span>3 спални</span><span>4 месеца</span></div></div></div>
+        <div class="project-card"><img src="${PROJECT_IMAGES[1]}" alt="project" loading="lazy"><div class="project-card-body"><h3>Офис комплекс София</h3><p>Модерен контейнерен офис от 6 модула с дървена фасада.</p><div class="project-specs"><span>144 кв.м</span><span>6 модула</span><span>2 месеца</span></div></div></div>
+        <div class="project-card"><img src="${PROJECT_IMAGES[2]}" alt="project" loading="lazy"><div class="project-card-body"><h3>Планинска къща Банско</h3><p>Стоманена конструкция с камък и дърво в планински стил.</p><div class="project-specs"><span>210 кв.м</span><span>4 спални</span><span>5 месеца</span></div></div></div>
+      </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="cta-section">
+      <h2>ГОТОВИ ЛИ СТЕ ДА ИЗГРАДИТЕ МЕЧТАНИЯ СИ ДОМ?</h2>
+      <p>Свържете се с нас за безплатна консултация и оферта по вашия проект.</p>
+      <a href="#" class="cta-btn">ПОИСКАЙТЕ ОФЕРТА →</a>
+    </div>
+
+    <div class="contact-bar">
+      <div class="contact-item"><span class="contact-icon">📞</span> +359 899 86 33 29</div>
+      <div class="contact-item"><span class="contact-icon">✉️</span> office@modernhouse.bg</div>
+      <div class="contact-item"><span class="contact-icon">🕐</span> Пон-Пет 09:00 - 17:00</div>
+    </div>
+
+    <div class="gallery-section">
+      <div class="gallery-grid">${galleryHtml}</div>
+    </div>
+
+    <div class="footer-bar">© 2026 Модерн Хаус. Всички права запазени.</div>
+  </div>`;
+}
+
+// Build TOC
+const tocElement = document.getElementById('toc');
+let tocHtml = '<a href="/" style="background:rgba(196,160,78,0.15);border-color:rgba(196,160,78,0.3);color:rgba(196,160,78,0.9);margin-right:8px">← WEBSITE</a><span class="toc-label">Dark</span>';
+THEMES.forEach((theme, index) => {
+  if (index === 15) tocHtml += '<span class="toc-label">Light</span>';
+  if (index === 25) tocHtml += '<span class="toc-label">Mixed</span>';
+  const padId = String(theme.id).padStart(2, '0');
+  tocHtml += `<a href="#s${theme.id}">${padId}</a>`;
+});
+tocElement.innerHTML = tocHtml;
+
+// Build CSS + HTML
+const styleElement = document.createElement('style');
+let allCSS = '';
+let allHTML = '';
+
+THEMES.forEach(theme => {
+  allCSS += generateCSS(theme);
+  allHTML += themeBlock(theme);
+});
+
+styleElement.textContent = allCSS;
+document.head.appendChild(styleElement);
+document.getElementById('content').innerHTML = allHTML;
+</script>
+
+</body>
+</html>

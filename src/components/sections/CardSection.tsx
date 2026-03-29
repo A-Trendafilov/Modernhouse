@@ -1,6 +1,7 @@
 import { motion, type Variants } from "framer-motion";
 
 import { cardData } from "@/data/cardData";
+
 import CardComponent from "./CardComponent";
 
 const containerVariants: Variants = {

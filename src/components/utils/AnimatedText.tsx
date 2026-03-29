@@ -1,11 +1,10 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
-interface AnimatedTextProps {
-  phrases?: string[];
-}
-
-const AnimatedText = ({ phrases = ["MODERN HOUSE", "DESIGNING HOMES"] }: AnimatedTextProps) => {
+const AnimatedText = () => {
+  const { t } = useTranslation();
+  const phrases = [t("common.animatedText1"), t("common.animatedText2")];
   const [currentPhrase, setCurrentPhrase] = useState(0);
 
   useEffect(() => {
@@ -33,7 +32,7 @@ const AnimatedText = ({ phrases = ["MODERN HOUSE", "DESIGNING HOMES"] }: Animate
     >
       <AnimatePresence mode="wait">
         <motion.div
-          key={currentPhrase}
+          key={`${currentPhrase}-${phrases[currentPhrase]}`}
           initial="hidden"
           animate="visible"
           exit="exit"

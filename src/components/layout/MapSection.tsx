@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 interface MapSectionProps {
   title: string;
@@ -6,14 +7,16 @@ interface MapSectionProps {
 }
 
 const MapSection = React.memo(({ title, src }: MapSectionProps) => {
+  const { t } = useTranslation();
+
   return (
     <div className="glass rounded-xl overflow-hidden group">
       <h3 className="font-display text-xl tracking-wider text-white/80 text-center py-4">
-        {title}
+        {t(title)}
       </h3>
       <div className="px-4 pb-4">
         <iframe
-          title={title}
+          title={t(title)}
           src={src}
           width="100%"
           height="280"

@@ -7,7 +7,7 @@ import importPlugin from 'eslint-plugin-import';
 import tseslint from 'typescript-eslint';
 
 export default [
-  { ignores: ['dist', 'vite.config.ts'] },
+  { ignores: ['dist', 'vite.config.ts', 'public'] },
   {
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
@@ -21,12 +21,14 @@ export default [
     },
     settings: {
       react: {
-        version: '18.0',
+        version: 'detect',
         jsxRuntime: 'automatic',
       },
       'import/resolver': {
-        typescript: true,
-        node: true,
+        typescript: {
+          alwaysTryTypes: true,
+          project: './tsconfig.json',
+        },
       },
     },
     plugins: {
@@ -44,7 +46,7 @@ export default [
 
       // React Rules
       'react/jsx-no-target-blank': 'error',
-      'react/prop-types': 'off', // TypeScript handles this now
+      'react/prop-types': 'off',
 
       // React Refresh
       'react-refresh/only-export-components': [
@@ -61,9 +63,18 @@ export default [
             'internal',
             ['parent', 'sibling', 'index'],
           ],
+          pathGroups: [
+            {
+              pattern: '@/**',
+              group: 'internal',
+              position: 'before',
+            },
+          ],
+          pathGroupsExcludedImportTypes: ['builtin'],
           'newlines-between': 'always',
         },
       ],
+      'import/no-unresolved': 'off',
 
       // General Rules
       'no-unused-vars': 'off',
@@ -72,7 +83,7 @@ export default [
       'no-debugger': 'error',
       'consistent-return': 'error',
       'eqeqeq': 'error',
-      'no-undef': 'off', // TypeScript handles this
+      'no-undef': 'off',
       'no-alert': 'warn',
       'no-eval': 'error',
       'no-implied-eval': 'error',
@@ -83,7 +94,7 @@ export default [
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'warn',
 
-      // React in JSX scope not needed with React 18+
+      // React in JSX scope not needed
       'react/react-in-jsx-scope': 'off',
     },
   },

@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowLeft, CheckCircle } from "lucide-react";
+import { ArrowLeft, CheckCircle, ZoomIn } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { projectData } from "@/data/projectData";
+import ImageLightbox from "@/components/sections/ImageLightbox";
 
 const stagger = {
   hidden: { opacity: 0 },
@@ -22,7 +22,7 @@ const ProjectDetail = () => {
   const { projectId } = useParams();
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const [lightboxImage, setLightboxImage] = useState<string | null>(null);
+  const [lightboxIndex, setLightboxIndex] = useState(-1);
 
   const project = projectData.find((proj) => proj.id === projectId);
 
@@ -40,24 +40,24 @@ const ProjectDetail = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Image */}
-      <div className="relative h-[50vh] sm:h-[60vh] overflow-hidden">
+      <div className="relative h-[40vh] sm:h-[50vh] md:h-[60vh] overflow-hidden">
         <img
           src={project.image}
           alt={project.title}
-          className="w-full h-full object-cover brightness-[0.4]"
+          className="w-full h-full object-cover object-center brightness-[0.4]"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 px-6 pb-12 max-w-6xl mx-auto">
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 px-4 sm:px-6 pb-8 sm:pb-12 max-w-6xl mx-auto">
           <Button
             variant="ghost"
             onClick={() => navigate("/projects")}
-            className="text-white/60 hover:text-brass mb-6"
+            className="text-white/60 hover:text-brass mb-4 sm:mb-6 text-sm"
           >
             <ArrowLeft className="h-4 w-4 mr-2" />
             {t("pages.projects.backToProjects")}
           </Button>
           <motion.h1
-            className="font-display text-5xl sm:text-6xl lg:text-7xl tracking-wider text-gradient"
+            className="font-display text-3xl sm:text-5xl lg:text-6xl tracking-[0.1em] text-gradient"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -67,10 +67,10 @@ const ProjectDetail = () => {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 py-16">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
         {/* Specs Bar */}
         <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16"
+          className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-12 sm:mb-16"
           variants={stagger}
           initial="hidden"
           animate="visible"
@@ -79,18 +79,18 @@ const ProjectDetail = () => {
             <motion.div
               key={spec.label}
               variants={fadeUp}
-              className="glass rounded-xl p-5 text-center"
+              className="glass rounded-xl p-4 sm:p-5 text-center"
             >
-              <p className="font-display text-2xl sm:text-3xl text-brass tracking-wider">
+              <p className="font-display text-xl sm:text-2xl md:text-3xl text-brass tracking-wider">
                 {spec.value}
               </p>
-              <p className="text-white/40 text-sm mt-1">{t(spec.label)}</p>
+              <p className="text-white/40 text-xs sm:text-sm mt-1">{t(spec.label)}</p>
             </motion.div>
           ))}
         </motion.div>
 
         {/* Description + Features */}
-        <div className="flex flex-col lg:flex-row gap-16 mb-20">
+        <div className="flex flex-col lg:flex-row gap-10 sm:gap-16 mb-16 sm:mb-20">
           <motion.div
             className="flex-1"
             initial={{ opacity: 0, x: -30 }}
@@ -98,10 +98,10 @@ const ProjectDetail = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="font-display text-3xl tracking-wider text-brass mb-6">
+            <h2 className="font-display text-2xl sm:text-3xl tracking-wider text-brass mb-4 sm:mb-6">
               {t("pages.projects.description")}
             </h2>
-            <p className="text-white/60 leading-relaxed text-base">{project.fullDescription}</p>
+            <p className="text-white/60 leading-relaxed text-sm sm:text-base">{project.fullDescription}</p>
           </motion.div>
 
           <motion.div
@@ -111,7 +111,7 @@ const ProjectDetail = () => {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <h2 className="font-display text-3xl tracking-wider text-brass mb-6">
+            <h2 className="font-display text-2xl sm:text-3xl tracking-wider text-brass mb-4 sm:mb-6">
               {t("pages.projects.features")}
             </h2>
             <div className="space-y-3">
@@ -121,8 +121,8 @@ const ProjectDetail = () => {
                   variants={fadeUp}
                   className="flex items-start gap-3 glass rounded-lg px-4 py-3"
                 >
-                  <CheckCircle className="h-5 w-5 text-brass shrink-0 mt-0.5" />
-                  <p className="text-white/70 text-sm">{feature}</p>
+                  <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-brass shrink-0 mt-0.5" />
+                  <p className="text-white/70 text-xs sm:text-sm">{feature}</p>
                 </motion.div>
               ))}
             </div>
@@ -136,17 +136,17 @@ const ProjectDetail = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="font-display text-3xl tracking-wider text-brass mb-8 text-center">
+          <h2 className="font-display text-2xl sm:text-3xl tracking-wider text-brass mb-6 sm:mb-8 text-center">
             {t("pages.projects.projectGallery")}
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
             {project.gallery.map((imageSrc, index) => (
               <motion.div
                 key={index}
                 className="relative overflow-hidden rounded-xl cursor-pointer group aspect-[4/3]"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.2 }}
-                onClick={() => setLightboxImage(imageSrc)}
+                onClick={() => setLightboxIndex(index)}
               >
                 <img
                   src={imageSrc}
@@ -154,10 +154,8 @@ const ProjectDetail = () => {
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
-                  <span className="text-white/0 group-hover:text-white/80 font-display text-lg tracking-wider transition-colors duration-300">
-                    {index + 1} / {project.gallery.length}
-                  </span>
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
+                  <ZoomIn className="h-6 w-6 text-white/0 group-hover:text-white/80 transition-colors duration-300" />
                 </div>
               </motion.div>
             ))}
@@ -166,14 +164,14 @@ const ProjectDetail = () => {
 
         {/* CTA */}
         <motion.div
-          className="text-center mt-20"
+          className="text-center mt-16 sm:mt-20"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
           <Button
             onClick={() => navigate("/contact")}
-            className="bg-brass hover:bg-brass-light text-background font-semibold px-10 py-6 text-lg"
+            className="bg-brass hover:bg-brass-light text-background font-bold tracking-[0.15em] uppercase text-sm px-10 py-6 glow-brass"
           >
             {t("contact.requestQuote")}
           </Button>
@@ -181,24 +179,13 @@ const ProjectDetail = () => {
       </div>
 
       {/* Lightbox */}
-      <Dialog open={Boolean(lightboxImage)} onOpenChange={() => setLightboxImage(null)}>
-        <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 bg-transparent border-none shadow-none">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="flex items-center justify-center"
-            onClick={() => setLightboxImage(null)}
-          >
-            {lightboxImage && (
-              <img
-                src={lightboxImage}
-                alt="Project gallery"
-                className="max-w-full max-h-[90vh] rounded-lg shadow-2xl"
-              />
-            )}
-          </motion.div>
-        </DialogContent>
-      </Dialog>
+      <ImageLightbox
+        images={project.gallery}
+        currentIndex={lightboxIndex}
+        isOpen={lightboxIndex >= 0}
+        onClose={() => setLightboxIndex(-1)}
+        onNavigate={setLightboxIndex}
+      />
     </div>
   );
 };

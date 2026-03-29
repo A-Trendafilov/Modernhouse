@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 
 import type { ContactDetail } from "@/types";
+
 import InfoList from "./InfoList";
 
 interface ContactInfoProps {

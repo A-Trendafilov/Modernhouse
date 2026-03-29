@@ -22,7 +22,7 @@ const ProjectDetail = lazy(() => import("@/pages/ProjectDetail"));
 
 const App = () => {
   return (
-    <Router basename="/Modernhouse">
+    <Router basename={import.meta.env.BASE_URL}>
       <Layout>
         <ErrorBoundary>
           <Suspense fallback={<Loading />}>

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
+import TitleDivider from "@/components/ui/title-divider";
 import { projectData } from "@/data/projectData";
 import ProjectCard from "@/components/sections/ProjectCard";
 import FilterButtons from "@/components/sections/FilterButtons";
@@ -31,7 +32,7 @@ const Project = () => {
         <h1 className="font-display text-4xl sm:text-5xl md:text-6xl tracking-wider text-gradient mb-4">
           {t("pages.projects.title")}
         </h1>
-        <div className="w-20 h-0.5 bg-gradient-to-r from-transparent via-brass to-transparent mx-auto" />
+        <TitleDivider />
       </motion.div>
 
       <FilterButtons
