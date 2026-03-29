@@ -2,6 +2,8 @@ import { motion, type Variants } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { CheckCircle } from "lucide-react";
 
+import TitleDivider from "@/components/ui/title-divider";
+
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
@@ -39,15 +41,10 @@ const About = () => {
         <div className="absolute bottom-12 right-12 w-24 h-24 border-r-2 border-b-2 border-brass/15 hidden lg:block" />
 
         <motion.div className="relative max-w-4xl" initial="hidden" animate="visible" variants={fadeUp}>
-          <motion.div
-            initial={{ width: 0 }}
-            animate={{ width: 64 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="h-[2px] bg-brass mx-auto mb-8"
-          />
           <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-8xl tracking-[0.1em] sm:tracking-[0.15em] text-gradient mb-4 leading-none">
             {t("pages.about.title")}
           </h1>
+          <TitleDivider className="mb-8" />
           <p className="font-display text-base sm:text-lg md:text-xl tracking-[0.1em] text-white/40 mb-8">
             {t("pages.about.subtitle")}
           </p>
@@ -115,11 +112,10 @@ const About = () => {
           viewport={{ once: true }}
           variants={fadeUp}
         >
-          <h2 className="font-display text-3xl sm:text-4xl tracking-[0.15em] text-brass flex items-center justify-center gap-4">
-            <span className="w-8 h-[2px] bg-brass" />
+          <h2 className="font-display text-3xl sm:text-4xl tracking-[0.15em] text-brass text-center mb-2">
             {t("pages.about.whyUsTitle")}
-            <span className="w-8 h-[2px] bg-brass" />
           </h2>
+          <TitleDivider />
         </motion.div>
 
         <motion.div

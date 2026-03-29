@@ -32,22 +32,21 @@ const HeroContent = ({ title, description, route }: HeroContentProps) => {
           {/* Decorative inner border */}
           <div className="absolute inset-3 rounded-xl border border-white/[0.03] pointer-events-none" />
 
-          {/* Small top accent */}
-          <motion.div
-            initial={{ width: 0 }}
-            animate={{ width: 48 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="h-[2px] bg-brass mx-auto mb-8"
-          />
-
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4 }}
-            className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-7xl tracking-[0.1em] sm:tracking-[0.15em] text-white mb-6 leading-none"
+            className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-7xl tracking-[0.1em] sm:tracking-[0.15em] text-white mb-4 leading-none"
           >
             {t(title)}
           </motion.h2>
+
+          <motion.div
+            initial={{ scaleX: 0, opacity: 0 }}
+            animate={{ scaleX: 1, opacity: 1 }}
+            transition={{ duration: 1.2, delay: 0.6, ease: "easeOut" }}
+            className="w-[80%] max-w-md h-[3px] rounded-full bg-gradient-to-r from-transparent via-brass to-transparent mx-auto mb-6 origin-center"
+          />
 
           <motion.p
             initial={{ opacity: 0 }}

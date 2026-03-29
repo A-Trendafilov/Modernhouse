@@ -1,17 +1,17 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
-import LazyLoad from "../utils/LazyLoad";
-import InfoList from "../sections/InfoList";
-import SocialIcons from "../sections/SocialIcons";
-import HorizontalDivider from "./HorizontalDivider";
 import {
   locations,
   contactDetails,
   socialLinks,
   maps,
-  companyName,
 } from "@/data/footerData";
+
+import LazyLoad from "../utils/LazyLoad";
+import InfoList from "../sections/InfoList";
+import SocialIcons from "../sections/SocialIcons";
+import HorizontalDivider from "./HorizontalDivider";
 import MapSection from "./MapSection";
 import Copyright from "./Copyright";
 

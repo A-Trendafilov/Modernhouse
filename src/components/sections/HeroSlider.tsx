@@ -2,6 +2,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 
 import { heroSectionImg } from "@/data/heroSectionImg";
+
 import HeroSlide from "./HeroSlide";
 
 const HeroSlider = () => {

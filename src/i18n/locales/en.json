@@ -1,0 +1,259 @@
+{
+  "nav": {
+    "home": "Home",
+    "prefabHouses": "Prefab Houses",
+    "pressPanel": "Press-panel System",
+    "metalSystem": "Metal Frame System",
+    "modularHouses": "Modular Houses",
+    "tinyHouses": "Tiny Houses",
+    "containers": "Containers",
+    "joinery": "Joinery",
+    "aluminum": "Aluminum",
+    "pvc": "PVC",
+    "gallery": "Gallery",
+    "projects": "Projects",
+    "about": "About",
+    "contact": "Contact",
+    "label": "Navigation"
+  },
+  "hero": {
+    "prefab": {
+      "title": "PREFAB HOUSES",
+      "description": "With our prefab houses you can quickly and easily create a cozy and functional home that meets your needs."
+    },
+    "containers": {
+      "title": "CONTAINERS",
+      "description": "Use our containers to bring your residential and business ideas to life."
+    },
+    "moreInfo": "Learn More",
+    "learnMore": "Learn more about {{title}}"
+  },
+  "cards": {
+    "affordableTitle": "Affordable Prices",
+    "affordableDesc": "Affordable prices that allow you to realize your ideas without significantly burdening your budget.",
+    "deliveryTitle": "Fast Delivery",
+    "deliveryDesc": "We guarantee fast deliveries to provide you with the desired products in the shortest possible time.",
+    "qualityTitle": "High Quality",
+    "qualityDesc": "Every product we offer meets the highest standards of durability and performance."
+  },
+  "footer": {
+    "contactUs": "Contact Us",
+    "ourLocations": "Our Locations",
+    "followUs": "Follow Us",
+    "workingHours": "Working hours: Mon-Fri - 9:00 AM - 5:00 PM",
+    "production": "Production",
+    "showroom": "Showroom",
+    "allRightsReserved": "All rights reserved.",
+    "companyName": "Modern House"
+  },
+  "gallery": {
+    "title": "GALLERY",
+    "all": "All",
+    "containers": "Containers",
+    "prefabHouses": "Prefab Houses",
+    "steelHouses": "Steel Houses",
+    "noImages": "No images found.",
+    "containerTitle": "Containers",
+    "prefabTitle": "Prefab House",
+    "steelTitle": "Steel House"
+  },
+  "contact": {
+    "pageTitle": "CONTACT",
+    "formTitle": "QUICK INQUIRY",
+    "salesCenter": "Sales Center",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "message": "Describe your inquiry",
+    "submit": "Send Inquiry",
+    "successMessage": "Thank you for your message.",
+    "errorSend": "Failed to send the message.",
+    "unknownError": "Unknown error",
+    "errorRetry": "We couldn't send your message. Please try again.",
+    "requestQuote": "Request a Quote"
+  },
+  "validation": {
+    "nameRequired": "Name is required.",
+    "emailRequired": "Email is required.",
+    "emailInvalid": "Email is invalid.",
+    "phoneRequired": "Phone number is required.",
+    "phoneInvalid": "Phone number is invalid.",
+    "messageRequired": "Message is required.",
+    "messageMax": "Message must not exceed 500 characters."
+  },
+  "pages": {
+    "about": {
+      "title": "ABOUT US",
+      "subtitle": "Building the future of residential construction",
+      "story": "Modern House is a leading Bulgarian company in modern construction, specializing in the design and construction of prefab houses, modular structures, and container solutions. Since our founding, we have been dedicated to the idea that everyone deserves a quality, affordable, and beautiful home.",
+      "mission": "Our mission is to combine innovative construction technologies with attention to detail, creating homes that not only meet the highest quality standards but also reflect the unique style of each client.",
+      "missionTitle": "OUR MISSION",
+      "whyUsTitle": "WHY CHOOSE US",
+      "statsYears": "Years of experience",
+      "statsProjects": "Completed projects",
+      "statsClients": "Happy clients",
+      "statsWarranty": "Years warranty",
+      "features": {
+        "experience": "Years of experience in constructing modern residential buildings",
+        "materials": "We use only high-quality materials from proven suppliers",
+        "team": "Qualified team of engineers, architects, and construction specialists",
+        "deadlines": "We strictly meet the agreed deadlines for every project",
+        "warranty": "We provide full warranty and after-sales service",
+        "custom": "Individual approach to every client and project"
+      }
+    },
+    "notFound": {
+      "title": "PAGE NOT FOUND",
+      "message": "The page you are looking for does not exist.",
+      "goHome": "Go to Home"
+    },
+    "projects": {
+      "title": "PROJECTS",
+      "subtitle": "Explore our completed projects",
+      "notFound": "Project not found",
+      "backToProjects": "Back to projects",
+      "specifications": "Specifications",
+      "area": "Area",
+      "bedrooms": "Bedrooms",
+      "floors": "Floors",
+      "buildTime": "Build time",
+      "projectGallery": "Project Gallery",
+      "features": "Features",
+      "description": "Description"
+    },
+    "containers": {
+      "title": "CONTAINERS",
+      "subtitle": "Innovative container solutions",
+      "description": "Container structures are a modern and efficient solution for rapid construction of residential, commercial, and office spaces. Our containers are made from high-quality steel and are fully adapted to your needs.",
+      "intro": "Container construction offers a unique combination of speed, durability, and flexibility. Each container can be transformed into a modern home, office, or commercial space with full thermal and waterproof insulation.",
+      "features": {
+        "fast": "Quick assembly — ready for occupancy in 30–60 days",
+        "durable": "Strong steel construction with a long service life",
+        "eco": "Eco-friendly construction with minimal environmental footprint",
+        "flexible": "Modular design — easy expansion and reconfiguration",
+        "mobile": "Can be relocated to another site when needed",
+        "affordable": "Up to 40% lower cost compared to traditional construction"
+      },
+      "usesTitle": "APPLICATIONS",
+      "uses": {
+        "residential": "Residential containers — studios, one and two-bedroom apartments",
+        "office": "Office containers — mobile workspaces",
+        "commercial": "Commercial spaces — shops, cafes, restaurants",
+        "warehouse": "Storage facilities — secure goods storage",
+        "modular": "Modular complexes — combining multiple containers"
+      }
+    },
+    "sipHouse": {
+      "title": "PRESS-PANEL SYSTEM",
+      "subtitle": "Energy-efficient prefab houses",
+      "description": "The press-panel system (SIP panels) is a modern construction technology where walls, floors, and roofs are built from pre-made sandwich panels. This system provides excellent thermal insulation and fast construction.",
+      "intro": "SIP panels consist of two layers of OSB board with high-density polystyrene foam in between. This combination creates an exceptionally strong and well-insulated structure that significantly reduces heating and cooling costs.",
+      "features": {
+        "insulation": "High thermal insulation — up to 60% lower energy bills",
+        "speed": "Fast assembly — structure ready in 2–4 weeks",
+        "strength": "Earthquake resistance — proven seismic stability",
+        "fireResistant": "Fire resistance — specially treated panels",
+        "soundproof": "Excellent sound insulation for a peaceful and comfortable environment",
+        "lifespan": "Long service life — over 50 years"
+      },
+      "processTitle": "CONSTRUCTION PROCESS",
+      "process": {
+        "design": "Design and 3D visualization of your future home",
+        "production": "Production of SIP panels in our factory",
+        "foundation": "Site preparation and foundation work",
+        "assembly": "Structure assembly — walls, roof, and floors",
+        "finishing": "Finishing work — plumbing, electrical, interior"
+      }
+    },
+    "metalHouse": {
+      "title": "METAL FRAME SYSTEM",
+      "subtitle": "Strong and durable steel constructions",
+      "description": "The metal frame system uses light steel framing (LSF) for constructing the load-bearing structure. This technology provides exceptional strength and stability at minimal structural weight.",
+      "intro": "Steel houses combine industrial strength with modern design. Light steel profiles allow the creation of diverse architectural solutions while ensuring maximum structural stability.",
+      "features": {
+        "strength": "Exceptional structural strength and stability",
+        "lightweight": "Lightweight — reduces the load on the foundation",
+        "precision": "Precise factory production with minimal deviations",
+        "fireResistant": "Non-combustible structure — maximum fire safety",
+        "termiteProof": "Resistant to pests and corrosion",
+        "recyclable": "100% recyclable steel — an eco-friendly choice"
+      }
+    },
+    "modularHouse": {
+      "title": "MODULAR HOUSES",
+      "subtitle": "Flexible and modern modular solutions",
+      "description": "Modular houses are manufactured in a controlled factory environment and transported to the site for final assembly. This technology guarantees high quality, fast construction, and design flexibility.",
+      "intro": "Each module is a completed section of your future home — with walls, floor, roof, plumbing, and electrical installations. On site, modules are connected together, allowing a finished home in record time.",
+      "features": {
+        "factory": "Factory production — guaranteed quality regardless of weather",
+        "fast": "On-site assembly in 1–3 days",
+        "expandable": "Easy expansion — add new modules at any time",
+        "custom": "Full design freedom — choose your layout and materials",
+        "energy": "Energy efficiency class A — minimal maintenance costs",
+        "transport": "Can be relocated to another location"
+      }
+    },
+    "tinyHouse": {
+      "title": "TINY HOUSES",
+      "subtitle": "Compact living without compromise",
+      "description": "Tiny houses are compact dwellings designed for maximum functionality in a minimal footprint. They can be completely independent from city infrastructure thanks to solar panels, rainwater systems, and composting toilets.",
+      "intro": "The tiny house movement is gaining increasing popularity in Bulgaria and worldwide. Our tiny houses combine smart design with eco-friendly technologies to offer you a free and sustainable way of living.",
+      "features": {
+        "offgrid": "Full autonomy — solar energy, rainwater, composting",
+        "compact": "Optimized space — every square meter is functional",
+        "mobile": "On wheels — register as a trailer and travel",
+        "affordable": "Affordable price — ideal for a first home or guest house",
+        "minimal": "Minimal maintenance and low living costs",
+        "eco": "Ecological footprint up to 80% lower than a standard home"
+      }
+    },
+    "pvcJoinery": {
+      "title": "PVC WINDOWS & DOORS",
+      "subtitle": "High-quality PVC windows and doors",
+      "description": "Our PVC joinery is manufactured using leading European profile systems and provides excellent thermal and sound insulation. A wide range of colors, designs, and glass units for every taste and budget.",
+      "intro": "PVC joinery is the most popular choice for residential buildings thanks to the excellent price-quality ratio. Our windows and doors are manufactured with multi-chamber profiles and low-emission glass units for maximum energy efficiency.",
+      "features": {
+        "insulation": "5-7 chamber profiles for maximum thermal insulation",
+        "soundproof": "Sound insulation up to 47 dB — peace and quiet at home",
+        "colors": "Over 40 colors and laminates — match your interior",
+        "hardware": "Hardware from leading brands — MACO, Roto, Siegenia",
+        "glass": "Double and triple glazing with low-emission coating",
+        "warranty": "10-year warranty on profiles, 5 years on hardware"
+      },
+      "typesTitle": "OPENING TYPES",
+      "types": {
+        "tilt": "Tilt and turn — classic and practical solution",
+        "sliding": "Sliding — ideal for terraces and balconies",
+        "fixed": "Fixed — for showcases and facade glazing",
+        "folding": "Folding — for maximum opening of the space"
+      }
+    },
+    "aluminumJoinery": {
+      "title": "ALUMINUM JOINERY",
+      "subtitle": "Elegance and strength for modern spaces",
+      "description": "Aluminum joinery offers uncompromising strength, elegant appearance, and exceptional weather resistance. Ideal for large glazed areas, facades, and commercial buildings.",
+      "intro": "Aluminum is the material of the future in joinery. With slim profiles and maximum glazing area, aluminum systems create a modern and luxurious look for any building while providing excellent functionality.",
+      "features": {
+        "slim": "Slim profiles — maximum glazing area and more light",
+        "strong": "Exceptional strength — ideal for large dimensions",
+        "weather": "Resistant to all weather conditions — no rust, no deformation",
+        "design": "Modern minimalist design for architectural accents",
+        "thermal": "Thermally broken profiles for high energy efficiency",
+        "maintenance": "Minimal maintenance — easy cleaning and longevity"
+      }
+    }
+  },
+  "common": {
+    "loading": "LOADING",
+    "moreInfo": "More Information",
+    "error": "Something went wrong. Please try again.",
+    "all": "All",
+    "features": "FEATURES",
+    "viewProject": "View Project",
+    "sqm": "sq.m",
+    "months": "months",
+    "days": "days",
+    "animatedText1": "MODERN HOUSE",
+    "animatedText2": "BUILDING DREAMS"
+  }
+}

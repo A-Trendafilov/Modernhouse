@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { CheckCircle, ArrowRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import TitleDivider from "@/components/ui/title-divider";
 
 interface ServicePageProps {
   translationPrefix: string;
@@ -46,16 +47,10 @@ const ServicePage = ({ translationPrefix, features, extraSection }: ServicePageP
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <motion.div
-            initial={{ width: 0 }}
-            animate={{ width: 64 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="h-[2px] bg-brass mx-auto mb-8"
-          />
-
           <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-8xl tracking-[0.1em] sm:tracking-[0.15em] text-gradient mb-4 leading-none">
             {t(`${translationPrefix}.title`)}
           </h1>
+          <TitleDivider className="mb-6" />
 
           <p className="font-display text-base sm:text-lg md:text-xl tracking-[0.1em] text-white/40 mb-8">
             {t(`${translationPrefix}.subtitle`)}
@@ -79,7 +74,6 @@ const ServicePage = ({ translationPrefix, features, extraSection }: ServicePageP
             transition={{ duration: 0.6 }}
           >
             <div className="glass-strong rounded-2xl p-8 relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-brass/40 via-brass/20 to-transparent" />
               <p className="text-white/60 text-base leading-[1.8]">
                 {t(`${translationPrefix}.intro`)}
               </p>
@@ -94,10 +88,10 @@ const ServicePage = ({ translationPrefix, features, extraSection }: ServicePageP
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <h2 className="font-display text-3xl tracking-[0.15em] text-brass mb-8 flex items-center gap-3">
-              <span className="w-8 h-[2px] bg-brass" />
+            <h2 className="font-display text-3xl tracking-[0.15em] text-brass mb-4">
               {t("common.features")}
             </h2>
+            <TitleDivider className="mb-8 !justify-start" />
             <div className="space-y-3">
               {features.map((featureKey) => (
                 <motion.div

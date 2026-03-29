@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
+import TitleDivider from "@/components/ui/title-divider";
 import LazyLoad from "@/components/utils/LazyLoad";
 import ContactForm from "@/components/sections/ContactForm";
 import ContactInfo from "@/components/sections/ContactInfo";
@@ -20,7 +21,7 @@ const Contact = () => {
         <h1 className="font-display text-4xl sm:text-5xl md:text-6xl tracking-wider text-gradient mb-4">
           {t("contact.pageTitle")}
         </h1>
-        <div className="w-20 h-0.5 bg-gradient-to-r from-transparent via-brass to-transparent mx-auto" />
+        <TitleDivider />
       </motion.div>
 
       <div className="flex flex-col lg:flex-row justify-between mx-auto max-w-6xl gap-12">

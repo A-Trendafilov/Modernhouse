@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 
 import type { HeroImage } from "@/types";
+
 import HeroContent from "./HeroContent";
 
 interface HeroSlideProps {
@@ -9,27 +10,22 @@ interface HeroSlideProps {
 
 const HeroSlide = ({ image }: HeroSlideProps) => {
   return (
-    <div className="relative w-full h-screen overflow-hidden">
-      {/* Image with parallax-like zoom */}
+    <div className="relative w-full h-[70vh] sm:h-[80vh] md:h-screen overflow-hidden">
       <motion.img
         src={image.src}
         alt={image.alt}
-        initial={{ opacity: 0, scale: 1.15 }}
-        animate={{ opacity: 1, scale: 1.05 }}
-        transition={{ duration: 1.6, ease: "easeOut" }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.2, ease: "easeOut" }}
         onError={(event) => {
           const target = event.target as HTMLImageElement;
           target.src = `${import.meta.env.BASE_URL}/assets/herosection/2-store-house.webp`;
         }}
-        className="w-full h-full object-cover"
+        className="w-full h-full object-cover object-center"
       />
 
-      {/* Cinematic gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-transparent to-background/80" />
-      <div className="absolute inset-0 bg-gradient-to-r from-background/40 to-transparent" />
-
-      {/* Vignette effect */}
-      <div className="absolute inset-0" style={{ boxShadow: "inset 0 0 200px rgba(0,0,0,0.5)" }} />
+      {/* Gradient overlays */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/20 to-background/70" />
 
       <HeroContent
         title={image.title}

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
-import { ChevronDown, ChevronUp } from "lucide-react";
+import { ChevronDown, ChevronUp, Palette } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { cn } from "@/lib/utils";
@@ -103,6 +103,17 @@ const NavItems = ({ onNavigate }: NavItemsProps) => {
         {t("nav.label")}
       </p>
       {navItems.map((item, index) => renderNavItem(item, index))}
+
+      <div className="mt-4 pt-4 border-t border-white/10">
+        <a
+          href={`${import.meta.env.BASE_URL}preview.html`}
+          onClick={onNavigate}
+          className={cn(navLinkBase, "text-brass/60 hover:text-brass")}
+        >
+          <Palette className="h-5 w-5" />
+          Color Preview
+        </a>
+      </div>
     </nav>
   );
 };
