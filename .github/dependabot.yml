@@ -14,12 +14,27 @@ updates:
       prefix: chore
       prefix-development: chore
       include: scope
-    # TypeScript is pinned and updated by hand. The 7.x line is a from-scratch
-    # compiler rewrite whose first stable release is very recent, and the lint
-    # toolchain refuses to load against it. Bump it deliberately, not on a
-    # schedule. Everything else updates normally.
+    # Two holds, both verified by installing the upgrade and running the
+    # toolchain. Minor and patch updates still flow normally for everything.
+    #
+    # typescript: pinned entirely and bumped by hand. The 7.x line is a
+    #   from-scratch compiler rewrite whose first stable release is very
+    #   recent, and typescript-eslint throws "does not support TS 7.0" on
+    #   load. Revisit when its peer range moves past <6.1.0.
+    #
+    # eslint: majors only. eslint 10 removed the legacy rule-context API and
+    #   eslint-plugin-react still calls context.getFilename(), so linting dies
+    #   with a TypeError before producing any output. eslint-plugin-import and
+    #   -jsx-a11y also cap peers at ^9. Revisit when those ship eslint 10
+    #   support — typescript-eslint already allows ^10.
     ignore:
       - dependency-name: typescript
+      - dependency-name: eslint
+        update-types:
+          - version-update:semver-major
+      - dependency-name: "@eslint/js"
+        update-types:
+          - version-update:semver-major
     groups:
       # Majors are split out because they are the ones needing a migration guide
       # read before merging.
