@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router";
 import { ChevronDown, ChevronUp, Palette } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
