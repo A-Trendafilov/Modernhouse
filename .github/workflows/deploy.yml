@@ -21,18 +21,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
 
-      - name: Setup Node
-        uses: actions/setup-node@v7
-        with:
-          node-version: 22
-
+      # pnpm has to be on PATH before setup-node, or setup-node cannot resolve
+      # the store directory it is meant to cache.
       - name: Install pnpm
         uses: pnpm/action-setup@v6
         with:
           version: 10
 
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: pnpm
+
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --frozen-lockfile --prefer-offline
 
       - name: Build
         run: pnpm build
