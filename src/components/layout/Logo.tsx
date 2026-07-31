@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router";
 import { motion } from "framer-motion";
 
 import logo from "../../assets/Logo.png";
