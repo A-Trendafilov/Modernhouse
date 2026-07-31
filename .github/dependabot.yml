@@ -14,6 +14,12 @@ updates:
       prefix: chore
       prefix-development: chore
       include: scope
+    # TypeScript is pinned and updated by hand. The 7.x line is a from-scratch
+    # compiler rewrite whose first stable release is very recent, and the lint
+    # toolchain refuses to load against it. Bump it deliberately, not on a
+    # schedule. Everything else updates normally.
+    ignore:
+      - dependency-name: typescript
     groups:
       # Majors are split out because they are the ones needing a migration guide
       # read before merging.
