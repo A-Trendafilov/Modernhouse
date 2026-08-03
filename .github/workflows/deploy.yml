@@ -24,7 +24,7 @@ jobs:
       # pnpm has to be on PATH before setup-node, or setup-node cannot resolve
       # the store directory it is meant to cache.
       - name: Install pnpm
-        uses: pnpm/action-setup@v6
+        uses: pnpm/action-setup@v6.0.9
         with:
           version: 10
 
