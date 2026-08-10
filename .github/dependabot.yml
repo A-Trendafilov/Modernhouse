@@ -65,6 +65,15 @@ updates:
       day: monday
     commit-message:
       prefix: ci
+    # The workflow pins floating major tags, which the publishers move forward
+    # on every release. Patch and minor PRs are therefore noise at best, and
+    # can even propose a version older than the tag already resolves to. Only
+    # new majors need a human, since those are the ones that can break.
+    ignore:
+      - dependency-name: "*"
+        update-types:
+          - version-update:semver-patch
+          - version-update:semver-minor
     groups:
       github-actions:
         patterns:
