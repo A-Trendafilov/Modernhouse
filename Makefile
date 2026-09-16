@@ -1,4 +1,4 @@
-.PHONY: dev build preview lint type-check clean install update update-latest audit
+.PHONY: dev build preview lint lint-fix format type-check clean install update update-latest audit
 
 dev:
 	pnpm vite --port 5173
@@ -11,6 +11,12 @@ preview:
 
 lint:
 	pnpm lint
+
+lint-fix:
+	pnpm lint:fix
+
+format:
+	pnpm format
 
 type-check:
 	pnpm type-check
