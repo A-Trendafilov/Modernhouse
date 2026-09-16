@@ -1,8 +1,8 @@
-import fs from "fs"
-import path from "path"
-import { defineConfig, type Plugin } from 'vite'
-import react from '@vitejs/plugin-react'
+import fs from 'node:fs'
+import path from 'node:path'
 import tailwindcss from '@tailwindcss/vite'
+import react from '@vitejs/plugin-react'
+import { defineConfig, type Plugin } from 'vite'
 
 // GitHub Pages serves 404.html for any path it has no file for. Shipping a
 // copy of index.html under that name lets the SPA boot and route the URL
@@ -27,7 +27,7 @@ export default defineConfig(({ command, isPreview }) => ({
   base: command === 'serve' && !isPreview ? '/' : '/Modernhouse/',
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
+      '@': path.resolve(__dirname, './src'),
     },
   },
   server: {

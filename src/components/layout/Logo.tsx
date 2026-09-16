@@ -1,7 +1,7 @@
-import { NavLink } from "react-router";
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion'
+import { NavLink } from 'react-router'
 
-import logo from "../../assets/Logo.png";
+import logo from '../../assets/Logo.png'
 
 const Logo = () => {
   return (
@@ -14,7 +14,7 @@ const Logo = () => {
         transition={{ duration: 0.2 }}
       />
     </NavLink>
-  );
-};
+  )
+}
 
-export default Logo;
+export default Logo

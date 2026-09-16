@@ -1,14 +1,13 @@
-import { motion } from "framer-motion";
-import { useTranslation } from "react-i18next";
-
-import TitleDivider from "@/components/ui/title-divider";
-import LazyLoad from "@/components/utils/LazyLoad";
-import ContactForm from "@/components/sections/ContactForm";
-import ContactInfo from "@/components/sections/ContactInfo";
-import { salesDetails } from "@/data/salesData";
+import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
+import ContactForm from '@/components/sections/ContactForm'
+import ContactInfo from '@/components/sections/ContactInfo'
+import TitleDivider from '@/components/ui/title-divider'
+import LazyLoad from '@/components/utils/LazyLoad'
+import { salesDetails } from '@/data/salesData'
 
 const Contact = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
   return (
     <div className="min-h-screen px-6 py-20">
@@ -19,7 +18,7 @@ const Contact = () => {
         transition={{ duration: 0.5 }}
       >
         <h1 className="font-display text-4xl sm:text-5xl md:text-6xl tracking-wider text-gradient mb-4">
-          {t("contact.pageTitle")}
+          {t('contact.pageTitle')}
         </h1>
         <TitleDivider />
       </motion.div>
@@ -33,7 +32,7 @@ const Contact = () => {
         </LazyLoad>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Contact;
+export default Contact

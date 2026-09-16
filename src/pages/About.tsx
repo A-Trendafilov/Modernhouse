@@ -1,35 +1,35 @@
-import { motion, type Variants } from "framer-motion";
-import { useTranslation } from "react-i18next";
-import { CheckCircle } from "lucide-react";
+import { motion, type Variants } from 'framer-motion'
+import { CheckCircle } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
-import TitleDivider from "@/components/ui/title-divider";
+import TitleDivider from '@/components/ui/title-divider'
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-};
+}
 
 const stagger: Variants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { staggerChildren: 0.08 } },
-};
+}
 
 const itemFade: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
-};
+}
 
 const stats = [
-  { value: "8+", key: "statsYears" },
-  { value: "150+", key: "statsProjects" },
-  { value: "200+", key: "statsClients" },
-  { value: "10", key: "statsWarranty" },
-];
+  { value: '8+', key: 'statsYears' },
+  { value: '150+', key: 'statsProjects' },
+  { value: '200+', key: 'statsClients' },
+  { value: '10', key: 'statsWarranty' },
+]
 
-const featureKeys = ["experience", "materials", "team", "deadlines", "warranty", "custom"];
+const featureKeys = ['experience', 'materials', 'team', 'deadlines', 'warranty', 'custom']
 
 const About = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
   return (
     <div className="min-h-screen">
@@ -42,14 +42,14 @@ const About = () => {
 
         <motion.div className="relative max-w-4xl" initial="hidden" animate="visible" variants={fadeUp}>
           <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-8xl tracking-[0.1em] sm:tracking-[0.15em] text-gradient mb-4 leading-none">
-            {t("pages.about.title")}
+            {t('pages.about.title')}
           </h1>
           <TitleDivider className="mb-8" />
           <p className="font-display text-base sm:text-lg md:text-xl tracking-[0.1em] text-white/40 mb-8">
-            {t("pages.about.subtitle")}
+            {t('pages.about.subtitle')}
           </p>
           <p className="text-white/60 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto px-2">
-            {t("pages.about.story")}
+            {t('pages.about.story')}
           </p>
         </motion.div>
       </section>
@@ -67,11 +67,9 @@ const About = () => {
           <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-60 h-60 bg-brass/5 rounded-full blur-3xl" />
 
           <h2 className="relative font-display text-3xl tracking-[0.15em] text-brass mb-6">
-            {t("pages.about.missionTitle")}
+            {t('pages.about.missionTitle')}
           </h2>
-          <p className="relative text-white/60 text-base sm:text-lg leading-[1.8]">
-            {t("pages.about.mission")}
-          </p>
+          <p className="relative text-white/60 text-base sm:text-lg leading-[1.8]">{t('pages.about.mission')}</p>
         </motion.div>
       </section>
 
@@ -92,12 +90,8 @@ const About = () => {
               variants={itemFade}
               className="glass rounded-2xl p-6 text-center group hover:glow-brass transition-shadow duration-500"
             >
-              <p className="font-display text-5xl sm:text-6xl tracking-wider text-brass mb-2">
-                {stat.value}
-              </p>
-              <p className="text-white/40 text-xs tracking-[0.15em] uppercase">
-                {t(`pages.about.${stat.key}`)}
-              </p>
+              <p className="font-display text-5xl sm:text-6xl tracking-wider text-brass mb-2">{stat.value}</p>
+              <p className="text-white/40 text-xs tracking-[0.15em] uppercase">{t(`pages.about.${stat.key}`)}</p>
             </motion.div>
           ))}
         </motion.div>
@@ -113,7 +107,7 @@ const About = () => {
           variants={fadeUp}
         >
           <h2 className="font-display text-3xl sm:text-4xl tracking-[0.15em] text-brass text-center mb-2">
-            {t("pages.about.whyUsTitle")}
+            {t('pages.about.whyUsTitle')}
           </h2>
           <TitleDivider />
         </motion.div>
@@ -141,7 +135,7 @@ const About = () => {
         </motion.div>
       </section>
     </div>
-  );
-};
+  )
+}
 
-export default About;
+export default About

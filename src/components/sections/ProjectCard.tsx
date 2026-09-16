@@ -1,23 +1,19 @@
-import { Link } from "react-router";
-import { motion } from "framer-motion";
-import { useTranslation } from "react-i18next";
-
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import type { Project } from "@/types";
+import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent } from '@/components/ui/card'
+import type { Project } from '@/types'
 
 interface ProjectCardProps {
-  project: Project;
+  project: Project
 }
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
   return (
-    <motion.div
-      whileHover={{ y: -6 }}
-      transition={{ duration: 0.3, ease: "easeOut" }}
-    >
+    <motion.div whileHover={{ y: -6 }} transition={{ duration: 0.3, ease: 'easeOut' }}>
       <Card className="w-full sm:w-[320px] bg-white/5 backdrop-blur-md border border-white/10 shadow-xl overflow-hidden group">
         <div className="relative overflow-hidden">
           <img
@@ -31,22 +27,18 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
           </div>
         </div>
         <CardContent className="p-5">
-          <h3 className="text-lg font-semibold text-white tracking-tight mb-1">
-            {project.title}
-          </h3>
-          <p className="text-sm text-neutral-400 mb-5 leading-relaxed">
-            {project.description}
-          </p>
+          <h3 className="text-lg font-semibold text-white tracking-tight mb-1">{project.title}</h3>
+          <p className="text-sm text-neutral-400 mb-5 leading-relaxed">{project.description}</p>
           <Button
             asChild
             className="bg-[#B8860B] text-white hover:bg-[#9A7209] border-none shadow-lg shadow-[#B8860B]/20 transition-all duration-300"
           >
-            <Link to={project.link}>{t("common.moreInfo")}</Link>
+            <Link to={project.link}>{t('common.moreInfo')}</Link>
           </Button>
         </CardContent>
       </Card>
     </motion.div>
-  );
-};
+  )
+}
 
-export default ProjectCard;
+export default ProjectCard

@@ -1,20 +1,20 @@
-import { motion } from "framer-motion";
-import { useTranslation } from "react-i18next";
+import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 
-import type { ContactDetail } from "@/types";
+import type { ContactDetail } from '@/types'
 
 interface InfoListProps {
-  items: ContactDetail[];
+  items: ContactDetail[]
 }
 
 const InfoList = ({ items }: InfoListProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
   return (
     <div className="space-y-4 mb-6">
       {items.map((item, index) => (
         <motion.div
-          key={index}
+          key={item.text}
           initial={{ opacity: 0, x: -10 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
@@ -32,14 +32,12 @@ const InfoList = ({ items }: InfoListProps) => {
               {t(item.text)}
             </motion.a>
           ) : (
-            <span className="text-sm sm:text-base text-white/70">
-              {t(item.text)}
-            </span>
+            <span className="text-sm sm:text-base text-white/70">{t(item.text)}</span>
           )}
         </motion.div>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default InfoList;
+export default InfoList

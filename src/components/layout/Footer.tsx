@@ -1,22 +1,16 @@
-import { motion } from "framer-motion";
-import { useTranslation } from "react-i18next";
+import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 
-import {
-  locations,
-  contactDetails,
-  socialLinks,
-  maps,
-} from "@/data/footerData";
-
-import LazyLoad from "../utils/LazyLoad";
-import InfoList from "../sections/InfoList";
-import SocialIcons from "../sections/SocialIcons";
-import HorizontalDivider from "./HorizontalDivider";
-import MapSection from "./MapSection";
-import Copyright from "./Copyright";
+import { contactDetails, locations, maps, socialLinks } from '@/data/footerData'
+import InfoList from '../sections/InfoList'
+import SocialIcons from '../sections/SocialIcons'
+import LazyLoad from '../utils/LazyLoad'
+import Copyright from './Copyright'
+import HorizontalDivider from './HorizontalDivider'
+import MapSection from './MapSection'
 
 const Footer = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
   return (
     <footer className="relative px-6 sm:px-8 md:px-12 pt-16 pb-8 mt-20">
@@ -31,13 +25,13 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="font-display text-2xl tracking-wider text-brass mb-6">{t("footer.contactUs")}</h3>
+            <h3 className="font-display text-2xl tracking-wider text-brass mb-6">{t('footer.contactUs')}</h3>
             <InfoList items={contactDetails} />
 
-            <h3 className="font-display text-2xl tracking-wider text-brass mb-6 mt-8">{t("footer.ourLocations")}</h3>
+            <h3 className="font-display text-2xl tracking-wider text-brass mb-6 mt-8">{t('footer.ourLocations')}</h3>
             <InfoList items={locations} />
 
-            <h3 className="font-display text-2xl tracking-wider text-brass mb-6 mt-8">{t("footer.followUs")}</h3>
+            <h3 className="font-display text-2xl tracking-wider text-brass mb-6 mt-8">{t('footer.followUs')}</h3>
             <SocialIcons socialLinks={socialLinks} />
           </motion.div>
 
@@ -48,8 +42,8 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            {maps.map((map, index) => (
-              <div key={index} className="flex-1 overflow-hidden rounded-xl">
+            {maps.map((map) => (
+              <div key={map.title} className="flex-1 overflow-hidden rounded-xl">
                 <LazyLoad>
                   <MapSection title={map.title} src={map.src} />
                 </LazyLoad>
@@ -61,11 +55,11 @@ const Footer = () => {
         <HorizontalDivider />
 
         <LazyLoad>
-          <Copyright companyName={t("footer.companyName")} />
+          <Copyright companyName={t('footer.companyName')} />
         </LazyLoad>
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

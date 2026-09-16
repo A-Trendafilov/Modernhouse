@@ -1,10 +1,10 @@
-import ServicePage from "@/components/sections/ServicePage";
+import ServicePage from '@/components/sections/ServicePage'
 
 const TinyHouse = () => (
   <ServicePage
     translationPrefix="pages.tinyHouse"
-    features={["offgrid", "compact", "mobile", "affordable", "minimal", "eco"]}
+    features={['offgrid', 'compact', 'mobile', 'affordable', 'minimal', 'eco']}
   />
-);
+)
 
-export default TinyHouse;
+export default TinyHouse

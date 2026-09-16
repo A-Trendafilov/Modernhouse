@@ -1,18 +1,18 @@
-import { motion, type Variants } from "framer-motion";
+import { motion, type Variants } from 'framer-motion'
 
-import { cardData } from "@/data/cardData";
+import { cardData } from '@/data/cardData'
 
-import CardComponent from "./CardComponent";
+import CardComponent from './CardComponent'
 
 const containerVariants: Variants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.15 } },
-};
+}
 
 const itemVariants: Variants = {
   hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } },
-};
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' as const } },
+}
 
 const CardSection = () => {
   return (
@@ -30,16 +30,12 @@ const CardSection = () => {
       >
         {cardData.map((card) => (
           <motion.div key={card.id} variants={itemVariants}>
-            <CardComponent
-              Icon={card.Icon}
-              title={card.title}
-              description={card.description}
-            />
+            <CardComponent Icon={card.Icon} title={card.title} description={card.description} />
           </motion.div>
         ))}
       </motion.div>
     </section>
-  );
-};
+  )
+}
 
-export default CardSection;
+export default CardSection

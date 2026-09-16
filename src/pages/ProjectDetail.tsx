@@ -1,40 +1,39 @@
-import { useState } from "react";
-import { useParams, useNavigate } from "react-router";
-import { motion } from "framer-motion";
-import { ArrowLeft, CheckCircle, ZoomIn } from "lucide-react";
-import { useTranslation } from "react-i18next";
-
-import { Button } from "@/components/ui/button";
-import { projectData } from "@/data/projectData";
-import ImageLightbox from "@/components/sections/ImageLightbox";
+import { motion } from 'framer-motion'
+import { ArrowLeft, CheckCircle, ZoomIn } from 'lucide-react'
+import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { useNavigate, useParams } from 'react-router'
+import ImageLightbox from '@/components/sections/ImageLightbox'
+import { Button } from '@/components/ui/button'
+import { projectData } from '@/data/projectData'
 
 const stagger = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { staggerChildren: 0.08 } },
-};
+}
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
-};
+}
 
 const ProjectDetail = () => {
-  const { projectId } = useParams();
-  const navigate = useNavigate();
-  const { t } = useTranslation();
-  const [lightboxIndex, setLightboxIndex] = useState(-1);
+  const { projectId } = useParams()
+  const navigate = useNavigate()
+  const { t } = useTranslation()
+  const [lightboxIndex, setLightboxIndex] = useState(-1)
 
-  const project = projectData.find((proj) => proj.id === projectId);
+  const project = projectData.find((proj) => proj.id === projectId)
 
   if (!project) {
     return (
       <div className="flex flex-col items-center justify-center h-screen gap-4">
-        <p className="text-lg text-white/60">{t("pages.projects.notFound")}</p>
-        <Button variant="ghost" onClick={() => navigate("/projects")} className="text-brass">
-          {t("pages.projects.backToProjects")}
+        <p className="text-lg text-white/60">{t('pages.projects.notFound')}</p>
+        <Button variant="ghost" onClick={() => navigate('/projects')} className="text-brass">
+          {t('pages.projects.backToProjects')}
         </Button>
       </div>
-    );
+    )
   }
 
   return (
@@ -50,11 +49,11 @@ const ProjectDetail = () => {
         <div className="absolute bottom-0 left-0 right-0 px-4 sm:px-6 pb-8 sm:pb-12 max-w-6xl mx-auto">
           <Button
             variant="ghost"
-            onClick={() => navigate("/projects")}
+            onClick={() => navigate('/projects')}
             className="text-white/60 hover:text-brass mb-4 sm:mb-6 text-sm"
           >
             <ArrowLeft className="h-4 w-4 mr-2" />
-            {t("pages.projects.backToProjects")}
+            {t('pages.projects.backToProjects')}
           </Button>
           <motion.h1
             className="font-display text-3xl sm:text-5xl lg:text-6xl tracking-[0.1em] text-gradient"
@@ -76,14 +75,8 @@ const ProjectDetail = () => {
           animate="visible"
         >
           {project.specs.map((spec) => (
-            <motion.div
-              key={spec.label}
-              variants={fadeUp}
-              className="glass rounded-xl p-4 sm:p-5 text-center"
-            >
-              <p className="font-display text-xl sm:text-2xl md:text-3xl text-brass tracking-wider">
-                {spec.value}
-              </p>
+            <motion.div key={spec.label} variants={fadeUp} className="glass rounded-xl p-4 sm:p-5 text-center">
+              <p className="font-display text-xl sm:text-2xl md:text-3xl text-brass tracking-wider">{spec.value}</p>
               <p className="text-white/40 text-xs sm:text-sm mt-1">{t(spec.label)}</p>
             </motion.div>
           ))}
@@ -99,7 +92,7 @@ const ProjectDetail = () => {
             transition={{ duration: 0.6 }}
           >
             <h2 className="font-display text-2xl sm:text-3xl tracking-wider text-brass mb-4 sm:mb-6">
-              {t("pages.projects.description")}
+              {t('pages.projects.description')}
             </h2>
             <p className="text-white/60 leading-relaxed text-sm sm:text-base">{project.fullDescription}</p>
           </motion.div>
@@ -112,7 +105,7 @@ const ProjectDetail = () => {
             viewport={{ once: true }}
           >
             <h2 className="font-display text-2xl sm:text-3xl tracking-wider text-brass mb-4 sm:mb-6">
-              {t("pages.projects.features")}
+              {t('pages.projects.features')}
             </h2>
             <div className="space-y-3">
               {project.features.map((feature) => (
@@ -137,12 +130,12 @@ const ProjectDetail = () => {
           transition={{ duration: 0.5 }}
         >
           <h2 className="font-display text-2xl sm:text-3xl tracking-wider text-brass mb-6 sm:mb-8 text-center">
-            {t("pages.projects.projectGallery")}
+            {t('pages.projects.projectGallery')}
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
             {project.gallery.map((imageSrc, index) => (
               <motion.div
-                key={index}
+                key={imageSrc}
                 className="relative overflow-hidden rounded-xl cursor-pointer group aspect-[4/3]"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.2 }}
@@ -170,10 +163,10 @@ const ProjectDetail = () => {
           viewport={{ once: true }}
         >
           <Button
-            onClick={() => navigate("/contact")}
+            onClick={() => navigate('/contact')}
             className="bg-brass hover:bg-brass-light text-background font-bold tracking-[0.15em] uppercase text-sm px-10 py-6 glow-brass"
           >
-            {t("contact.requestQuote")}
+            {t('contact.requestQuote')}
           </Button>
         </motion.div>
       </div>
@@ -187,7 +180,7 @@ const ProjectDetail = () => {
         onNavigate={setLightboxIndex}
       />
     </div>
-  );
-};
+  )
+}
 
-export default ProjectDetail;
+export default ProjectDetail

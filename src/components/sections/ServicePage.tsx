@@ -1,33 +1,33 @@
-import { motion } from "framer-motion";
-import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router";
-import { CheckCircle, ArrowRight } from "lucide-react";
+import { motion } from 'framer-motion'
+import { ArrowRight, CheckCircle } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
+import { useNavigate } from 'react-router'
 
-import { Button } from "@/components/ui/button";
-import TitleDivider from "@/components/ui/title-divider";
+import { Button } from '@/components/ui/button'
+import TitleDivider from '@/components/ui/title-divider'
 
 interface ServicePageProps {
-  translationPrefix: string;
-  features: string[];
+  translationPrefix: string
+  features: string[]
   extraSection?: {
-    titleKey: string;
-    items: string[];
-  };
+    titleKey: string
+    items: string[]
+  }
 }
 
 const stagger = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { staggerChildren: 0.08 } },
-};
+}
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
-};
+}
 
 const ServicePage = ({ translationPrefix, features, extraSection }: ServicePageProps) => {
-  const { t } = useTranslation();
-  const navigate = useNavigate();
+  const { t } = useTranslation()
+  const navigate = useNavigate()
 
   return (
     <div className="min-h-screen">
@@ -74,9 +74,7 @@ const ServicePage = ({ translationPrefix, features, extraSection }: ServicePageP
             transition={{ duration: 0.6 }}
           >
             <div className="glass-strong rounded-2xl p-8 relative overflow-hidden">
-              <p className="text-white/60 text-base leading-[1.8]">
-                {t(`${translationPrefix}.intro`)}
-              </p>
+              <p className="text-white/60 text-base leading-[1.8]">{t(`${translationPrefix}.intro`)}</p>
             </div>
           </motion.div>
 
@@ -88,9 +86,7 @@ const ServicePage = ({ translationPrefix, features, extraSection }: ServicePageP
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <h2 className="font-display text-3xl tracking-[0.15em] text-brass mb-4">
-              {t("common.features")}
-            </h2>
+            <h2 className="font-display text-3xl tracking-[0.15em] text-brass mb-4">{t('common.features')}</h2>
             <TitleDivider className="mb-8 !justify-start" />
             <div className="space-y-3">
               {features.map((featureKey) => (
@@ -157,22 +153,20 @@ const ServicePage = ({ translationPrefix, features, extraSection }: ServicePageP
           transition={{ duration: 0.5 }}
         >
           <h2 className="font-display text-4xl sm:text-5xl tracking-[0.15em] text-white/80 mb-4">
-            {t("contact.requestQuote")}
+            {t('contact.requestQuote')}
           </h2>
-          <p className="text-white/40 mb-10 text-sm max-w-md mx-auto">
-            {t(`${translationPrefix}.subtitle`)}
-          </p>
+          <p className="text-white/40 mb-10 text-sm max-w-md mx-auto">{t(`${translationPrefix}.subtitle`)}</p>
           <Button
-            onClick={() => navigate("/contact")}
+            onClick={() => navigate('/contact')}
             className="bg-brass hover:bg-brass-light text-background font-bold tracking-[0.2em] uppercase text-sm px-12 py-6 rounded-sm glow-brass hover:glow-brass-strong transition-all duration-300 group"
           >
-            {t("nav.contact")}
+            {t('nav.contact')}
             <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Button>
         </motion.div>
       </section>
     </div>
-  );
-};
+  )
+}
 
-export default ServicePage;
+export default ServicePage

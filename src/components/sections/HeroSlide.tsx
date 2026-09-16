@@ -1,11 +1,11 @@
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion'
 
-import type { HeroImage } from "@/types";
+import type { HeroImage } from '@/types'
 
-import HeroContent from "./HeroContent";
+import HeroContent from './HeroContent'
 
 interface HeroSlideProps {
-  image: HeroImage;
+  image: HeroImage
 }
 
 const HeroSlide = ({ image }: HeroSlideProps) => {
@@ -16,10 +16,10 @@ const HeroSlide = ({ image }: HeroSlideProps) => {
         alt={image.alt}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1.2, ease: "easeOut" }}
+        transition={{ duration: 1.2, ease: 'easeOut' }}
         onError={(event) => {
-          const target = event.target as HTMLImageElement;
-          target.src = `${import.meta.env.BASE_URL}/assets/herosection/2-store-house.webp`;
+          const target = event.target as HTMLImageElement
+          target.src = `${import.meta.env.BASE_URL}/assets/herosection/2-store-house.webp`
         }}
         className="w-full h-full object-cover object-center"
       />
@@ -27,13 +27,9 @@ const HeroSlide = ({ image }: HeroSlideProps) => {
       {/* Gradient overlays */}
       <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/20 to-background/70" />
 
-      <HeroContent
-        title={image.title}
-        description={image.description}
-        route={image.route}
-      />
+      <HeroContent title={image.title} description={image.description} route={image.route} />
     </div>
-  );
-};
+  )
+}
 
-export default HeroSlide;
+export default HeroSlide

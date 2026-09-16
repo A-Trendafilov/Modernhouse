@@ -1,17 +1,17 @@
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion'
 
-import type { SocialLink } from "@/types";
+import type { SocialLink } from '@/types'
 
 interface SocialIconsProps {
-  socialLinks: SocialLink[];
+  socialLinks: SocialLink[]
 }
 
 const SocialIcons = ({ socialLinks }: SocialIconsProps) => {
   return (
     <div className="flex gap-4 mt-4">
-      {socialLinks.map((link, index) => (
+      {socialLinks.map((link) => (
         <motion.a
-          key={index}
+          key={link.href}
           href={link.href}
           target="_blank"
           rel="noopener noreferrer"
@@ -23,7 +23,7 @@ const SocialIcons = ({ socialLinks }: SocialIconsProps) => {
         </motion.a>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default SocialIcons;
+export default SocialIcons

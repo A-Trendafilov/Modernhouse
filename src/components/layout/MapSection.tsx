@@ -1,19 +1,17 @@
-import React from "react";
-import { useTranslation } from "react-i18next";
+import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 interface MapSectionProps {
-  title: string;
-  src: string;
+  title: string
+  src: string
 }
 
 const MapSection = React.memo(({ title, src }: MapSectionProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
   return (
     <div className="glass rounded-xl overflow-hidden group">
-      <h3 className="font-display text-xl tracking-wider text-white/80 text-center py-4">
-        {t(title)}
-      </h3>
+      <h3 className="font-display text-xl tracking-wider text-white/80 text-center py-4">{t(title)}</h3>
       <div className="px-4 pb-4">
         <iframe
           title={t(title)}
@@ -27,9 +25,9 @@ const MapSection = React.memo(({ title, src }: MapSectionProps) => {
         />
       </div>
     </div>
-  );
-});
+  )
+})
 
-MapSection.displayName = "MapSection";
+MapSection.displayName = 'MapSection'
 
-export default MapSection;
+export default MapSection
