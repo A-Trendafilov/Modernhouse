@@ -1,14 +1,14 @@
-import useEmblaCarousel from "embla-carousel-react";
-import Autoplay from "embla-carousel-autoplay";
+import Autoplay from 'embla-carousel-autoplay'
+import useEmblaCarousel from 'embla-carousel-react'
 
-import { heroSectionImg } from "@/data/heroSectionImg";
+import { heroSectionImg } from '@/data/heroSectionImg'
 
-import HeroSlide from "./HeroSlide";
+import HeroSlide from './HeroSlide'
 
 const HeroSlider = () => {
   const [emblaRef] = useEmblaCarousel({ loop: true, duration: 40 }, [
     Autoplay({ delay: 5000, stopOnInteraction: false }),
-  ]);
+  ])
 
   return (
     <div className="h-full w-full overflow-hidden" ref={emblaRef}>
@@ -20,7 +20,7 @@ const HeroSlider = () => {
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default HeroSlider;
+export default HeroSlider

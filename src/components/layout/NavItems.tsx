@@ -1,29 +1,28 @@
-import { useState } from "react";
-import { useTranslation } from "react-i18next";
-import { NavLink } from "react-router";
-import { ChevronDown, ChevronUp, Palette } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
-
-import { cn } from "@/lib/utils";
-import { navItems } from "@/data/navData";
-import type { NavItem } from "@/types";
+import { AnimatePresence, motion } from 'framer-motion'
+import { ChevronDown, ChevronUp, Palette } from 'lucide-react'
+import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { NavLink } from 'react-router'
+import { navItems } from '@/data/navData'
+import { cn } from '@/lib/utils'
+import type { NavItem } from '@/types'
 
 interface NavItemsProps {
-  onNavigate: () => void;
+  onNavigate: () => void
 }
 
 const navLinkBase =
-  "flex items-center gap-3 px-4 py-3 rounded-lg text-white/60 transition-all duration-300 hover:bg-white/5 hover:text-brass";
+  'flex items-center gap-3 px-4 py-3 rounded-lg text-white/60 transition-all duration-300 hover:bg-white/5 hover:text-brass'
 
-const activeLink = "bg-white/10 text-brass font-semibold";
+const activeLink = 'bg-white/10 text-brass font-semibold'
 
 const NavItems = ({ onNavigate }: NavItemsProps) => {
-  const { t } = useTranslation();
-  const [openSections, setOpenSections] = useState<Record<string, boolean>>({});
+  const { t } = useTranslation()
+  const [openSections, setOpenSections] = useState<Record<string, boolean>>({})
 
   const toggleSection = (text: string) => {
-    setOpenSections((previous) => ({ ...previous, [text]: !previous[text] }));
-  };
+    setOpenSections((previous) => ({ ...previous, [text]: !previous[text] }))
+  }
 
   const renderNavItem = (item: NavItem, index: number) => {
     if (item.subItems) {
@@ -35,8 +34,9 @@ const NavItems = ({ onNavigate }: NavItemsProps) => {
           transition={{ delay: index * 0.05 }}
         >
           <button
+            type="button"
             onClick={() => toggleSection(item.text)}
-            className={cn(navLinkBase, "w-full justify-between")}
+            className={cn(navLinkBase, 'w-full justify-between')}
           >
             <span className="flex items-center gap-3">
               {item.icon}
@@ -53,7 +53,7 @@ const NavItems = ({ onNavigate }: NavItemsProps) => {
             {openSections[item.text] && (
               <motion.div
                 initial={{ height: 0, opacity: 0 }}
-                animate={{ height: "auto", opacity: 1 }}
+                animate={{ height: 'auto', opacity: 1 }}
                 exit={{ height: 0, opacity: 0 }}
                 transition={{ duration: 0.2 }}
                 className="ml-4 mt-1 space-y-1 overflow-hidden"
@@ -63,9 +63,7 @@ const NavItems = ({ onNavigate }: NavItemsProps) => {
                     key={subItem.text}
                     to={subItem.path}
                     onClick={onNavigate}
-                    className={({ isActive }) =>
-                      cn(navLinkBase, "text-sm", isActive && activeLink)
-                    }
+                    className={({ isActive }) => cn(navLinkBase, 'text-sm', isActive && activeLink)}
                   >
                     {subItem.icon}
                     {t(subItem.text)}
@@ -75,7 +73,7 @@ const NavItems = ({ onNavigate }: NavItemsProps) => {
             )}
           </AnimatePresence>
         </motion.div>
-      );
+      )
     }
 
     return (
@@ -86,6 +84,7 @@ const NavItems = ({ onNavigate }: NavItemsProps) => {
         transition={{ delay: index * 0.05 }}
       >
         <NavLink
+          // biome-ignore lint/style/noNonNullAssertion: items without children always carry a path
           to={item.path!}
           onClick={onNavigate}
           className={({ isActive }) => cn(navLinkBase, isActive && activeLink)}
@@ -94,28 +93,26 @@ const NavItems = ({ onNavigate }: NavItemsProps) => {
           {t(item.text)}
         </NavLink>
       </motion.div>
-    );
-  };
+    )
+  }
 
   return (
     <nav className="flex flex-col gap-1 py-6">
-      <p className="px-4 mb-4 text-xs uppercase tracking-[0.2em] text-white/30 font-display">
-        {t("nav.label")}
-      </p>
+      <p className="px-4 mb-4 text-xs uppercase tracking-[0.2em] text-white/30 font-display">{t('nav.label')}</p>
       {navItems.map((item, index) => renderNavItem(item, index))}
 
       <div className="mt-4 pt-4 border-t border-white/10">
         <a
           href={`${import.meta.env.BASE_URL}preview.html`}
           onClick={onNavigate}
-          className={cn(navLinkBase, "text-brass/60 hover:text-brass")}
+          className={cn(navLinkBase, 'text-brass/60 hover:text-brass')}
         >
           <Palette className="h-5 w-5" />
           Color Preview
         </a>
       </div>
     </nav>
-  );
-};
+  )
+}
 
-export default NavItems;
+export default NavItems

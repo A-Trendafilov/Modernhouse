@@ -1,41 +1,41 @@
-import { useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { AnimatePresence, motion } from 'framer-motion'
+import { ChevronLeft, ChevronRight, X } from 'lucide-react'
+import { useCallback, useEffect } from 'react'
 
 interface ImageLightboxProps {
-  images: string[];
-  currentIndex: number;
-  isOpen: boolean;
-  onClose: () => void;
-  onNavigate: (index: number) => void;
+  images: string[]
+  currentIndex: number
+  isOpen: boolean
+  onClose: () => void
+  onNavigate: (index: number) => void
 }
 
 const ImageLightbox = ({ images, currentIndex, isOpen, onClose, onNavigate }: ImageLightboxProps) => {
   const goNext = useCallback(() => {
-    if (currentIndex < images.length - 1) onNavigate(currentIndex + 1);
-  }, [currentIndex, images.length, onNavigate]);
+    if (currentIndex < images.length - 1) onNavigate(currentIndex + 1)
+  }, [currentIndex, images.length, onNavigate])
 
   const goPrev = useCallback(() => {
-    if (currentIndex > 0) onNavigate(currentIndex - 1);
-  }, [currentIndex, onNavigate]);
+    if (currentIndex > 0) onNavigate(currentIndex - 1)
+  }, [currentIndex, onNavigate])
 
   useEffect(() => {
-    if (!isOpen) return undefined;
+    if (!isOpen) return undefined
 
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") onClose();
-      if (event.key === "ArrowRight") goNext();
-      if (event.key === "ArrowLeft") goPrev();
-    };
+      if (event.key === 'Escape') onClose()
+      if (event.key === 'ArrowRight') goNext()
+      if (event.key === 'ArrowLeft') goPrev()
+    }
 
-    document.body.style.overflow = "hidden";
-    window.addEventListener("keydown", handleKeyDown);
+    document.body.style.overflow = 'hidden'
+    window.addEventListener('keydown', handleKeyDown)
 
     return () => {
-      document.body.style.overflow = "";
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [isOpen, onClose, goNext, goPrev]);
+      document.body.style.overflow = ''
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [isOpen, onClose, goNext, goPrev])
 
   return (
     <AnimatePresence>
@@ -50,6 +50,7 @@ const ImageLightbox = ({ images, currentIndex, isOpen, onClose, onNavigate }: Im
         >
           {/* Close button */}
           <button
+            type="button"
             onClick={onClose}
             className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white/80 hover:text-white transition-colors"
           >
@@ -64,7 +65,11 @@ const ImageLightbox = ({ images, currentIndex, isOpen, onClose, onNavigate }: Im
           {/* Previous */}
           {currentIndex > 0 && (
             <button
-              onClick={(event) => { event.stopPropagation(); goPrev(); }}
+              type="button"
+              onClick={(event) => {
+                event.stopPropagation()
+                goPrev()
+              }}
               className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-10 p-2 sm:p-3 rounded-full bg-white/10 hover:bg-white/20 text-white/80 hover:text-white transition-colors"
             >
               <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6" />
@@ -74,7 +79,11 @@ const ImageLightbox = ({ images, currentIndex, isOpen, onClose, onNavigate }: Im
           {/* Next */}
           {currentIndex < images.length - 1 && (
             <button
-              onClick={(event) => { event.stopPropagation(); goNext(); }}
+              type="button"
+              onClick={(event) => {
+                event.stopPropagation()
+                goNext()
+              }}
               className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-10 p-2 sm:p-3 rounded-full bg-white/10 hover:bg-white/20 text-white/80 hover:text-white transition-colors"
             >
               <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6" />
@@ -94,7 +103,7 @@ const ImageLightbox = ({ images, currentIndex, isOpen, onClose, onNavigate }: Im
             >
               <img
                 src={images[currentIndex]}
-                alt={`Image ${currentIndex + 1}`}
+                alt={`${currentIndex + 1} / ${images.length}`}
                 className="max-w-full max-h-[80vh] object-contain rounded-lg shadow-2xl shadow-black/50"
               />
             </motion.div>
@@ -105,12 +114,16 @@ const ImageLightbox = ({ images, currentIndex, isOpen, onClose, onNavigate }: Im
             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 max-w-[90vw] overflow-x-auto px-4 py-2">
               {images.map((imageSrc, index) => (
                 <button
-                  key={index}
-                  onClick={(event) => { event.stopPropagation(); onNavigate(index); }}
+                  key={imageSrc}
+                  type="button"
+                  onClick={(event) => {
+                    event.stopPropagation()
+                    onNavigate(index)
+                  }}
                   className={`shrink-0 w-12 h-12 sm:w-16 sm:h-16 rounded-lg overflow-hidden border-2 transition-all ${
                     index === currentIndex
-                      ? "border-brass opacity-100 scale-105"
-                      : "border-transparent opacity-40 hover:opacity-70"
+                      ? 'border-brass opacity-100 scale-105'
+                      : 'border-transparent opacity-40 hover:opacity-70'
                   }`}
                 >
                   <img src={imageSrc} alt="" className="w-full h-full object-cover" />
@@ -121,7 +134,7 @@ const ImageLightbox = ({ images, currentIndex, isOpen, onClose, onNavigate }: Im
         </motion.div>
       )}
     </AnimatePresence>
-  );
-};
+  )
+}
 
-export default ImageLightbox;
+export default ImageLightbox

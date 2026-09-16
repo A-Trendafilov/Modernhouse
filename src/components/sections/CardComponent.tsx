@@ -1,20 +1,20 @@
-import { motion } from "framer-motion";
-import type { ComponentType } from "react";
-import { useTranslation } from "react-i18next";
+import { motion } from 'framer-motion'
+import type { ComponentType } from 'react'
+import { useTranslation } from 'react-i18next'
 
 interface CardComponentProps {
-  Icon: ComponentType<{ className?: string }>;
-  title: string;
-  description: string;
+  Icon: ComponentType<{ className?: string }>
+  title: string
+  description: string
 }
 
 const CardComponent = ({ Icon, title, description }: CardComponentProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
   return (
     <motion.div
       whileHover={{ y: -8, scale: 1.02 }}
-      transition={{ duration: 0.3, ease: "easeOut" }}
+      transition={{ duration: 0.3, ease: 'easeOut' }}
       className="relative glass rounded-2xl p-8 h-full flex flex-col items-center text-center group cursor-default overflow-hidden"
     >
       {/* Hover glow effect */}
@@ -30,15 +30,13 @@ const CardComponent = ({ Icon, title, description }: CardComponentProps) => {
         <Icon className="h-8 w-8 text-brass" />
       </div>
 
-      <h3 className="relative font-display text-2xl tracking-wider text-white mb-3">
-        {t(title)}
-      </h3>
+      <h3 className="relative font-display text-2xl tracking-wider text-white mb-3">{t(title)}</h3>
 
       <p className="relative text-sm leading-relaxed text-white/50 group-hover:text-white/70 transition-colors duration-300">
         {t(description)}
       </p>
     </motion.div>
-  );
-};
+  )
+}
 
-export default CardComponent;
+export default CardComponent

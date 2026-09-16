@@ -1,24 +1,24 @@
-import { DollarSign, Truck, BadgeCheck } from "lucide-react";
+import { BadgeCheck, DollarSign, Truck } from 'lucide-react'
 
-import type { CardItem } from "@/types";
+import type { CardItem } from '@/types'
 
 export const cardData: CardItem[] = [
   {
-    id: "affordable-prices",
+    id: 'affordable-prices',
     Icon: DollarSign,
-    title: "cards.affordableTitle",
-    description: "cards.affordableDesc",
+    title: 'cards.affordableTitle',
+    description: 'cards.affordableDesc',
   },
   {
-    id: "fast-delivery",
+    id: 'fast-delivery',
     Icon: Truck,
-    title: "cards.deliveryTitle",
-    description: "cards.deliveryDesc",
+    title: 'cards.deliveryTitle',
+    description: 'cards.deliveryDesc',
   },
   {
-    id: "high-quality",
+    id: 'high-quality',
     Icon: BadgeCheck,
-    title: "cards.qualityTitle",
-    description: "cards.qualityDesc",
+    title: 'cards.qualityTitle',
+    description: 'cards.qualityDesc',
   },
-];
+]

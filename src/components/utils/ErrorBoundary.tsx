@@ -1,42 +1,40 @@
-import React from "react";
-import i18next from "i18next";
+import i18next from 'i18next'
+import React from 'react'
 
 interface ErrorBoundaryProps {
-  children: React.ReactNode;
-  errorMessage?: string;
+  children: React.ReactNode
+  errorMessage?: string
 }
 
 interface ErrorBoundaryState {
-  hasError: boolean;
+  hasError: boolean
 }
 
 class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
   constructor(props: ErrorBoundaryProps) {
-    super(props);
-    this.state = { hasError: false };
+    super(props)
+    this.state = { hasError: false }
   }
 
   static getDerivedStateFromError(_error: Error): ErrorBoundaryState {
-    return { hasError: true };
+    return { hasError: true }
   }
 
   componentDidCatch(error: Error, info: React.ErrorInfo) {
-    console.error("Error caught in Error Boundary:", error, info);
+    console.error('Error caught in Error Boundary:', error, info)
   }
 
   render() {
     if (this.state.hasError) {
       return (
         <div className="flex items-center justify-center h-screen">
-          <h1 className="text-xl text-foreground">
-            {this.props.errorMessage || i18next.t("common.error")}
-          </h1>
+          <h1 className="text-xl text-foreground">{this.props.errorMessage || i18next.t('common.error')}</h1>
         </div>
-      );
+      )
     }
 
-    return this.props.children;
+    return this.props.children
   }
 }
 
-export default ErrorBoundary;
+export default ErrorBoundary

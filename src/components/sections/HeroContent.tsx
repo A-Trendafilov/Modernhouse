@@ -1,19 +1,19 @@
-import { motion } from "framer-motion";
-import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router";
-import { ArrowRight } from "lucide-react";
+import { motion } from 'framer-motion'
+import { ArrowRight } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
+import { useNavigate } from 'react-router'
 
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button'
 
 interface HeroContentProps {
-  title: string;
-  description: string;
-  route: string;
+  title: string
+  description: string
+  route: string
 }
 
 const HeroContent = ({ title, description, route }: HeroContentProps) => {
-  const { t } = useTranslation();
-  const navigate = useNavigate();
+  const { t } = useTranslation()
+  const navigate = useNavigate()
 
   return (
     <div className="absolute inset-0 flex items-center justify-center">
@@ -44,7 +44,7 @@ const HeroContent = ({ title, description, route }: HeroContentProps) => {
           <motion.div
             initial={{ scaleX: 0, opacity: 0 }}
             animate={{ scaleX: 1, opacity: 1 }}
-            transition={{ duration: 1.2, delay: 0.6, ease: "easeOut" }}
+            transition={{ duration: 1.2, delay: 0.6, ease: 'easeOut' }}
             className="w-[80%] max-w-md h-[3px] rounded-full bg-gradient-to-r from-transparent via-brass to-transparent mx-auto mb-6 origin-center"
           />
 
@@ -64,17 +64,17 @@ const HeroContent = ({ title, description, route }: HeroContentProps) => {
           >
             <Button
               onClick={() => navigate(route)}
-              aria-label={t("hero.learnMore", { title: t(title) })}
+              aria-label={t('hero.learnMore', { title: t(title) })}
               className="bg-brass/90 hover:bg-brass text-background tracking-[0.2em] uppercase text-xs font-bold px-10 py-6 rounded-sm transition-all duration-300 glow-brass group"
             >
-              {t("hero.moreInfo")}
+              {t('hero.moreInfo')}
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Button>
           </motion.div>
         </div>
       </motion.div>
     </div>
-  );
-};
+  )
+}
 
-export default HeroContent;
+export default HeroContent
